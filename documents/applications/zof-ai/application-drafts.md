@@ -20,7 +20,9 @@ before submitting. No internal codenames anywhere in these answers.
   (transcription and TTS), subscription payments; plus its cloud
   infrastructure, which I migrated from AWS to a low-cost platform.
 - Earliest start date: after notice period, flexible
-- Resume link: https://github.com/alemyaobed/resume/blob/master/Obed_Alemya_Resume.pdf
+- Resume link: once the site is deployed, use the live resume page
+  (yoursite/resume). Until then, the working link is
+  https://github.com/alemyaobed/resume/blob/master/Obed_Alemya_Resume.pdf
 - Portfolio: leave empty for now (site not deployed) or reuse the
   GitHub profile link.
 
