@@ -66,7 +66,7 @@ work.
 
 ### What is the hardest thing you have built, sold, owned, or led?
 
-Leading the low-cost infrastructure project. I documented the entire
+Leading an infrastructure assessment and migration. I documented the entire
 production AWS estate, ran the cost analysis, evaluated providers, and
 built the comparison matrix and decision framework for stakeholders.
 The analysis recommended against the migration everyone assumed we
