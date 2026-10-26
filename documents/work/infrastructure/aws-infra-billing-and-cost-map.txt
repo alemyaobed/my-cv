@@ -1,0 +1,261 @@
+REMEMBER THIS WAS JUST PROD SO THE STATMENT EVERTHING COULD BE ~X3 
+
+Service	Purpose	Current Usage	"Monthly Cost
+(PROD only - estimate x3 for stag)"	Notes
+ECS Fargate	Container orchestration	"Cluster: amazethu-prod
+Services: amazethu-backend, convai-serviceTasks: 1 per service
+
+
+PROD Cluster (amazethu-prod):
+- amazethu-backend - 0.25 vCPU, 0.5 GB RAM
+- convai-service - 0.5 vCPU, 4 GB RAM
+- Both: 1 task each, Fargate launch type
+- Both use ECS Service Connect
+
+STAG:
+Similar structure in amazethu-stag cluster
+"	$33.87 - $355.88 	"Highest cost - Fargate compute for be-app + botai
+
+Compute resources:
+Total: 0.75 vCPU + 4.5 GB
+
+Uses ECS Service Connect for internal service-to-service communication (be-app ↔ botai)
+No auto-scaling - fixed at 1 task per service"
+CloudWatch	Logging & monitoring	" ECS task logs, metrics
+
+Custom Dashboard:
+- amazethu-prod-services-health with widgets: Backend, Botai, Frontend health
+"	$21.04 - $21.64	
+ECR	Docker image registry	"Docker image registry. Stores container images.
+
+
+PROD:
+- amazethu-backend - 67 images (~245-259 MB each)
+- convai-service - 69 images (~638 MB-6.6GB each)
+
+STAG:
+Likely similar structure as PROD"	$16.37 - $16.82	"TWO accounts with TWO registries:
+- image bloat: 67+ images per repository  lots of old unused images
+- No lifecycle policy set. Images never auto-delete"
+VPC	Networking	"NAT Gateway, subnets, network ACLs
+
+
+PROD and STAG both own their VPC and this is created by default:
+- Internet Gateway attached
+- DNS resolution enabled
+- VPC Link to API Gateway
+- VPC Peering to MongoDB Atlas"	$6.72 - $7.44	
+Secrets Manager	Environment variables & secrets storage	"PROD Secrets (2):
+- prod/amazethu/backend - Backend env vars (API keys, DB URLs)
+- prod/amazethu/convai - Botai env vars
+
+STAG Secrets (2):
+- similar setup to that of PROD"	$0.80	"Contains sercrets and vars used by:
+- ECS tasks load secrets at startup
+- Automatically injected during deployment"
+Amplify	Frontend hosting	"PROD:
+- amazethu-frontend hosts fe-web (dynamic React app)
+- Handles variables and secrets
+- Show deployment logs
+
+STAG:
+- Similar to that of PROD"	$0.01 - $0.48 	
+S3	Object/File storage	"ROD (amazethu-data, us-east-1)
+- convai-microservice-s3/models/ - 10 .nemo ML models (~1.86 GB)
+- convai-microservice-s3/config/ - 4 .cfg config files
+- convai-audio-collection/ - 999+ MP3 lesson files (~150 MB)
+- amazethu-images/programs/ - Program logos
+
+STAG (amazethu-public-us-east-2, us-east-2):
+- convai-microservice-s3/models/ - 10 .nemo ML models (~1.86 GB)
+- convai-microservice-s3/config/ - 4 .cfg config files
+- Program logos (French, Tutorial)
+- amazethu-images/projects/ - 1 image
+- other numerous subfolders"	 ~$0.05	"- TWO buckets in different AWS accounts and regions
+- STAG bucket (Ohio) and PROD bucket (Virginia)
+- Most files or data are archaic or not currently in use execept for one case where fe-web(whether on stag or prod) makes reference to 2 images: fr.svg, Tutorial.svg in the STAG s3 bucket. "
+API Gateway	HTTP API routing / Entry point   	"VPC link to ECS services. Routes requests to backend
+
+                               
+Current Usage: 2 APIs
+- amazethu-prod → be-app (main API)
+- amazethu_convai_prod → botai (convai service)
+
+VPC Link: Connects internet to our private ECS network
+4 Custom Domains:
+- api.learn.amaspeak.app → amazethu-prod
+- micro.learn.amaspeak.app → amazethu_convai_prod
+- *.learn.amaspeak.com (2 domains)
+"	 ~$0.002	"Main entry point for external traffic
+Routes internet → our ECS services via VPC Link
+Custom domains with HTTPS (ACM certificates)"
+Cloud Map	Service discovery / Internal DNS  	"PROD Namespace: amazethu-prod (HTTP) Registered Services 
+- amazethu-backend - Port 4000, IP: 172.31.72.240
+- convai-service - Port 5000, IP: 172.31.76.186
+
+Auto-managed by  ECS - Both services registered automatically
+
+
+STAG Namespace: similar setup as PROD
+  "		"Used for Internal service discovery
+Allow services to find each other by name (e.g., http://amazethu-backend:4000)
+
+
+Note: Also using ECS Service Connect - Cloud Map may be legacy or supplementary"
+AWS Certificate Manager	SSL/TLS certificates for HTTPS	" PROD: 4 Certificates
+- micro.learn.amaspeak.app
+- api.learn.amaspeak.app
+- micro.learn.amaspeak.com
+- api.learn.amaspeak.com
+
+All: Amazon Issued, RSA 2048, Issued &  In use
+
+
+STAG: Similar setup as PROD
+ "		"SSL certificates for HTTPS used by API Gateway (custom domains)
+Auto-renews with Amazon-issued certificate"
+Key Management Service	Key encryption for secrets & data	"PROD: 3 AWS-managed keys
+- aws/secretsmanager - Encrypts Secrets Manager secrets
+- aws/acm - Protects SSL certificate private keys
+- aws/sns - Encrypts SNS messages
+
+All: AWS-managed (auto-created, auto-rotated)"		"Encrypts data at rest for other AWS services
+Used by: Secrets Manager, Certificate Manager, SNS"
+Glue				
+Lambda	Serverless functions	"- sns_to_gchat: a function in Python that is designed to send alerts to our gchats
+- Triggered by 3 SNS topics be-app, botai and fe-web and forwards error alerts to Google Chat"		Single function for error reporting
+Location Service				
+SNS	 Messaging	"3 Error Reporting Topics:
+- Backend_Error_Reporting_Channel
+- BotAI_Error_Report_Channel
+- Frontend_Error_Reporting_Channel
+
+All trigger sns_to_gchat Lambda"		Used for error alerts to Google ChatFlow: Services → SNS → Lambda →Google Chat
+SQS	Queue service			
+Tax				
+Data Transfer	
+
+=======================================================================================
+THIS WORK WAS DONE BEFORE MINE, THE MIGRATION, BUT IT KINDA CONFIRMS THE NUMBERS, IDK
+=======================================================================================
+
+
+AWS to Firebase/GCP Migration Analysis 
+Current AWS Cost (Nov 2025): $353.26/month
+Analysis Date: December 2, 2025
+For this analysis, I used our previous month's AWS Cost (Nov 2025) for comparison which was reduced to $353.26/month after we had made some adjustments.
+Just a brief monthly estimation breakdown of our Current AWS Setup (both staging + prod):
+ECS Fargate for be-app & botai backends ($162.61/month - our biggest cost)
+ECR for Docker images ($65.25/month)
+CloudWatch monitoring ($42.20/month)
+Amplify for fe-web frontend ($2.47/month)
+RDS MySQL, S3, Secrets Manager, networking ($78/month combined)
+
+The Numbers: Firebase/GCP vs AWS:
+
+
+What We Pay For
+AWS Now
+Firebase/GCP Would Be
+Difference
+Backend hosting (ECS → Cloud Run)
+$162.61
+$169-338
++$6 to +$175
+Frontend hosting (Amplify → Firebase)
+$2.47
+$5-8
++$3-6
+Container registry (ECR → Artifact Registry)
+$65.25
+$65
+Same
+Database (RDS → Cloud SQL)
+$14.54
+
+
+$13-15
+Same
+Secrets (Secrets Manager → Secret Manager)
+$4.40
+$0.66
+Save $3.74
+Monitoring (CloudWatch → Cloud Monitoring)
+$42.20
+$35
+Save $7
+Storage (S3 → Cloud Storage)
+$10.60
+$9-12
+Same
+Networking
+$25.17
+$15-20
+Save $5-10
+Total Monthly
+$353.26
+$332-488
+-$21 to +$135
+
+
+-> Why the wide range of Cloud Run?
+If services run continuously like now: ~$338/month (cost doubles!)
+Realistic middle ground: ~$380-420/month (27-67 MORE expensive)
+
+Cloud Run Isn't Cheaper for Always-On Services. They charge per vCPU-second and GB-second. It's cheaper ONLY if the services:
+
+Scale to zero during low traffic
+Have sporadic/bursty usage patterns
+Can tolerate cold starts (200ms-2s delay)
+
+Our reality:
+Our services need to stay live for user experience as we head into alpha 2.0
+We're running services 24/7 anyway
+
+Result: We'd pay 2x MORE on Cloud Run unless we heavily optimize
+
+
+Migration Effort:
+Team impact: High - diverts from Alpha 2.0 work
+
+What would need to be done:
+Rewrite all deployment workflows:
+Convert  GitHub Actions workflows
+Learn Cloud Build or adapt GitHub Actions for GCP
+Recreate IAM roles and permissions
+
+
+Reconfigure all 3 services
+Adapt be-app for Cloud Run
+Adapt botai for Cloud Run
+Migrate fe-web to Firebase Hosting
+Update all environment variables
+Configure scaling, concurrency, timeouts
+
+Rebuild monitoring
+Recreate CloudWatch dashboards in Cloud Monitoring
+Set up alerts to Google Chat
+Migrate Lambda monitoring functions to Cloud Functions
+
+Risk: We're close to Alpha 2.0 - this would be a distraction
+
+Summary for Decision Making
+Migration to Firebase/GCP:
+Cost savings: minimal to negative (-6% best case, +8-38% realistic/worst)
+Effort: high
+Timing: bad (approaching Alpha 2.0)
+Risk: high (service disruptions, learning curve)
+Benefit: Only if we have strategic reasons beyond cost
+
+Key Takeaways
+Firebase/GCP is NOT cheaper for always-on services like ours
+
+Cloud Run costs 2x more than Fargate if services don't scale to zero
+Our biggest AWS costs (ECS, ECR) have no savings in GCP
+Migration effort is massive
+
+
+Recommendation
+Immediate action: Focus on AWS monitoring the optimization made to cut costs. (Reducing resource allocation for our ECS clusters) which seems to have worked for the previous month in comparison to the billing for October.
+Migration decision: Revisit after Alpha 2.0 launch and AWS optimization continued monitoring results
+

@@ -1,0 +1,4497 @@
+@Baba Oladimeji Project: Low-Cost Infrastructure 
+
+
+here's the project plan or proposal i was able to come up with... 
+
+
+let me know what you think. 
+
+
+i'm unsure if i'm to have a presentation for this...
+
+Open in chat
+
+
+
+Project: Low-Cost Infrastructure
+
+
+
+
+
+Baba Oladimeji, Feb 26, 10:54 AM
+@Alemya Obed Alenyorige 
+
+
+Really well done, you can proceed to the implementation.
+
+
+Plan looks solid and remember the document is live so it can be updated as you get more information etc.
+
+You, Mar 11, 12:59 PM, Edited
+@Baba Oladimeji i've scheduled a meet tomorrow for a presentation as i work towards it... let me know if that works or any changes need to be made
+
+
+cc: @Mugisha Yves @Wanderi Rowland Mwangi
+
+You, Mar 13, 11:10 AM
+@Baba Oladimeji [update] 
+
+
+I’ve ranked the providers based on how easily we can host our 3 services (FE, BE, AI), logging retention, team account setup, custom domain mapping, and most importantly, trying to meet BotAI’s compute requirement while trying to stay under approximately a $20/mo budget. So there's been a slight change in the ranking...
+
+
+1. Google Cloud Run
+2️. Render
+3. Railway
+4. Fly.io
+5. Cloudflare 
+
+
+here is the sheet now: Low Cost Infra  
+
+
+I'll be drafting an infra setup roadmap that outlines the necessary code/config updates to set up a test STAG environment over there, starting with the first in rank which is Google Cloud Run. Let me know if you have any initial thoughts.
+
+
+
+
+cc: @Mugisha Yves 
+cc:
+
+Open in chat
+
+
+
+Low Cost Infra 
+
+
+
+
+
+Baba Oladimeji, Mar 13, 12:16 PM, Edited
+Quoted
+Sent by You
+@Baba Oladimeji [update] 
+
+I’ve ranked the providers based on how easily we can host our 3 services (FE, BE, AI), logging retention, team account setup, custom domain mapping, and most importantly, trying to meet BotAI’s compute requirement while trying to stay under approximately a $20/mo budget. So there's been a slight change in the ranking...
+
+1. Google Cloud Run
+2️. Render
+3. Railway
+4. Fly.io
+5. Cloudflare 
+
+here is the sheet now: Low Cost Infra  
+
+I'll be drafting an infra setup roadmap that outlines the necessary code/config updates to set up a test STAG environment over there, starting with the first in rank which is Google Cloud Run. Let me know if you have any initial thoughts.
+
+
+cc: @Mugisha Yves 
+cc:
+Low Cost Infra 
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Well done.
+
+
+1] I think you did not tag Wanderi properly even though you wanted to.
+
+
+2] from experience I would rank render above gcp. GCP from my past experience is very similar to AWS in terms of it exposing too much detail for folks like us who don’t have much users yet. based on this, I would recommend you come up with milestones and tasks for moving our services to render. 
+
+
+3] Let’s not attempt to do all the migration at once though. Let’s take it one step at a time and one service at a time so if things don’t go as expected we can change course with approach or provider without impacting the current system and users.
+
+
+4] If you don’t have any clarification questions for me, I look forward to your next presentation where you’ll be sharing the milestone and tasks for attempting to migrate to Render.
+
+
+cc: @Wanderi Rowland Mwangi @Mugisha Yves
+
+You, Mar 16, 10:24 AM
+@Baba Oladimeji i've scheduled a meet, let me know if that works or not...
+
+
+
+
+cc: @Wanderi Rowland Mwangi @Mugisha Yves @Wangare Joan Thirimbu
+
+Baba Oladimeji, Mar 16, 10:33 AM, Edited
+Quoted
+Sent by You
+@Baba Oladimeji i've scheduled a meet, let me know if that works or not...
+
+
+cc: @Wanderi Rowland Mwangi @Mugisha Yves @Wangare Joan Thirimbu
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] can we move the meeting to start at 10:15am EST?
+
+
+2] also when creating meetings don't add people individually, add groups unless it is a 1v1 type meeting etc. I noticed you added wangare instead of the assoc_developers group
+
+You, Mar 16, 10:44 AM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] can we move the meeting to start at 10:15am EST?
+
+2] also when creating meetings don't add people individually, add groups unless it is a 1v1 type meeting etc. I noticed you added wangare instead of the assoc_developers group
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+1. yes, i'll make the update
+2. noted, i missed that there was an assoc_devs group... but thanks for bring it to my attention
+
+You, Mar 16, 10:49 AM
+@Baba Oladimeji updates made, let know if i got the daylight saving time right, or if i need to update it.
+
+Baba Oladimeji, Mar 16, 11:38 AM
+Quoted
+Sent by You
+@Baba Oladimeji updates made, let know if i got the daylight saving time right, or if i need to update it.
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Thanks it looks good. You give me some time to nap. 😅🙏
+
+You, Mar 17, 1:19 PM, Edited
+@Baba Oladimeji [update on render for botai]
+
+
+on testing the botai deployment on Render after the setup, the service is hitting the 512MB RAM limit (Out Of Memory) as anticipated. On the first few tries, it failed earlier during the build, but after caching the layers, it now gets further... failing during the Faster-Whisper model loading phase.
+
+
+looking at the tiers, the $7 "Starter" plan is still only 512MB RAM, which likely won't work. The next step is the $25 "Standard" plan (2GB RAM). However, since we currently use 4GB on AWS, I’m concerned that 2GB might be too low, especially with the new features we're going to be adding. The next in line after this plan is an $85 plan with 4GB ram.
+
+
+Suggestions on how to proceed:
+1. We could temporarily downsize our AWS staging task to 2GB to see if the service remains stable before committing to the $25/mo plan on Render.
+
+
+2. Alternatively, I can pause on botai for now and move to setting up the be-app on Render to see how it performs on the lower tiers.
+
+
+
+
+cc: @Mugisha Yves @Wanderi Rowland Mwangi @Wangare Joan Thirimbu
+
+Baba Oladimeji, Mar 17, 1:47 PM
+Quoted
+Sent by You
+@Baba Oladimeji [update on render for botai]
+
+on testing the botai deployment on Render after the setup, the service is hitting the 512MB RAM limit (Out Of Memory) as anticipated. On the first few tries, it failed earlier during the build, but after caching the layers, it now gets further... failing during the Faster-Whisper model loading phase.
+
+looking at the tiers, the $7 "Starter" plan is still only 512MB RAM, which likely won't work. The next step is the $25 "Standard" plan (2GB RAM). However, since we currently use 4GB on AWS, I’m concerned that 2GB might be too low, especially with the new features we're going to be adding. The next in line after this plan is an $85 plan with 4GB ram.
+
+Suggestions on how to proceed:
+1. We could temporarily downsize our AWS staging task to 2GB to see if the service remains stable before committing to the $25/mo plan on Render.
+
+2. Alternatively, I can pause on botai for now and move to setting up the be-app on Render to see how it performs on the lower tiers.
+
+
+cc: @Mugisha Yves @Wanderi Rowland Mwangi @Wangare Joan Thirimbu
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] well done. 
+
+
+2] when you say $85 per month, would that be per service or is this for all our services?
+
+
+3] I think this is definitely a concern and we should at least try the gc-run route since it is number 2 and see the difference etc
+
+
+4] also may be after trying out google with botai you would be able to tell us what you like or don't like when comparing aws to render to gc-run.
+
+
+Makes sense?
+
+You, Mar 17, 2:02 PM
+@Baba Oladimeji 
+2. for the $85 per month, that's per service, and it'd most likely be only botai getting that
+3. okay, i'll test that next
+4. yes
+
+Baba Oladimeji, Mar 17, 2:42 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+2. for the $85 per month, that's per service, and it'd most likely be only botai getting that
+3. okay, i'll test that next
+4. yes
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+one second, please wait before you proceed
+
+Baba Oladimeji, Mar 17, 2:48 PM
+@Alemya Obed Alenyorige 
+
+
+I just had chats here https://share.google/aimode/Gxnf4wylWwMMpvcsd and here https://share.google/aimode/JW1lKbV1Twd5sZead
+
+
+Based on this, I think we should bite the bullet and start with the $25 plan and see how far it gets us.
+
+
+What do you think?
+
+You, Mar 17, 3:00 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+I just had chats here https://share.google/aimode/Gxnf4wylWwMMpvcsd and here https://share.google/aimode/JW1lKbV1Twd5sZead
+
+Based on this, I think we should bite the bullet and start with the $25 plan and see how far it gets us.
+
+What do you think?
+End Quote press L to link back to original quote
+@Baba Oladimeji i've gone through them and yeahh, given the response from the second chat, i think it's okay to try it out... the prorated billing is the best part
+
+Baba Oladimeji, Mar 17, 3:03 PM
+Quoted
+Sent by You
+@Baba Oladimeji i've gone through them and yeahh, given the response from the second chat, i think it's okay to try it out... the prorated billing is the best part
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Also with render you deal with so much less headache. I have been using render and it makes life easier.
+
+
+Do you feel the same so far?
+
+You, Mar 17, 3:07 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+Also with render you deal with so much less headache. I have been using render and it makes life easier.
+
+Do you feel the same so far?
+End Quote press L to link back to original quote
+@Baba Oladimeji i wasn't able to get a successful build so i haven't gotten to experience that yet... but i've seen the options you spoke about, the auto-deploy and stuff... and they look promising...
+
+Baba Oladimeji, Mar 17, 3:13 PM
+Quoted
+Sent by You
+@Baba Oladimeji i wasn't able to get a successful build so i haven't gotten to experience that yet... but i've seen the options you spoke about, the auto-deploy and stuff... and they look promising...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+I am trying to setup payment, but I cannot see the plans that you mentioned.
+
+
+Can you please share a link?
+
+You, Mar 17, 3:21 PM
+@Baba Oladimeji 
+
+
+this is the link if you've signed in, the credentials are in the shared-dev account:
+ https://dashboard.render.com/web/srv-d6sk6ukr85hc73etro50/plan
+
+Baba Oladimeji, Mar 17, 3:29 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+this is the link if you've signed in, the credentials are in the shared-dev account:
+ https://dashboard.render.com/web/srv-d6sk6ukr85hc73etro50/plan
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] Ok, I think I have setup payment and you should be able to take the rest from here right?
+
+
+2] I selected the $7 plan first and it is deploying etc so let's first see if we can get things to work under the $7 plan and if not, we'll move to the $25 plan but move to the next plan without gettin buy-in from me.
+
+
+
+
+Makes sense?
+
+You, Mar 17, 3:33 PM
+@Baba Oladimeji 
+
+
+1. yes
+2. yes... however, i don't get you when you say: "move to the next plan without getting buy-in from me."
+
+Baba Oladimeji, Mar 17, 4:17 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+1. yes
+2. yes... however, i don't get you when you say: "move to the next plan without getting buy-in from me."
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+I mean don't go to a higher plan than $25 without getting my approval
+
+Baba Oladimeji, Mar 17, 4:19 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+I mean don't go to a higher plan than $25 without getting my approval
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige any progress?
+
+You, Mar 17, 4:25 PM
+@Baba Oladimeji 
+
+
+i realized the deployments were not using the $7 subscription and still stayed in the free plan, because the message i was getting, "The instance type change will only be applied if the triggered deploy is successful," meant the $7 plan is still 512MB RAM (same as free), so it doesn't fix our OOM issue. 
+
+
+and Render won't actually switch to the paid plan until we have a successful build, but we can't build successfully with only 512MB.
+
+
+  we need to go straight to the $25 plan (2GB RAM) to see if we can get past the build. The $7 plan isn't helping at the moment.
+
+
+so i'm going to proceed with trying out the $25 option given your latest message...
+
+You, Mar 17, 4:45 PM, Edited
+@Baba Oladimeji the build was able to go through this time, but the app crashed due to the the mongo uri value or string... it needs updating since the one we have currently authenticates via aws, so there's the need to create a new one, for render...
+
+Baba Oladimeji, Mar 17, 6:05 PM
+Quoted
+Sent by You
+@Baba Oladimeji the build was able to go through this time, but the app crashed due to the the mongo uri value or string... it needs updating since the one we have currently authenticates via aws, so there's the need to create a new one, for render...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] any updates?
+
+
+2] I’m curious this task seems to be taking long for you, but it seems you should be able to try things and move faster. Am I missing something?
+
+You, Mar 17, 6:07 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] any updates?
+
+2] I’m curious this task seems to be taking long for you, but it seems you should be able to try things and move faster. Am I missing something?
+End Quote press L to link back to original quote
+@Baba Oladimeji updates coming soon
+
+You, Mar 17, 6:19 PM
+@Baba Oladimeji 
+
+
+1. so i was able to build and deploy botai on Render with the $25 option:
+
+
+ What's Working:
+  - MongoDB connection resolved - created new user with password auth
+  - Service is live at: https://botai-stag.onrender.com
+  - Tested the database connectivity by testing some of the endpoints
+
+
+2. What took time:
+was the  setting up of the new user role for render as i was having issues trying to get it working...
+
+Baba Oladimeji, Mar 17, 6:32 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+1. so i was able to build and deploy botai on Render with the $25 option:
+
+ What's Working:
+  - MongoDB connection resolved - created new user with password auth
+  - Service is live at: https://botai-stag.onrender.com
+  - Tested the database connectivity by testing some of the endpoints
+
+2. What took time:
+was the  setting up of the new user role for render as i was having issues trying to get it working...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] ok
+
+
+2] maybe your internet is slow or something because I used the account you created to attempt to deploy a version and it seemed pretty straightforward 
+
+
+3] what are the next steps on your plate?
+
+You, Mar 17, 10:48 PM
+@Baba Oladimeji 
+3. either workflow files setup for botai or proceeding to the next service which will be be-app
+
+Baba Oladimeji, Mar 17, 11:24 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+3. either workflow files setup for botai or proceeding to the next service which will be be-app
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] What workflow files are you referring to? I thought that render with it's auto deploy stuff would handle these stuff automatically. Am I missing something?
+
+
+2] Also please be noting things down because you are going to have to prepare a document for helping others onboard to our new infrastructure after you are done with migration. So the document most be well written to help both people who are used to our AWS setup and people who aren't and would just be joining us straight on render etc
+
+You, Mar 18, 8:39 AM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] What workflow files are you referring to? I thought that render with it's auto deploy stuff would handle these stuff automatically. Am I missing something?
+
+2] Also please be noting things down because you are going to have to prepare a document for helping others onboard to our new infrastructure after you are done with migration. So the document most be well written to help both people who are used to our AWS setup and people who aren't and would just be joining us straight on render etc
+End Quote press L to link back to original quote
+@Baba Oladimeji ,
+
+
+1] Regarding Workflow Files vs. Auto-deploy: you're right that Render’s Auto-deploy handles the basic "push-to-deploy" trigger excellently... however, the reason for the GitHub Action workflows for a few but important specific cases:
+Secret Syncing: To avoid manual updates in the Render dashboard, we can use a workflow to automatically push environment variables/secrets from GitHub to Render.
+Tag-based Releases: our tagging process we implemented and agreed on.
+that said, i think  I’ll rely on Render's native Auto-deploy for now to get the services live and layer in these advanced automations once the full stack is stable.
+
+
+
+
+2] noted
+
+
+
+
+i'll proceed with setting up that for be-app and provide update when stuck or done
+
+You, Mar 18, 10:29 AM, Edited
+@Baba Oladimeji 
+
+
+Update on be-app deployment:
+
+
+i’ve identified the be-app build is currently failing on Render and here is why:
+
+
+the build stops at the Dockerfile because it tries to copy a dist folder that doesn't exist in the repository.
+
+
+why it worked on AWS:
+in our previous AWS workflow, the GitHub Action would run npm run build on the CI runner before building the Docker image. This made the dist folder available for Docker to copy. Hence the deployments to aws never had a problem with the current state of things.
+
+
+the Render Difference:
+on Render, the service is built directly from the Dockerfile. Since Render doesn't run a separate 'pre-build' command for Docker services, the dist folder is never created.
+
+
+Next Steps:
+i'll be coming up with updates to the Dockerfile to handle this so i can proceed with  get the service running.
+
+You, Mar 18, 1:38 PM
+@Baba Oladimeji in light this message, prod-eng , it would appear i'd need to move the /health endpoint to the lists of endpoints that skip CORS validation (similar to /robots.txt and /subscription-webhook).
+
+
+since Render's health checks are internal infrastructure requests (not browser requests) and there does not come with an origin value set, hence those request triggers the cors alerts seen
+
+
+this should stop the alerts from triggering on every health check... 
+
+
+i'll proceed to making this updates and be open to any discussions around this later
+
+You, Mar 18, 3:51 PM
+@Baba Oladimeji update:
+
+
+the be-app seems stable. 
+
+
+next will be setting up the fe-web and then connecting it to the be-app appropriately
+
+Baba Oladimeji, Mar 18, 4:00 PM
+Quoted
+Sent by You
+@Baba Oladimeji update:
+
+the be-app seems stable. 
+
+next will be setting up the fe-web and then connecting it to the be-app appropriately
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+really well done, and thanks for the updates, it really does help get visibility into your progress along the way which helps us stay in sync without the need for meetings.
+
+Baba Oladimeji, Mar 18, 4:04 PM
+@Wangare Joan Thirimbu @Mugisha Yves @Wanderi Rowland Mwangi 
+
+
+Please note how excellently Alemya has handled offline communication with keeping me updated asynchronously as he makes progress on his task which means I don't need to have that many meetings with him to get a sense of his progress, what he has tried, what he his stuck on etc.
+
+
+I can just catch-up when I get online and get full context without having to prod him for information.
+
+
+This is what is expected as "normal" for proactive communication at the company. We sometimes get this right and sometimes get this wrong. I want this to be an example of when we got this right so we can know what the "normal" communication expectations are.
+
+
+cc: @Alemya Obed Alenyorige
+
+You, Mar 19, 9:21 AM, Edited
+@Baba Oladimeji 
+
+
+Update on fe-web deployment
+
+
+current Status:
+the build is failing due to a husky issue.
+
+
+the Problem:
+the root package.json has "prepare": "husky" which runs during npm install. When Render builds from the frontends/fe-web subdirectory, npm traverses up to the root, detects it's a workspace, and runs the root prepare script. But husky isn't installed in that build context, so it fails with: sh: 1: husky: not found
+
+
+the possible fix i'm considering:
+modify the prepare script to detect CI environments and skip husky there... ensuring local devs still get Git hooks during commits, while CI/CD builds skip it cleanly.
+
+
+
+
+so i'll make the changes and proceed with deployments
+
+You, Mar 19, 10:30 AM
+@Mugisha Yves @Wangare Joan Thirimbu for the sake of the deployments, i'll be fixing the build errors for the fe-web, just keeping you in the loop incase anyone was planing on fixing that...
+
+Baba Oladimeji, Mar 19, 12:27 PM
+@Alemya Obed Alenyorige 
+
+
+I randomly was taking a look at 02. Shared Developer Accounts (DEVs ONLY)  and I noticed the entry for stag-render seems to be confusing.
+
+
+Can you please provide context as to why it does not follow the same pattern as rest of the entries and also why there are now empty rows in the doc when they were not there previously?
+
+Open in chat
+
+
+
+02. Shared Developer Accounts (DEVs ONLY)
+
+
+
+
+
+You, Mar 19, 12:51 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+I randomly was taking a look at 02. Shared Developer Accounts (DEVs ONLY)  and I noticed the entry for stag-render seems to be confusing.
+
+Can you please provide context as to why it does not follow the same pattern as rest of the entries and also why there are now empty rows in the doc when they were not there previously?
+02. Shared Developer Accounts (DEVs ONLY)
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+
+
+for stag-render, that was the new user role created on atlas for the render platform, to be used in now generating the mongo uri string... it seems confusing because the service column for that row is empty... there is already a record for mongo db so it was a bit hard to find something appropriate for the column, but i'll make the update
+
+
+
+
+for the empty rows, i left the gap after the speechmatics record to just to provide space for me to help differentiate what was already there vs what i'd need for setting up stuff on the render platform... and also leaves space for future unrelated entries to be inserted right after Speechmatics without disrupting the new Render-related records
+
+
+i can make the update for that i you think otherwise...
+
+Baba Oladimeji, Mar 19, 1:08 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+for stag-render, that was the new user role created on atlas for the render platform, to be used in now generating the mongo uri string... it seems confusing because the service column for that row is empty... there is already a record for mongo db so it was a bit hard to find something appropriate for the column, but i'll make the update
+
+
+for the empty rows, i left the gap after the speechmatics record to just to provide space for me to help differentiate what was already there vs what i'd need for setting up stuff on the render platform... and also leaves space for future unrelated entries to be inserted right after Speechmatics without disrupting the new Render-related records
+
+i can make the update for that i you think otherwise...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Thanks for the context.
+
+
+Based on what you said, here are my thoughts:
+
+
+1] I think we can move the two render entries to right after z.ai then create one or two empty rows after it.so that way things are more organized and the last section would just be the 3rd party audio APIs which you can add stuff to overtime as needed without worrying about it. So basically subdividing things into sections without naming the sections yet. What do you think?
+
+
+2] I like the service value you added now, gives the entry more context
+
+You, Mar 19, 1:15 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+Thanks for the context.
+
+Based on what you said, here are my thoughts:
+
+1] I think we can move the two render entries to right after z.ai then create one or two empty rows after it.so that way things are more organized and the last section would just be the 3rd party audio APIs which you can add stuff to overtime as needed without worrying about it. So basically subdividing things into sections without naming the sections yet. What do you think?
+
+2] I like the service value you added now, gives the entry more context
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+
+
+1] i think that would be much better. I'd do that
+
+You, Mar 19, 3:31 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+Update on fe-web deployment
+
+current Status:
+the build is failing due to a husky issue.
+
+the Problem:
+the root package.json has "prepare": "husky" which runs during npm install. When Render builds from the frontends/fe-web subdirectory, npm traverses up to the root, detects it's a workspace, and runs the root prepare script. But husky isn't installed in that build context, so it fails with: sh: 1: husky: not found
+
+the possible fix i'm considering:
+modify the prepare script to detect CI environments and skip husky there... ensuring local devs still get Git hooks during commits, while CI/CD builds skip it cleanly.
+
+
+so i'll make the changes and proceed with deployments
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+
+
+Update on fe-web deployment:
+
+
+Progress:
+CI/CD husky issue resolved
+Environment variables configured
+Build completes successfully
+however there is a current Issue: 
+the app crashes at runtime with a React duplicate instance error: TypeError: Cannot read properties of null (reading 'useMemo')
+
+
+
+
+this indicates there could be multiple React copies are being bundled. I've tried:
+  - Using npm ci for clean dependency installation
+  - Verified React version consistency across the codebase
+
+
+the issue appears to be tied to the monorepo setup and configuration... there is task to look into the monorepo thing, but for now, i'll  continue to see if there are temporary ways around it...
+
+
+  will provide another update once i have more findings.
+
+You, Mar 19, 7:56 PM, Edited
+@Baba Oladimeji 
+
+
+Update on Render deployment migration:
+
+
+progress:
+  - Resolved the fe-web build issue by implementing Amplify's cache clearing approach
+  - Successfully deployed and linked fe-web, be-app, and botai-stag on Render        
+
+
+
+
+the Fix:
+the key difference was in the build process. AWS Amplify's workflow includes a cache clearing step (deleting node_modules, lock files, and running npm cache clean --force) before building. I replicated this in Render's build command, which resolved the React duplicate instance error.
+
+
+current Status:
+  - Services deployed: fe-web, be-app, and botai-stag on Render
+  - Using Render's generated domains (custom domain setup pending)
+  - Pricing tier: Free tier for fe-web and be-app (botai-stag on Standard)
+  - Note: be-app and fe-web spins down when idle, first requests takes longer to respond
+  - Route rewrites: Not yet configured... accessing paths like /programs, etc directly returns 404... you'd have to start from the root, which is /
+  -  Guest users: Fully functional but sign in is not working. Firebase configuration needs to be updated on firebase for these new projects
+
+
+
+
+next will be:
+  1. Firebase Configuration: Add fe-web's Render URL (https://fe-web-stag.onrender.com) to Firebase Console → Authentication → Authorized domains (this will enable Google sign-in)                                 
+  2. Route Rewrites: Configure SPA rewrites in fe-web settings (refreshing on non-root paths returns 404)
+  3. Custom Domains: Set up custom domain names via Squarespace
+  4. Subscription Tier: Determine if fe-web/be-app should upgrade to tackle spin-downs
+                                                                                                                                                                   
+it can be tested here (note the spin-down delay):
+https://fe-web-stag.onrender.com
+
+Baba Oladimeji, Mar 19, 8:11 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+Update on Render deployment migration:
+
+progress:
+  - Resolved the fe-web build issue by implementing Amplify's cache clearing approach
+  - Successfully deployed and linked fe-web, be-app, and botai-stag on Render        
+
+
+the Fix:
+the key difference was in the build process. AWS Amplify's workflow includes a cache clearing step (deleting node_modules, lock files, and running npm cache clean --force) before building. I replicated this in Render's build command, which resolved the React duplicate instance error.
+
+current Status:
+  - Services deployed: fe-web, be-app, and botai-stag on Render
+  - Using Render's generated domains (custom domain setup pending)
+  - Pricing tier: Free tier for fe-web and be-app (botai-stag on Standard)
+  - Note: be-app and fe-web spins down when idle, first requests takes longer to respond
+  - Route rewrites: Not yet configured... accessing paths like /programs, etc directly returns 404... you'd have to start from the root, which is /
+  -  Guest users: Fully functional but sign in is not working. Firebase configuration needs to be updated on firebase for these new projects
+
+
+next will be:
+  1. Firebase Configuration: Add fe-web's Render URL (https://fe-web-stag.onrender.com) to Firebase Console → Authentication → Authorized domains (this will enable Google sign-in)                                 
+  2. Route Rewrites: Configure SPA rewrites in fe-web settings (refreshing on non-root paths returns 404)
+  3. Custom Domains: Set up custom domain names via Squarespace
+  4. Subscription Tier: Determine if fe-web/be-app should upgrade to tackle spin-downs
+                                                                                                                                                                   
+it can be tested here (note the spin-down delay):
+https://fe-web-stag.onrender.com
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Is it possible to delegate and share some of these tasks with Mugisha so as a team we can move faster?
+
+
+What do you think?
+
+
+cc: @Mugisha Yves
+
+You, Mar 20, 8:39 AM
+@Baba Oladimeji yes it’s possible 
+
+
+however mugisha is currently working on the tutor integration…
+
+
+once he’s finished with that i think it’d be possible to share some of them with him 
+
+
+cc @Mugisha Yves
+
+You, Mar 20, 10:59 AM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+Update on Render deployment migration:
+
+progress:
+  - Resolved the fe-web build issue by implementing Amplify's cache clearing approach
+  - Successfully deployed and linked fe-web, be-app, and botai-stag on Render        
+
+
+the Fix:
+the key difference was in the build process. AWS Amplify's workflow includes a cache clearing step (deleting node_modules, lock files, and running npm cache clean --force) before building. I replicated this in Render's build command, which resolved the React duplicate instance error.
+
+current Status:
+  - Services deployed: fe-web, be-app, and botai-stag on Render
+  - Using Render's generated domains (custom domain setup pending)
+  - Pricing tier: Free tier for fe-web and be-app (botai-stag on Standard)
+  - Note: be-app and fe-web spins down when idle, first requests takes longer to respond
+  - Route rewrites: Not yet configured... accessing paths like /programs, etc directly returns 404... you'd have to start from the root, which is /
+  -  Guest users: Fully functional but sign in is not working. Firebase configuration needs to be updated on firebase for these new projects
+
+
+next will be:
+  1. Firebase Configuration: Add fe-web's Render URL (https://fe-web-stag.onrender.com) to Firebase Console → Authentication → Authorized domains (this will enable Google sign-in)                                 
+  2. Route Rewrites: Configure SPA rewrites in fe-web settings (refreshing on non-root paths returns 404)
+  3. Custom Domains: Set up custom domain names via Squarespace
+  4. Subscription Tier: Determine if fe-web/be-app should upgrade to tackle spin-downs
+                                                                                                                                                                   
+it can be tested here (note the spin-down delay):
+https://fe-web-stag.onrender.com
+End Quote press L to link back to original quote
+@Baba Oladimeji for the domain name to be created, you have any preference or should i go with what i came up with in the migration plan?
+
+You, Mar 20, 11:02 AM
+which was api-[platform].learn.stag.amaspeak.app so for the be-app will be api-render.learn.stag.amaspeak.app
+
+and similar aplication for the fe-web and the botai
+
+Baba Oladimeji, Mar 20, 11:18 AM, Edited
+@Alemya Obed Alenyorige 
+
+
+1] why does the name of the platform have to be in the url?
+
+
+2] what are the urls for the current deployed services?
+
+
+Answers to these questions would give me enough context to have an informed opinion on what the domain name should be.
+
+You, Mar 20, 11:30 AM, Edited
+@Baba Oladimeji 
+
+
+1. the naming pattern was just a way i came up with, to create new staging URLs for the platforms, since our current stag URLs are being used by the AWS services.
+
+
+2. the current urls for the currently deployed serivces are the ones provided by render by default and they are
+https://fe-web-stag.onrender.com
+https://be-app-stag.onrender.com
+https://botai-stag.onrender.com
+
+Baba Oladimeji, Mar 20, 12:10 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+1. the naming pattern was just a way i came up with, to create new staging URLs for the platforms, since our current stag URLs are being used by the AWS services.
+
+2. the current urls for the currently deployed serivces are the ones provided by render by default and they are
+https://fe-web-stag.onrender.com
+https://be-app-stag.onrender.com
+https://botai-stag.onrender.com
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+I actually meant what are the urls for the current equivalent services on aws
+
+You, Mar 20, 12:19 PM, Edited
+@Baba Oladimeji 
+
+
+they are:
+https://learn.stag.amaspeak.app
+https://api.learn.stag.amaspeak.app
+https://micro.stag.amaspeak.app
+for fe-web, be-app and botai respectively
+
+and for prod, similar structure but without the stag subdomain
+
+Baba Oladimeji, Mar 20, 12:23 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+they are:
+https://learn.stag.amaspeak.app
+https://api.learn.stag.amaspeak.app
+https://micro.stag.amaspeak.app
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] Is there any danger with leaving it as is until we are ready to complete the migration away from aws or is this to test that the domain stuff would work?
+
+
+2] If it is to test the domain stuff to ensure it works first, then your approach makes sense, and I am guessing that once you confirms it works we can then remove the [platform] name from the url and have it as the regular while either shutting down the aws one or put the [aws] platform thing on the aws as backup until we test and trust the new default one. is what I am saying what you were also thinking?
+
+You, Mar 20, 12:28 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] Is there any danger with leaving it as is until we are ready to complete the migration away from aws or is this to test that the domain stuff would work?
+
+2] If it is to test the domain stuff to ensure it works first, then your approach makes sense, and I am guessing that once you confirms it works we can then remove the [platform] name from the url and have it as the regular while either shutting down the aws one or put the [aws] platform thing on the aws as backup until we test and trust the new default one. is what I am saying what you were also thinking?
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+
+
+1. there isn't any danger... it is to test the domain setup for render
+2. yes... it's exactly the same
+
+Baba Oladimeji, Mar 20, 1:07 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+1. there isn't any danger... it is to test the domain setup for render
+2. yes... it's exactly the same
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Ok, please go for it and thanks for the context
+
+You, Mar 20, 7:24 PM
+@Baba Oladimeji
+
+
+Render Migration Status & Cost-Benefit Analysis
+
+
+
+
+
+
+1. Technical Fixes Complete
+Firebase Authentication: Configuration is updated. Google Sign-in and other auth flows are now fully functional on the Render deployment.
+SPA Route Rewrites: Configured the routing so that refreshing paths like /programs no longer returns a 404. All paths are now correctly handled by the index.html.
+Custom Domain setup: Only done for fe-web [render-learn.stag.amaspeak.app] and be-app [api-render.learn.stag.amaspeak.app]. The botai did not get one due to a restriction on the plan our setup is on and afterassessing it, it doesn't really need it and if we do, we can always use the default domain provided by render for botai. The details of the restriction will be covered in detail below.
+Efficient Internal Networking: i’ve linked the be-app to botai using an internal URL (http://botai-stag:5000). 
+       * Benefit: This traffic is faster, more secure (never leaves Render’s network),
+         and saves us a custom domain slot. 
+       * our AWS setup only used custom domains for external testing (APIdog), not for internal service-to-service communication, which in fact makes sense.
+
+
+
+
+2. Service Cost Breakdown (Per Environment - stag and prod)
+Based on my resource monitoring during testing (botai hit ~960MB RAM / 0.8 CPU peak. For be-app, I couldn't see the metrics because, i needed to be on a plan to be able to see. But everything seemed fine for be-app):
+fe-web: $0 (i realized Render provides Static Site hosting for free).
+be-app: $7/month (Moving from Free to "Starter" to prevent the app from sleeping/spinning down).
+botai: $25/month (Standard tier provides the 2GB RAM / 1 CPU. The current subscription we are on. It seemed okay as i switch to audio2text mode and did some interactions. audio2text since it's the mode that seems to stretch our botai service).
+Base Cost: $32/month per environment.
+
+
+
+
+3. Understanding Render’s "Double Billing"
+The "Workspace" Billing System. Render has a two-tier pricing model that we need to be aware of. You pay for the Workspace AND the Services (the "servers").
+
+
+Pipeline Minutes: for each space there is a pipeline minutes, which is the compute time and resource used whenever we run deployments or builds. We get 500 free minutes per month for the whole workspace. We have used 88 minutes so far. With two environments (Stag+ Prod) in a workspace, we will likely exceed 500 minutes. Render charges $5 to add another 1000 minutes. We should budget for at least $5–$10/month here depending on how often we deploy.
+The Workspace Plan:
+For the workspace, there is a hobby plan, professional plan, organization, etc. but for the sake of this task, we'd be focusing on the hobby and the professional plans
+
+
+Hobby Plan (Free): 1 project, 2 custom domains, 500 free pipeline minutes
+
+
+Professional Plan ($19/user/month): Unlimited custom domains, multiple projects, allow up to 10 team members, 500 pipeline minutes/user/month
+
+
+
+
+the current state of things:
+we are on the hobby plan and have one workspace, and for that workspace, only 2 services are allowed to have a customized domain name, hence the tradeoffs i did. so it means the two environments i created for that project in the workspaces, i can't get around the custom domain restrictions if we intend to setup prod. so we'd need to either move to the professional plan, or create another workspace dedicated for prod which will also be on the hobby plan
+
+
+so the benefits and potential total costs:
+
+
+
+
+
+
+Option 1: The "Pro Workspace" (Unified):Upgrade the workspace to Professional ($19/user/month).
+Pros: Unlimited custom domains; stag and prod live in one project
+Cons (The "Minutes" Trap): The workspace fee is $19 per user/month. To get additional pipeline minutes (500 per user), you'd need to add more users — but each additional user costs another $19. This quickly becomes expensive. With just 2 users, that's $38/month for the workspace alone. So with our shared account, paying $19 unlocks custom domains, but you're still limited to 500 minutes. 
+The Math: $19 (Workspace) + $25 (botai-stag) + $7 (be-app-stag) + $32 (Prod Services; similar to that of stag) + $10 (pipleline minutes)  = ~$83-$93/month.
+
+
+Option 2: The "Multi-Hobby" (Cost Saver): Keep the current workspace as stag and create a new, separate Workspace for prod when the time comes.
+Pros: Saves $19/month. Each workspace gets its own 2 free domains and its own 500 free build minutes.
+Cons: Yet to be verified since we don't have prod set up yet. But i did attempt and it looks plausible. Limited to the 2 custom domains per workspace
+The Math: $0 (Workspaces) + $32 (Stag Services) + $32 (Prod Services) + $10 (pipleline minutes) = ~$64-$74/month.
+
+
+
+
+my recommendation:
+option 2 would look good if it works, but if we are okay with the cons.
+
+Baba Oladimeji, Mar 20, 7:58 PM
+Quoted
+Sent by You
+@Baba Oladimeji
+
+Render Migration Status & Cost-Benefit Analysis
+
+
+
+1. Technical Fixes Complete
+Firebase Authentication: Configuration is updated. Google Sign-in and other auth flows are now fully functional on the Render deployment.
+SPA Route Rewrites: Configured the routing so that refreshing paths like /programs no longer returns a 404. All paths are now correctly handled by the index.html.
+Custom Domain setup: Only done for fe-web [render-learn.stag.amaspeak.app] and be-app [api-render.learn.stag.amaspeak.app]. The botai did not get one due to a restriction on the plan our setup is on and afterassessing it, it doesn't really need it and if we do, we can always use the default domain provided by render for botai. The details of the restriction will be covered in detail below.
+Efficient Internal Networking: i’ve linked the be-app to botai using an internal URL (http://botai-stag:5000). 
+       * Benefit: This traffic is faster, more secure (never leaves Render’s network),
+         and saves us a custom domain slot. 
+       * our AWS setup only used custom domains for external testing (APIdog), not for internal service-to-service communication, which in fact makes sense.
+
+
+2. Service Cost Breakdown (Per Environment - stag and prod)
+Based on my resource monitoring during testing (botai hit ~960MB RAM / 0.8 CPU peak. For be-app, I couldn't see the metrics because, i needed to be on a plan to be able to see. But everything seemed fine for be-app):
+fe-web: $0 (i realized Render provides Static Site hosting for free).
+be-app: $7/month (Moving from Free to "Starter" to prevent the app from sleeping/spinning down).
+botai: $25/month (Standard tier provides the 2GB RAM / 1 CPU. The current subscription we are on. It seemed okay as i switch to audio2text mode and did some interactions. audio2text since it's the mode that seems to stretch our botai service).
+Base Cost: $32/month per environment.
+
+
+
+3. Understanding Render’s "Double Billing"
+The "Workspace" Billing System. Render has a two-tier pricing model that we need to be aware of. You pay for the Workspace AND the Services (the "servers").
+
+Pipeline Minutes: for each space there is a pipeline minutes, which is the compute time and resource used whenever we run deployments or builds. We get 500 free minutes per month for the whole workspace. We have used 88 minutes so far. With two environments (Stag+ Prod) in a workspace, we will likely exceed 500 minutes. Render charges $5 to add another 1000 minutes. We should budget for at least $5–$10/month here depending on how often we deploy.
+
+The Workspace Plan:
+For the workspace, there is a hobby plan, professional plan, organization, etc. but for the sake of this task, we'd be focusing on the hobby and the professional plans
+
+Hobby Plan (Free): 1 project, 2 custom domains, 500 free pipeline minutes
+
+Professional Plan ($19/user/month): Unlimited custom domains, multiple projects, allow up to 10 team members, 500 pipeline minutes/user/month
+
+
+the current state of things:
+we are on the hobby plan and have one workspace, and for that workspace, only 2 services are allowed to have a customized domain name, hence the tradeoffs i did. so it means the two environments i created for that project in the workspaces, i can't get around the custom domain restrictions if we intend to setup prod. so we'd need to either move to the professional plan, or create another workspace dedicated for prod which will also be on the hobby plan
+
+so the benefits and potential total costs:
+
+
+
+Option 1: The "Pro Workspace" (Unified):Upgrade the workspace to Professional ($19/user/month).
+Pros: Unlimited custom domains; stag and prod live in one project
+Cons (The "Minutes" Trap): The workspace fee is $19 per user/month. To get additional pipeline minutes (500 per user), you'd need to add more users — but each additional user costs another $19. This quickly becomes expensive. With just 2 users, that's $38/month for the workspace alone. So with our shared account, paying $19 unlocks custom domains, but you're still limited to 500 minutes. 
+The Math: $19 (Workspace) + $25 (botai-stag) + $7 (be-app-stag) + $32 (Prod Services; similar to that of stag) + $10 (pipleline minutes)  = ~$83-$93/month.
+
+
+Option 2: The "Multi-Hobby" (Cost Saver): Keep the current workspace as stag and create a new, separate Workspace for prod when the time comes.
+Pros: Saves $19/month. Each workspace gets its own 2 free domains and its own 500 free build minutes.
+Cons: Yet to be verified since we don't have prod set up yet. But i did attempt and it looks plausible. Limited to the 2 custom domains per workspace
+The Math: $0 (Workspaces) + $32 (Stag Services) + $32 (Prod Services) + $10 (pipleline minutes) = ~$64-$74/month.
+
+
+
+my recommendation:
+option 2 would look good if it works, but if we are okay with the cons.
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+well done.
+
+
+1] great call on the botai stuff, having a custom domain for botai is unnecessary since it is completely backend stuff, even having a custom domain for be-app may be optional right? what do you think? I know for sure fe-web requires a custom domain and I am sure botai does not but I am unsure about be-app.
+
+
+2] yea, at this point, option-2 makes the most sense. we are very cost sensitive at the moment, hence the move away from aws in the first place. We also share the same account for 3rd party services to manage cost at our scale of customers and team size. 
+
+
+3] can't we have a hack for the be-app to still be on the free plan? the be-app seems to be very lightweight and it does not seem to consume much resources at all. For the spin up/down issue does the fe-web not face the same thing and can we do something like have some sort of automated github workflow that pings the url every X hours so it stays up etc. Do you understand what I mean? can you chat with glm or z.ai and look into if any of this is feasible?
+
+You, Mar 23, 11:09 AM
+@Baba Oladimeji 
+
+
+1. yes, i had a look and it maybe optional
+2. yes, that makes sense... Option 2 timing: i also mentioned option 2 looked plausible, should we confirm it immediately or after we've thoroughly tested stag and are comfortable moving forward? 
+3. for the fe-web, it's free and does not spin down... it's currently the be-app that behaves that way. And yes, i get what you mean, i'll provide a summary on what i'm able to find and tradeoffs, if any...
+
+Baba Oladimeji, Mar 23, 11:39 AM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+1. yes, i had a look and it maybe optional
+2. yes, that makes sense... Option 2 timing: i also mentioned option 2 looked plausible, should we confirm it immediately or after we've thoroughly tested stag and are comfortable moving forward? 
+3. for the fe-web, it's free and does not spin down... it's currently the be-app that behaves that way. And yes, i get what you mean, i'll provide a summary on what i'm able to find and tradeoffs, if any...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] let's get things on stag ready first before we try to stand up prod.
+
+
+2] let's also keep be-app for stag on the free tier without a custom domain so we see how that works as well so that fe-web is the only one with the custom domain
+
+
+3] looking forward to your update
+
+
+4] our target for this week should be to be done with the migration to render so we can deprecate and suspend (not yet delete them incase for backup) aws services to avoid cost for next month. as mentioned earlier, you should be pulling mugisha in to enable you move super fast on this
+
+
+Well done.
+
+You, Mar 23, 2:31 PM, Edited
+@Baba Oladimeji 
+Update on the ping hack using github actions:
+
+
+ i've assessed and  verified through some estimations that the github actions wouldn't suffice.
+
+
+here is why:
+We are offered 2-3k minutes on github.
+GitHub Actions rounds up every job to the nearest minute, regardless of how long the job actually runs. So even if a ping takes only 5 seconds, GitHub charges it as 1 full minute.  
+
+
+we need to ping every 14 minutes to keep the service alive sinces it goes down every 15 minutes
+
+
+pinging every 14 minutes = ~3,086 pings per month × 1 minute each = ~3,086 GitHub minutes. But the free tier only gives 2-3k minutes per month for private repos. So we'd run out even without without running any of our other workflows.
+
+
+also 750hrs of Instance Hours is allocated and shared across all Free services  in workspace. and currently our free services are the fe-web and the be-app, but from research, i'm informed the Static Sites (the service on which our fe-web is deployed) are truly free and do not count towards the 750-hour pool. So it's our be-app that will be utilizing that and keeping it running throughout an month will result in 720hrs depleted, leaving 30. and "Instance Hours" refers to the clock time the service is "awake/running," not CPU usage. So i think we should be fine here as well if we find a suitable pinging hack.
+
+
+other alternatives:
+[if we are okay with this] setup an account with cron-job.org, and create a task or schedule. It seems to be free on that platform.
+
+
+
+
+I also updated the url of the be-app to use the default and everything seems fine
+
+Baba Oladimeji, Mar 23, 2:50 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+Update on the ping hack using github actions:
+
+ i've assessed and  verified through that the github actions wouldn't suffice.
+
+here is why:
+We are offered 2-3k minutes on github.
+GitHub Actions rounds up every job to the nearest minute, regardless of how long the job actually runs. So even if a ping takes only 5 seconds, GitHub charges it as 1 full minute.  
+
+we need to ping every 14 minutes to keep the service alive sinces it goes down every 15 minutes
+
+pinging every 14 minutes = ~3,086 pings per month × 1 minute each = ~3,086 GitHub minutes. But the free tier only gives 2-3k minutes per month for private repos. So we'd run out even without without running any of our other workflows.
+
+also 750hrs of Instance Hours is allocated and shared across all Free services  in workspace. and currently our free services are the fe-web and the be-app, but from research, i'm informed the Static Sites (the service on which our fe-web is deployed) are truly free and do not count towards the 750-hour pool. So it's our be-app that will be utilizing that and keeping it running throughout an month will result in 720hrs depleted, leaving 30. and "Instance Hours" refers to the clock time the service is "awake/running," not CPU usage. So i think we should be fine here as well if we find a suitable pinging hack.
+
+other alternatives:
+[if we are okay with this] setup an account with cron-job.org, and create a task or schedule. It seems to be free on that platform.
+
+
+I also updated the url of the be-app to use the default and everything seems fine
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] a] I think we should give this a shot. It is even okay if we end up starting with pinging every 28 minutes or 56 minutes because we frankly don't have that many users at this point. And as we have more users we can the reduce this to the 14 minutes max or move up to the next tier if need be. b] As long as we keep track of things like you are already doing we should be able to project the cost and impact of a hacky infra like this as we go along right?
+
+
+2] Do you think it would also make sense to do something like ping the be-app immediately traffic is noticed on either the website or fe-web so that the be-app can start loading before it is actually needed giving it some extra time to load without our users noticing?
+
+
+3] Do you think also having some sort of loading animation on fe-web would help while the be-app is being spun up etc?
+
+You, Mar 23, 3:11 PM, Edited
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] a] I think we should give this a shot. It is even okay if we end up starting with pinging every 28 minutes or 56 minutes because we frankly don't have that many users at this point. And as we have more users we can the reduce this to the 14 minutes max or move up to the next tier if need be. b] As long as we keep track of things like you are already doing we should be able to project the cost and impact of a hacky infra like this as we go along right?
+
+2] Do you think it would also make sense to do something like ping the be-app immediately traffic is noticed on either the website or fe-web so that the be-app can start loading before it is actually needed giving it some extra time to load without our users noticing?
+
+3] Do you think also having some sort of loading animation on fe-web would help while the be-app is being spun up etc?
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+1] a. i think that’s okay
+b. yes
+
+
+2]. website might be the right option given the fe-web calls the config options immediately it’s accessed so the time won’t be enough
+
+
+3] there are loading animations during api calls… and in cases where the be-app is down it takes longer. maybe we can make sure that this is done across the codebase
+
+Baba Oladimeji, Mar 23, 3:27 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+1] a. i think that’s okay
+b. yes
+
+2]. website might be the right option given the fe-web calls the config options immediately it’s accessed so the time won’t be enough
+
+3] there are loading animations during api calls… and in cases where the be-app is down it takes longer. maybe we can make sure that this is done across the codebase
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+I think we roughly share the same context now. Let's take it one thing at a time now, use things as variables so that we can easily change the minutes depending on our needs at the moment (14, 28, 56, etc) and leverage Mugisha as fast as possible to move faster etc.
+
+
+well done.
+
+You, Mar 23, 3:30 PM, Edited
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+I think we roughly share the same context now. Let's take it one thing at a time now, use things as variables so that we can easily change the minutes depending on our needs at the moment (14, 28, 56, etc) and leverage Mugisha as fast as possible to move faster etc.
+
+well done.
+End Quote press L to link back to original quote
+@Baba Oladimeji just to be clear, are 2 and 3 to be done before we move to focussing on prod or only 1 should  be worked on now and we can revisit 2 & 3 later
+
+Baba Oladimeji, Mar 23, 3:32 PM
+Quoted
+Sent by You
+@Baba Oladimeji just to be clear, are 2 and 3 to be done before we move to focussing on prod or only 1 should  be worked on now and we can revisit 2 & 3 later
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+I think we can make do with only 1 before moving to PROD stuff then coming back to address 2 and 3. Does this make sense or do you see things we could be missing?
+
+You, Mar 23, 3:34 PM, Edited
+@Baba Oladimeji that makes sense... just wanted to know which things to focus on before moving to PROD, nothing missing
+
+You, Mar 23, 5:03 PM, Edited
+@Baba Oladimeji  i've set up the GitHub Actions workflow to ping be-app and keep it warm... i set it at an interval of 28 mins and for the first time i ran it manually and it looks okay, so i'd be check the workflow again after 28 mins
+
+
+for having it as a variable or a constant, there isn't a way to to in the the cron section for a workflow file and the options i was finding were complicated, so i stuck to the default way, that is if the value needs to be updated, then the cron section, which is responsible for it that is updated
+
+
+
+
+that said, i think it'd we okay to start prepping for prod if that's okay with you?
+
+
+and for testing stag, i don't know if it'd be okay to have us move there to do our daily internal reviews to leverage that as a way to test the stag version.
+
+
+user account details still remain the same when accessed on render
+
+Baba Oladimeji, Mar 23, 5:20 PM
+Quoted
+Sent by You
+@Baba Oladimeji  i've set up the GitHub Actions workflow to ping be-app and keep it warm... i set it at an interval of 28 mins and for the first time i ran it manually and it looks okay, so i'd be check the workflow again after 28 mins
+
+for having it as a variable or a constant, there isn't a way to to in the the cron section for a workflow file and the options i was finding were complicated, so i stuck to the default way, that is if the value needs to be updated, then the cron section, which is responsible for it that is updated
+
+
+that said, i think it'd we okay to start prepping for prod if that's okay with you?
+
+and for testing stag, i don't know if it'd be okay to have us move there to do our daily internal reviews to leverage that as a way to test the stag version.
+
+user account details still remain the same when accessed on render
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] I just mean having a way to easily change the 28 configuration to another number
+
+
+2] I don't know about how much credits are available on the free tier and if we are doing other things elsewhere that would result in need more github credits. Can you just confirm this is not the case and if it is, we can also just increase the number to 56 or 102 etc. Like I said we have small number of daily users so at least until we get to BETA the spin up/down time does not really matter much. What matters is us having the ability to control things using configurations and us having the ability to make good enough forecasts to manage our infra cost and consumption.
+
+
+3] oh so you don't feel any QA needs to be done on stag due to the move?
+
+You, Mar 24, 9:08 AM, Edited
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] I just mean having a way to easily change the 28 configuration to another number
+
+2] I don't know about how much credits are available on the free tier and if we are doing other things elsewhere that would result in need more github credits. Can you just confirm this is not the case and if it is, we can also just increase the number to 56 or 102 etc. Like I said we have small number of daily users so at least until we get to BETA the spin up/down time does not really matter much. What matters is us having the ability to control things using configurations and us having the ability to make good enough forecasts to manage our infra cost and consumption.
+
+3] oh so you don't feel any QA needs to be done on stag due to the move?
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+
+
+1. got it, the cron value is straightforward to update in the file when needed.
+
+
+2. okay, 56 will definitely be okay, because currentl we have some workflows that run automatically but consume less credit... current the ones that are taking more will be our deployments workflows... but i think 56 will be a sweetspot as we'll have 1.2-2.2k credits to spare which should be sufficient for the other workflows 
+
+
+3. no that per se, perhaps what i'm suggesting is having a split qa... as other do it on the aws stag, others will do it on render stag, so that we can use that opportunity to continue test the render stag if anything is out of place...
+
+You, Mar 24, 9:30 AM
+@Baba Oladimeji 
+
+
+ I'll make the update to 56-minute interval and then proceed with setting up prod.
+                                                                                                     
+  A few things to note:
+  - I'll be working on the botai service while Mugisha sets up be-app (with my guidance)  
+  - For the initial prod setup, I'm thinking we should deploy from the commit/tag that's currently on AWS prod. Once that's successful, we can discuss how we want deployments to flow going forward on the render platform for PROD.
+
+cc: @Mugisha Yves
+
+You, Mar 24, 10:59 AM
+@Baba Oladimeji 
+
+
+
+
+regarding the initial prod setup, i looked into deploying from the specific commit/tag that's on AWS prod, but Render doesn't directly support deploying from commit hashes.
+
+
+the options I found were:                                                                          
+  1. Create a branch from that specific tag so it appears on Render
+  2. Create a workflow file using the Render API to deploy from tags
+
+
+for now, I think we should go with deploying from main to get the services set up quickly...then we can discuss and figure out the best approach for the deployment flow going forward to get the appropriate code to  PROD on render
+
+
+cc: @Mugisha Yves
+
+Mugisha Yves, Mar 24, 12:04 PM
+@Alemya Obed Alenyorige I added filled out all the required fields for be-app prod deployment, I disabled auto deploy and now I wanted you to review it before i hit deploy services, but I am not sure if it will not deploy the latest main commit since deploy specific commit option comes after first deployment .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You, Mar 24, 12:08 PM, Edited
+Quoted
+
+
+Sent by Mugisha Yves
+6
+
+
+
+
+@Alemya Obed Alenyorige I added filled out all the required fields for be-app prod deployment, I disabled auto deploy and now I wanted you to review it before i hit deploy services, but I am not sure if it will not deploy the latest main commit since deploy specific commit option comes after first deployment .
+End Quote press L to link back to original quote
+@Mugisha Yves good progress, however, the service should be under the amazethu-PROD-INFRA project
+
+Mugisha Yves, Mar 24, 12:10 PM
+Quoted
+Sent by You
+@Mugisha Yves good progress, however, the service should be under the amazethu-PROD-INFRA project
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Let me fix it.
+
+You, Mar 24, 12:10 PM
+@Mugisha Yves it'd be something of this manner:
+
+
+
+
+
+
+
+Mugisha Yves, Mar 24, 12:12 PM
+Quoted
+Sent by You
+
+
+
+
+@Mugisha Yves it'd be something of this manner:
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige added it to it, what's next
+
+
+
+
+
+
+
+You, Mar 24, 12:13 PM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige added it to it, what's next
+End Quote press L to link back to original quote
+@Mugisha Yves for the environment variable how did you fill those...
+
+Mugisha Yves, Mar 24, 12:15 PM, Edited
+Quoted
+Sent by You
+@Mugisha Yves for the environment variable how did you fill those...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I went to aws ECS and then choose amazethu backend and go to task definition and copied each env variables and secrets , one by one to render
+
+You, Mar 24, 12:18 PM
+@Mugisha Yves what was the value for the botai url?
+
+
+also the mongo uri will need to be updated...
+
+Mugisha Yves, Mar 24, 12:19 PM
+Quoted
+Sent by You
+@Mugisha Yves what was the value for the botai url?
+
+also the mongo uri will need to be updated...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige http://convai-service:5000
+
+You, Mar 24, 12:29 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige http://convai-service:5000
+End Quote press L to link back to original quote
+@Mugisha Yves that should be http://botai-prod:5000
+
+Mugisha Yves, Mar 24, 12:31 PM
+Quoted
+Sent by You
+@Mugisha Yves that should be http://botai-prod:5000
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I updated botai url. What is the value of mongo uri to be updated to?
+
+You, Mar 24, 12:34 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige I updated botai url. What is the value of mongo uri to be updated to?
+End Quote press L to link back to original quote
+@Mugisha Yves working on that...
+
+You, Mar 24, 12:42 PM
+@Mugisha Yves document updated... once you fill it you can try deploying and let me know what you find...
+
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige I went to aws ECS and then choose amazethu backend and go to task definition and copied each env variables and secrets , one by one to render
+End Quote press L to link back to original quote
+@Mugisha Yves just for clarity, the PROD instance on aws right?
+
+Mugisha Yves, Mar 24, 12:44 PM
+Quoted
+Sent by You
+@Mugisha Yves just for clarity, the PROD instance on aws right?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige yes, It was.
+
+Mugisha Yves, Mar 24, 12:47 PM
+Quoted
+Sent by You
+@Mugisha Yves document updated... once you fill it you can try deploying and let me know what you find...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige It just hit deploy service button.  and it started deploying (and it will be deploying latest changes on main), is it okay for now.....
+
+Mugisha Yves, Mar 24, 12:52 PM
+@Alemya Obed Alenyorige Deployment went through , What's next
+
+
+
+
+
+
+
+You, Mar 24, 12:57 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige It just hit deploy service button.  and it started deploying (and it will be deploying latest changes on main), is it okay for now.....
+End Quote press L to link back to original quote
+@Baba Oladimeji the botai-prod service would need to be on a subscription too to spin it up:
+
+
+
+
+
+
+
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige It just hit deploy service button.  and it started deploying (and it will be deploying latest changes on main), is it okay for now.....
+End Quote press L to link back to original quote
+@Mugisha Yves yes i mentioned that at some point in the thread
+
+Baba Oladimeji, Mar 24, 1:01 PM
+Quoted
+Sent by You
+
+
+
+
+@Baba Oladimeji the botai-prod service would need to be on a subscription too to spin it up:
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Do you have the details to do this or is this something I need to do?
+
+You, Mar 24, 1:07 PM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige Deployment went through , What's next
+End Quote press L to link back to original quote
+@Mugisha Yves you could try testing out the health route outside using render and if it fine and then you can try setting up the fe-web service... but once you are done, do not access it just yet, due to our analytics setup...ping me
+
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+Do you have the details to do this or is this something I need to do?
+End Quote press L to link back to original quote
+@Baba Oladimeji yes it's something you need to do... a billing information setup
+
+just like the way it was done for the first workspace(stag)
+
+Mugisha Yves, Mar 24, 1:17 PM
+Quoted
+Sent by You
+@Mugisha Yves you could try testing out the health route outside using render and if it fine and then you can try setting up the fe-web service... but once you are done, do not access it just yet, due to our analytics setup...ping me
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige yeah, It's fine, I will proceed by setting up fe-web,
+
+
+
+
+
+
+
+Mugisha Yves, Mar 24, 1:47 PM
+@Alemya Obed Alenyorige here is the env, I've setup for fe-web, and I want to know if i will keep that URL or use different one
+
+
+
+
+
+
+
+You, Mar 24, 1:55 PM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige here is the env, I've setup for fe-web, and I want to know if i will keep that URL or use different one
+End Quote press L to link back to original quote
+for the api use the default render url that was given to the be-app instance... and for the prod url, you can leave it at that for now... you can take out the posthug i don't think it's used
+
+
+also check the fe-web-stag to see some of the variables, and include those fields for prod... at least the one i can remember giving me trouble was the ci, so you'd need to include a CI variable with a value of true... you can check the stag like i said to see what is to included @Mugisha Yves
+
+Baba Oladimeji, Mar 24, 2:02 PM
+Quoted
+Sent by You
+@Baba Oladimeji yes it's something you need to do... a billing information setup
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+I cannot find the PROD project on the app. Are you sure it was created on the developers account on render?
+
+@Alemya Obed Alenyorige
+
+
+
+
+
+
+
+You, Mar 24, 2:09 PM, Edited
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+I cannot find the PROD project on the app. Are you sure it was created on the developers account on render?
+End Quote press L to link back to original quote
+@Baba Oladimeji yes, you need switch this to prod from here:
+
+You, Mar 24, 2:15 PM
+@Baba Oladimeji
+
+
+
+
+
+
+
+Mugisha Yves, Mar 24, 2:16 PM
+Quoted
+Sent by You
+for the api use the default render url that was given to the be-app instance... and for the prod url, you can leave it at that for now... you can take out the posthug i don't think it's used
+
+also check the fe-web-stag to see some of the variables, and include those fields for prod... at least the one i can remember giving me trouble was the ci, so you'd need to include a CI variable with a value of true... you can check the stag like i said to see what is to included @Mugisha Yves
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige updated, I am going to hit 'Deploy service'
+
+You, Mar 24, 2:22 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige updated, I am going to hit 'Deploy service'
+End Quote press L to link back to original quote
+@Mugisha Yves remember not to access it once you deploy...
+
+
+you raise any issues during the deployment process tho
+
+Mugisha Yves, Mar 24, 2:36 PM
+Quoted
+Sent by You
+@Mugisha Yves remember not to access it once you deploy...
+
+you raise any issues during the deployment process tho
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Fe-web prod deployment on render was made successfully.
+
+
+
+
+
+
+
+You, Mar 24, 3:11 PM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige Fe-web prod deployment on render was made successfully.
+End Quote press L to link back to original quote
+@Mugisha Yves this looks good so far...
+
+Quoted
+Sent by You
+
+
+
+
+@Baba Oladimeji
+End Quote press L to link back to original quote
+@Baba Oladimeji any updates on this?
+
+Baba Oladimeji, Mar 24, 3:43 PM
+Quoted
+Sent by You
+@Baba Oladimeji any updates on this?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+sorry it took a while, I was in meetings. I have added the billing information, please let me know if you need anything else from me.
+
+You, Mar 25, 10:46 AM
+@Baba Oladimeji  
+
+
+Render PROD Migration Update:
+
+
+                                                       
+  Deployment Progress:
+  Services Deployed:
+  -  botai-prod - Running (Standard tier, $25/mo). Needed to rebuild with cache cleared option to resolve the issue i was facing
+  - be-app-prod - Deployed (Free tier, will update workflow to ping this as well)
+  - fe-web-prod - Deployed (Static Site, free)
+
+
+                                                              
+  Key Configuration Decisions:                                                                                            
+  - Auto-deploy: Disabled for prod services(open for discussion - prefer controlled deployments vs auto-push on main branch)
+  - Domain names: using default Render domains for now (botai-prod.onrender.com, be-app-prod.onrender.com, fe-web-prod.onrender.com). Custom domain for the fe-web will be configured later once we agree to finally move there. Because we already tested the custom domain configurations worked by doing that on STAG
+
+
+
+
+Testing Strategy:
+rather than testing prod directly, I'll update stag services to point to prod appropriately. This allows us to validate prod services through the familiar stag interface with our team. and in doing so i'll be fixing any issues that will come up.
+
+
+Deployment Flow Going Forward:
+Currently STAG uses the auto-deploy feature on render, which is fine, but it will be difficult to get updates to prod in a controlled manner since the feature doesn't allow for tagging.
+
+
+so my suggestion is, we need to create proper or similar deployment workflows (tag-based, manual triggers) for controlled deployments to stag and prod. This prevents accidental deployments and gives us control over what goes to which environment.
+
+
+
+
+i'd like to know your thoughts on this
+
+
+cc: @Mugisha Yves
+
+You, Mar 25, 10:49 AM
+@Mugisha Yves you can make the update to the workflow file to include that of the url for be-app PROD
+
+Mugisha Yves, Mar 25, 11:18 AM
+Quoted
+Sent by You
+@Mugisha Yves you can make the update to the workflow file to include that of the url for be-app PROD
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Can you give more context about which workflow to be updated???
+
+You, Mar 25, 11:58 AM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige Can you give more context about which workflow to be updated???
+End Quote press L to link back to original quote
+@Mugisha Yves it a workflow file for pinging our be-app services… ping-be-app
+
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] a] I think we should give this a shot. It is even okay if we end up starting with pinging every 28 minutes or 56 minutes because we frankly don't have that many users at this point. And as we have more users we can the reduce this to the 14 minutes max or move up to the next tier if need be. b] As long as we keep track of things like you are already doing we should be able to project the cost and impact of a hacky infra like this as we go along right?
+
+2] Do you think it would also make sense to do something like ping the be-app immediately traffic is noticed on either the website or fe-web so that the be-app can start loading before it is actually needed giving it some extra time to load without our users noticing?
+
+3] Do you think also having some sort of loading animation on fe-web would help while the be-app is being spun up etc?
+End Quote press L to link back to original quote
+@Mugisha Yves for more context, follow from here
+
+Mugisha Yves, Mar 25, 1:53 PM
+Quoted
+Sent by You
+@Mugisha Yves for more context, follow from here
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Here the PR for updating ping-be-app to include be-app-prod url, https://github.com/amazethu/amazethu/pull/2203
+
+You, Mar 25, 2:09 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige Here the PR for updating ping-be-app to include be-app-prod url, https://github.com/amazethu/amazethu/pull/2203
+End Quote press L to link back to original quote
+@Mugisha Yves left some comments
+
+Mugisha Yves, Mar 25, 2:18 PM
+Quoted
+Sent by You
+@Mugisha Yves left some comments
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I have updated PR and i have run it on my branch to test and it went through.
+
+
+
+
+
+
+
+Baba Oladimeji, Mar 25, 2:18 PM
+Quoted
+Sent by You
+@Baba Oladimeji  
+
+Render PROD Migration Update:
+
+                                                       
+  Deployment Progress:
+  Services Deployed:
+  -  botai-prod - Running (Standard tier, $25/mo). Needed to rebuild with cache cleared option to resolve the issue i was facing
+  - be-app-prod - Deployed (Free tier, will update workflow to ping this as well)
+  - fe-web-prod - Deployed (Static Site, free)
+
+                                                              
+  Key Configuration Decisions:                                                                                            
+  - Auto-deploy: Disabled for prod services(open for discussion - prefer controlled deployments vs auto-push on main branch)
+  - Domain names: using default Render domains for now (botai-prod.onrender.com, be-app-prod.onrender.com, fe-web-prod.onrender.com). Custom domain for the fe-web will be configured later once we agree to finally move there. Because we already tested the custom domain configurations worked by doing that on STAG
+
+
+Testing Strategy:
+rather than testing prod directly, I'll update stag services to point to prod appropriately. This allows us to validate prod services through the familiar stag interface with our team. and in doing so i'll be fixing any issues that will come up.
+
+Deployment Flow Going Forward:
+Currently STAG uses the auto-deploy feature on render, which is fine, but it will be difficult to get updates to prod in a controlled manner since the feature doesn't allow for tagging.
+
+so my suggestion is, we need to create proper or similar deployment workflows (tag-based, manual triggers) for controlled deployments to stag and prod. This prevents accidental deployments and gives us control over what goes to which environment.
+
+
+i'd like to know your thoughts on this
+
+cc: @Mugisha Yves
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] Everything you said makes sense.
+
+
+2] The only slight issue that came to mind is just why not test prod directly using the ?internal=true shebang so that we can be absolutely sure a] the major flows work as expected b] we are confident that notifications and alerts would be sent to us if any issues arise on prod that we did not test. This is not a direction type inquiry, I am just asking to learn and be more informed about your perspective.
+
+You, Mar 25, 2:34 PM, Edited
+Quoted
+Sent by You
+@Baba Oladimeji  
+
+Render PROD Migration Update:
+
+                                                       
+  Deployment Progress:
+  Services Deployed:
+  -  botai-prod - Running (Standard tier, $25/mo). Needed to rebuild with cache cleared option to resolve the issue i was facing
+  - be-app-prod - Deployed (Free tier, will update workflow to ping this as well)
+  - fe-web-prod - Deployed (Static Site, free)
+
+                                                              
+  Key Configuration Decisions:                                                                                            
+  - Auto-deploy: Disabled for prod services(open for discussion - prefer controlled deployments vs auto-push on main branch)
+  - Domain names: using default Render domains for now (botai-prod.onrender.com, be-app-prod.onrender.com, fe-web-prod.onrender.com). Custom domain for the fe-web will be configured later once we agree to finally move there. Because we already tested the custom domain configurations worked by doing that on STAG
+
+
+Testing Strategy:
+rather than testing prod directly, I'll update stag services to point to prod appropriately. This allows us to validate prod services through the familiar stag interface with our team. and in doing so i'll be fixing any issues that will come up.
+
+Deployment Flow Going Forward:
+Currently STAG uses the auto-deploy feature on render, which is fine, but it will be difficult to get updates to prod in a controlled manner since the feature doesn't allow for tagging.
+
+so my suggestion is, we need to create proper or similar deployment workflows (tag-based, manual triggers) for controlled deployments to stag and prod. This prevents accidental deployments and gives us control over what goes to which environment.
+
+
+i'd like to know your thoughts on this
+
+cc: @Mugisha Yves
+End Quote press L to link back to original quote
+@Baba Oladimeji update so far:
+
+
+prod is accessible through stag using the default url that was provided, as discussed earlier. so by accessing https://render-learn.stag.amaspeak.app and using the go to prod feature it takes you to https://fe-web-prod.onrender.com/programs?internal=true 
+
+
+
+
+2. regarding your question on why I didn't test PROD directly using ?internal=true:
+ - Team familiarity: the STAG to PROD flow is what the team already knows and uses. Also not knowing the testing duration, i followed the established path to avoid any confusion in case anyone wanted to visit PROD during these times
+ - analytics impact: The Firebase config on aws PROD is same render PROD, so direct access (without ?internal=true mistakenly) would affect our prod analytics
+
+
+on notifications/alerts, could you clarify what you mean? Are you referring to:
+  - deployment failure alerts? (this might be something that would need looking into)
+  - runtime error alerts? ( for this, functional as always)
+  - Or something else?
+
+Baba Oladimeji, Mar 25, 2:42 PM
+Quoted
+Sent by You
+@Baba Oladimeji update so far:
+
+prod is accessible through stag using the default url that was provided, as discussed earlier. so by accessing https://render-learn.stag.amaspeak.app and using the go to prod feature it takes you to https://fe-web-prod.onrender.com/programs?internal=true 
+
+
+2. regarding your question on why I didn't test PROD directly using ?internal=true:
+ - Team familiarity: the STAG to PROD flow is what the team already knows and uses. Also not knowing the testing duration, i followed the established path to avoid any confusion in case anyone wanted to visit PROD during these times
+ - analytics impact: The Firebase config on aws PROD is same render PROD, so direct access (without ?internal=true mistakenly) would affect our prod analytics
+
+on notifications/alerts, could you clarify what you mean? Are you referring to:
+  - reployment failure alerts? (this might be something that would need looking into)
+  - runtime error alerts? ( for this, functional as always)
+  - Or something else?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] oh, that's what you mean. when you said accessing prod from stag, I thought you were speaking backend stuff, but now I get you mean accessing prod-webapp from stag-webapp. makes total sense now 🙏
+
+
+2] your early point answered my question and it is the right thing to do
+
+
+3] I was just referring to the fact that we may sometimes be very busy or want to move really fast and would not have the bandwidth to do full proper manual testing on prod. So knowing that we can do full automated testing on stag gives us some level of confidence further doing manual testing stag gives us even more confidence and then doing manual qa on prod gives us the highest level of confidence. but in some cases we may decide to skip manual qa for general features on stag and prod but only want to do manual qa for the new features introduced. what I am pointing to is that for this type of cases even when we do not do manual qa (which mean we would have lower confidence that the new features we introduce did not break something else or a critical user path), we can at least have confidence that we have setup alert and notification triggers in the right spots that would notify us on prod and stag if something goes wrong because we intentionally chose to skip manual qa for either prod and stag or both to achieve another pressing objective like move faster etc.
+
+You, Mar 25, 3:07 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] oh, that's what you mean. when you said accessing prod from stag, I thought you were speaking backend stuff, but now I get you mean accessing prod-webapp from stag-webapp. makes total sense now 🙏
+
+2] your early point answered my question and it is the right thing to do
+
+3] I was just referring to the fact that we may sometimes be very busy or want to move really fast and would not have the bandwidth to do full proper manual testing on prod. So knowing that we can do full automated testing on stag gives us some level of confidence further doing manual testing stag gives us even more confidence and then doing manual qa on prod gives us the highest level of confidence. but in some cases we may decide to skip manual qa for general features on stag and prod but only want to do manual qa for the new features introduced. what I am pointing to is that for this type of cases even when we do not do manual qa (which mean we would have lower confidence that the new features we introduce did not break something else or a critical user path), we can at least have confidence that we have setup alert and notification triggers in the right spots that would notify us on prod and stag if something goes wrong because we intentionally chose to skip manual qa for either prod and stag or both to achieve another pressing objective like move faster etc.
+End Quote press L to link back to original quote
+@Baba Oladimeji                                                                   
+  
+3. i get your point now
+
+
+we do have some alerts implemented, however i don't know if it satisfies this completely or if we need to add more or new spots... also, currently some alerts seem to require a user to trigger them... is that okay?
+
+You, Mar 25, 3:18 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige Here the PR for updating ping-be-app to include be-app-prod url, https://github.com/amazethu/amazethu/pull/2203
+End Quote press L to link back to original quote
+@Mugisha Yves approved
+
+Mugisha Yves, Mar 25, 3:20 PM
+Quoted
+Sent by You
+@Mugisha Yves approved
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Merged!
+
+You, Mar 25, 3:29 PM
+@Mugisha Yves i'd be coming up the workflows, and then there is another aspect you can look into; service down alerts, deployment failure alerts, etc 
+
+
+we sometimes get an email on build failure but not the other alerts i don't think there is... you can have a look in to that an letting me know what you find...
+
+
+is that okay or do you have questions?
+
+Mugisha Yves, Mar 25, 3:35 PM
+Quoted
+Sent by You
+@Mugisha Yves i'd be coming up the workflows, and then there is another aspect you can look into; service down alerts, deployment failure alerts, etc 
+
+we sometimes get an email on build failure but not the other alerts i don't think there is... you can have a look in to that an letting me know what you find...
+
+is that okay or do you have questions?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Yes, I got it. I'll be look into how we can have workflow files to send deployment failure alerts , service down alerts.
+
+You, Mar 25, 3:37 PM
+@Mugisha Yves these are not necessarily tied to the workflow files, it’s about checking the platform the services etc to see if it allows that
+
+Baba Oladimeji, Mar 25, 3:52 PM
+Quoted
+Sent by You
+@Baba Oladimeji                                                                   
+  
+3. i get your point now
+
+we do have some alerts implemented, however i don't know if it satisfies this completely or if we need to add more or new spots... also, currently some alerts seem to require a user to trigger them... is that okay?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] Yes that's okay. It usually is a continuous exercise not a one time thing and we never get to 100% coverage. But we want to make sure we always have visibility on this as it just makes it easier for us to be flexible while still having some level of confidence in services we deploy. Makes sense?
+
+
+2] If it makes sense, I think we should create  a task for this so that we can look into this on a periodic basis etc. This could come in handy in cases of emergency where we need to ship an update quickly to prod.
+
+
+3] As mentioned in another thread, consider pulling Wangare into some of these conversations and assign her tasks as well. I trust you judgement to assess her current level and give her tasks that are good enough for her level to keep challenging her.
+
+Mugisha Yves, Mar 25, 4:14 PM
+@Alemya Obed Alenyorige Here is what I found about Render deployment failure and service down alerts. 
+Render provides two main ways to receive alerts when deployments fail or services become unhealthy. The first method is built-in notifications, where Render sends alerts directly to email or Slack for events such as failed deployments, build failures, or unhealthy services, and it requires no additional setup. The second method is webhooks, where Render sends JSON event data to a webhook endpoint that you control. You can then process and reformat this data and forward it to other platforms such as Google Chat or other messaging systems. In short, built-in notifications are suitable for simple alerting, while webhooks are better for custom integrations.
+
+You, Mar 25, 4:22 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige Here is what I found about Render deployment failure and service down alerts. 
+Render provides two main ways to receive alerts when deployments fail or services become unhealthy. The first method is built-in notifications, where Render sends alerts directly to email or Slack for events such as failed deployments, build failures, or unhealthy services, and it requires no additional setup. The second method is webhooks, where Render sends JSON event data to a webhook endpoint that you control. You can then process and reformat this data and forward it to other platforms such as Google Chat or other messaging systems. In short, built-in notifications are suitable for simple alerting, while webhooks are better for custom integrations.
+End Quote press L to link back to original quote
+@Mugisha Yves free or does it cost to use
+
+Mugisha Yves, Mar 25, 4:23 PM
+Quoted
+Sent by You
+@Mugisha Yves free or does it cost to use
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Only webhooks require to have paid subscription
+
+You, Mar 25, 4:26 PM
+@Mugisha Yves we have a gchat url, so look into other ways we can send an alert or make a call with data to that url
+
+Mugisha Yves, Mar 25, 4:53 PM
+Quoted
+Sent by You
+@Mugisha Yves we have a gchat url, so look into other ways we can send an alert or make a call with data to that url
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+I found that since Google Chat requires a specific data format, we can send the alert JSON data from Render.com to a GitHub Actions workflow, as Render webhooks support GitHub Actions integration. This workflow will receive the alert payload from Render, reformat it to match Google Chat’s required format, and then send the formatted JSON data to the Google Chat webhook URL. This approach is necessary because Render does not directly support Google Chat integrations like it does with Slack or Discord. We can test that and see...
+
+Mugisha Yves, Mar 25, 5:03 PM, Edited
+@Alemya Obed Alenyorige An other way is, to have a separate hosted custom nodejs api endpoint, to receive the alert payload from render.com and then reformat it to match Gchat webhook format and then send the alert json data to Gchat webhook url.
+
+You, Mar 25, 5:21 PM, Edited
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige 
+I found that since Google Chat requires a specific data format, we can send the alert JSON data from Render.com to a GitHub Actions workflow, as Render webhooks support GitHub Actions integration. This workflow will receive the alert payload from Render, reformat it to match Google Chat’s required format, and then send the formatted JSON data to the Google Chat webhook URL. This approach is necessary because Render does not directly support Google Chat integrations like it does with Slack or Discord. We can test that and see...
+End Quote press L to link back to original quote
+@Mugisha Yves don't think of the gchat url as an integration, but rather a url that you can send data to, even if through a curl utility... because if you look into it from that perspective, you'd be getting responses like render doesn't directly support gchat integrations...
+
+
+do you get the point
+
+You, Mar 25, 5:26 PM
+check files like these fe-web-alerts-stag.yml and the gchat-playwright-reporter.ts files in our code base to see how it was used there
+
+
+so what you should be looking at is whether render can provide us data on a service or can trigger an event to make that request, for free...
+
+Mugisha Yves, Mar 25, 5:27 PM
+Quoted
+Sent by You
+@Mugisha Yves don't think of the gchat url as an integration, but rather a url that you can send data to, even if through a curl utility... because if you look into it that way, you'd be getting responses like render doesn't directly support gchat integrations...
+
+do you get the point
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Yes, I do.
+
+You, Mar 25, 5:28 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige An other way is, to have a separate hosted custom nodejs endpoint, to receive the alert payload from render.com and then reformat it to match Gchat webhook format and then send the alert json data to Gchat webhook url.
+End Quote press L to link back to original quote
+@Mugisha Yves  i don't get this here, is it that we'd be hosting a serivice or? can you explain what the nodejs endpoint is and how it works, etc
+
+
+
+
+remember, possibly free stuff
+
+Mugisha Yves, Mar 25, 5:50 PM
+Quoted
+Sent by You
+@Mugisha Yves  i don't get this here, is it that we'd be hosting a serivice or? can you explain what the nodejs endpoint is and how it works, etc
+
+
+remember, possibly free stuff
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+Google Chat webhooks only accept a specific JSON format, but the data from Render.com comes in a different structure. To handle this, we can either send Render alerts to a GitHub Actions workflow that reformats the data and then forwards it to the Google Chat webhook, or set up a custom Node.js API to receive the Render data, convert it to the required format, and send it to the webhook. The first option is simpler and already supported by Render, while the second is an alternative but it would be not ideal for our case, since it involves deployment etc.
+
+Quoted
+Sent by You
+check files like these fe-web-alerts-stag.yml and the gchat-playwright-reporter.ts files in our code base to see how it was used there
+
+so what you should be looking at is whether render can provide us data on a service or can trigger an event to make that request, for free...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Yes, Let me check them out
+
+You, Mar 26, 8:22 AM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige 
+Google Chat webhooks only accept a specific JSON format, but the data from Render.com comes in a different structure. To handle this, we can either send Render alerts to a GitHub Actions workflow that reformats the data and then forwards it to the Google Chat webhook, or set up a custom Node.js API to receive the Render data, convert it to the required format, and send it to the webhook. The first option is simpler and already supported by Render, while the second is an alternative but it would be not ideal for our case, since it involves deployment etc.
+End Quote press L to link back to original quote
+@Mugisha Yves and the webhooks is paid
+
+Mugisha Yves, Mar 26, 8:29 AM
+Quoted
+Sent by You
+@Mugisha Yves and the webhooks is paid
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige yes
+
+You, Mar 26, 8:31 AM
+@Mugisha Yves the second one you said it involves deployment?
+
+Mugisha Yves, Mar 26, 8:33 AM
+Quoted
+Sent by You
+@Mugisha Yves the second one you said it involves deployment?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige We have the deploy that api to forward data to chat wehbook.
+
+Mugisha Yves, Mar 26, 8:34 AM, Edited
+@Alemya Obed Alenyorige We can't add it on our app api route since when deployment failed, It won't be live to receive and forward the data to chat.. so we need to deploy that api endpoint as separate service
+
+You, Mar 26, 8:34 AM
+@Mugisha Yves i'm confused
+
+why do we need to add it as a route
+
+i thought it was a feature altogether on render
+
+Mugisha Yves, Mar 26, 8:36 AM
+Quoted
+Sent by You
+why do we need to add it as a route
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Are we still talking about second option???
+
+Quoted
+Sent by You
+i thought it was a feature altogether on render
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I'm confused too
+
+@Alemya Obed Alenyorige which comes as feature on render??
+
+You, Mar 26, 8:40 AM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige Are we still talking about second option???
+End Quote press L to link back to original quote
+@Mugisha Yves yes
+
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige which comes as feature on render??
+End Quote press L to link back to original quote
+@Mugisha Yves  the nodejs api option you suggested
+
+Mugisha Yves, Mar 26, 8:43 AM, Edited
+Quoted
+Sent by You
+@Mugisha Yves  the nodejs api option you suggested
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige It's custom and separate service we have to deploy ourselves and it will work in between render and Gchat webhook, and it's main job is to receive data from render and format it to Gchat specific format, then forwards it to Gchat webhook. So that nodejs api endpoint (route) doesn't come as feature on render Make sense?
+
+You, Mar 26, 8:48 AM
+@Mugisha Yves is it free? and does this stay running all the time or spins down? because free services on render, aside from static sites, spin down on the free tier level
+
+Mugisha Yves, Mar 26, 8:51 AM
+Quoted
+Sent by You
+@Mugisha Yves is it free? and does this stay running all the time or spins down? because free services on render, aside from static sites, spin down on the free tier level
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige It will be normal render deployment and when hosted on free, it will absolutely spins down. that's why i said it's not idea for our case. and so we can try the first option, integrating render Plus Github action Plus chat webhook, since this will be running on Github action, so we won't need extra deployment
+
+Mugisha Yves, Mar 26, 8:53 AM, Edited
+@Alemya Obed Alenyorige and again, except email and slack which is natively integrate into render, other waus, like discord, etc, render just provide the template or example nodejs api endpoint to deploy so you can forward it to your external services.....
+
+Mugisha Yves, Mar 26, 8:56 AM
+Quoted
+Sent by You
+@Mugisha Yves is it free? and does this stay running all the time or spins down? because free services on render, aside from static sites, spin down on the free tier level
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I had this idea too, if the spin down, is now the issues and we could deploy it to a separate hosting provider, like vercel, etc, which doesn't do free tier server sips down.
+
+You, Mar 26, 9:10 AM
+@Mugisha Yves 
+
+
+1. the webhook is paid right? can you determine whether it's per service, per workspace, etc you can check the history of this thread to get the context of how things are, what was found and what we embarked on
+
+
+2. we are talking about render. i don't get the vercel thing here...
+
+Mugisha Yves, Mar 26, 9:19 AM, Edited
+Quoted
+Sent by You
+@Mugisha Yves 
+
+1. the webhook is paid right? can you determine whether it's per service, per workspace, etc you can check the history of this thread to get the context of how things are, what was found and what we embarked on
+
+2. we are talking about render. i don't get the vercel thing here...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 1. As long as we are on any render paid subscription, like Professional plan, you can use webhook. It means, webhook integration on render is disabled on hobby plan. 2. Let's forget this..
+
+Mugisha Yves, Mar 26, 9:28 AM
+@Alemya Obed Alenyorige And I thought, since we will need to have paid subscription, to enable webhook, we can actually host our nodejs api endpoint on that plan, so it won't spin down...., and as I was going through, render webhook integration again, i found that even github action integration, also will need to deploy nodejs api endpoint as well. so we can stick the option two
+
+You, Mar 26, 9:30 AM
+@Mugisha Yves please go through the thread, you'd get the better understanding of the decisions made this far, what workspaces are and what subscriptions are on and the kind or type of subscription render offers
+
+Mugisha Yves, Mar 26, 9:31 AM
+Quoted
+Sent by You
+@Mugisha Yves please go through the thread, you'd get the better understanding of the decisions made this far, what workspaces are and what subscriptions are on and the kind or type of subscription render offers
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige thank you, let me go through them
+
+You, Mar 26, 9:31 AM
+Quoted
+Sent by You
+@Mugisha Yves please go through the thread, you'd get the better understanding of the decisions made this far, what workspaces are and what subscriptions are on and the kind or type of subscription render offers
+End Quote press L to link back to original quote
+i think that will help you know whether this is good or not or perhaps help you talk about this in a way that is aligned so far
+
+You, Mar 26, 9:40 AM
+@Wangare Joan Thirimbu try to catch up as well by going through the thread
+
+Baba Oladimeji, Mar 26, 10:13 AM
+@Alemya Obed Alenyorige 
+
+
+What's the status of this project? Are we almost done with the migration to render and if not what are the blockers? Our target is to complete this migration this week so we can shutdown aws services to avoid paying aws subscription for next month.
+
+You, Mar 26, 10:16 AM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+What's the status of this project? Are we almost done with the migration to render and if not what are the blockers? Our target is to complete this migration this week so we can shutdown aws services to avoid paying aws subscription for next month.
+End Quote press L to link back to original quote
+@Baba Oladimeji i'd say 80%
+
+
+ currently the notification is one(which Mugisha is looking into) , and the deployments with workflows is another ( which i'm looking into)
+
+Baba Oladimeji, Mar 26, 10:18 AM
+Quoted
+Sent by You
+@Baba Oladimeji i'd say 80%
+
+ currently the notification is one(which Mugisha is looking into) , and the deployments with workflows is another ( which i'm looking into)
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] I think I get what you mean by notification
+
+
+2] I don't get what you mean by "deployments with workflows" can you please provide more context?
+
+You, Mar 26, 10:22 AM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] I think I get what you mean by notification
+
+2] I don't get what you mean by "deployments with workflows" can you please provide more context?
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+
+
+2] by deployment workflows, i mean the discussion we had earlier about having a controlled deployments to the various environments, that is STAG and then PROD
+
+Quoted
+Sent by You
+@Baba Oladimeji  
+
+Render PROD Migration Update:
+
+                                                       
+  Deployment Progress:
+  Services Deployed:
+  -  botai-prod - Running (Standard tier, $25/mo). Needed to rebuild with cache cleared option to resolve the issue i was facing
+  - be-app-prod - Deployed (Free tier, will update workflow to ping this as well)
+  - fe-web-prod - Deployed (Static Site, free)
+
+                                                              
+  Key Configuration Decisions:                                                                                            
+  - Auto-deploy: Disabled for prod services(open for discussion - prefer controlled deployments vs auto-push on main branch)
+  - Domain names: using default Render domains for now (botai-prod.onrender.com, be-app-prod.onrender.com, fe-web-prod.onrender.com). Custom domain for the fe-web will be configured later once we agree to finally move there. Because we already tested the custom domain configurations worked by doing that on STAG
+
+
+Testing Strategy:
+rather than testing prod directly, I'll update stag services to point to prod appropriately. This allows us to validate prod services through the familiar stag interface with our team. and in doing so i'll be fixing any issues that will come up.
+
+Deployment Flow Going Forward:
+Currently STAG uses the auto-deploy feature on render, which is fine, but it will be difficult to get updates to prod in a controlled manner since the feature doesn't allow for tagging.
+
+so my suggestion is, we need to create proper or similar deployment workflows (tag-based, manual triggers) for controlled deployments to stag and prod. This prevents accidental deployments and gives us control over what goes to which environment.
+
+
+i'd like to know your thoughts on this
+
+cc: @Mugisha Yves
+End Quote press L to link back to original quote
+@Baba Oladimeji specifically the Deployment Flow Going Forward: section from the submission i just tagged or quoted for this reply
+
+You, Mar 26, 2:12 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige thank you, let me go through them
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+
+
+
+
+Update: botai Render Deployment Workflows
+
+
+I've successfully implemented GitHub Actions workflows for deploying botai to Render, giving us the same control we had with AWS deployments.                  
+
+
+  Key Achievements:
+  - Push secrets from GitHub Actions → Render (no more manual dashboard setup)
+  - Deploy using specific commit hash via Render API
+  - Created workflows for both STAG and PROD
+
+
+  Deployment Flow:
+  - STAG: Deploy from main → Tag commit after successful deployment
+  - PROD: Deploy from tag's commit hash (specific version control) 
+
+
+  Files Created     
+  - .github/workflows/RENDER-botai-deploy-stag.yml
+  - .github/workflows/RENDER-botai-deploy-prod.yml   
+
+
+the files were prefixed this way so it's easily identifiable amongst the workflows... once the movement to render is done and the older workflows are deprecated we can rename appropriately if the we not like the current naming                                                                                                              
+                  
+  Next Steps:
+  - Disabling the auto-deploy feature for all the services
+  - Wangare will try and set up the remaining workflows for STAG
+  - While i proceed with that of PROD
+
+Mugisha Yves, Mar 26, 2:16 PM
+Quoted
+Sent by You
+i think that will help you know whether this is good or not or perhaps help you talk about this in a way that is aligned so far
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I've gone through the previous thread and found that we are currently running everything on free workspaces (Hobby plan). We only pay for Render subscriptions on specific services (like botai) when needed, otherwise we run them on the free tier, which has the spin-down limitation. Regarding Render webhooks, they are only available on paid workspaces, starting from the $19/month Professional plan.
+Since we need to send events to Google Chat via a GChat webhook, we will also need to host and deploy what Render calls a webhook receiver. This is basically a Node.js POST API route that receives and validates Render events (such as deployment failures or service downtime). In our case, the webhook receiver will also reformat the Render webhook payload into the format required by Google Chat and then forward it using the GChat webhook URL.
+The webhook receiver itself needs to be deployed. Even if we pay the $19/month workspace fee, we would still need to pay for running the webhook receiver service if we want it to stay active. Otherwise, if it runs on a free instance, it will spin down. When that happens, Render may send a webhook request while the service is asleep, which can fail due to a timeout. Render will retry sending the webhook, and if the service has spun back up by then, the event can still be received, although with some delay.
+That's the conclusion I reached from my findings.
+
+You, Mar 26, 2:26 PM, Edited
+@Wangare Joan Thirimbu now there are new workflow files for render and referencing those files i need you to create render deployment workflows for be-app and fe-web (STAG).
+
+
+
+
+
+
+i'll share the render service details and a screenshot of environment variables for be-app and fe-web shortly. Based on that information and your understanding, create similar render deployment workflows for both services for the STAG environment:
+
+
+  - .github/workflows/RENDER-be-app-deploy-stag.yml
+  - .github/workflows/RENDER-fe-web-deploy-stag.yml
+
+
+
+
+please use the github action secrets section, the older workflow and the image i'll be sharing to validate the variables and secrets that will be in the workflows with the image having the highest priority because those are the variable the services are using... so if you find a variable in in the image and it's not in the github action or the older workflow files, proceed to creating it with the appropriate value on github actions
+
+
+does that make sense?
+
+You, Mar 26, 2:31 PM
+ caution: when creating the workflow files, be thorough when validating variable and secret names. Double-check names against the GitHub Actions secrets section, the old workflow files, and the screenshots[highest priority] to ensure everything matches correctly. I'll send the details shortly.
+
+You, Mar 26, 2:34 PM, Edited
+be-app STAG
+
+
+service id: srv-d6t6u3vpm1nc739co33g
+RENDER_SERVICE_HEALTH_URL: https://be-app-stag.onrender.com/api/v4/health
+
+
+
+
+
+
+
+You, Mar 26, 2:39 PM, Edited
+fe-web STAG
+
+
+service id: srv-d6tdgf75r7bs73abdvcg
+RENDER_SERVICE_HEALTH_URL: https://render-learn.stag.amaspeak.app
+
+
+
+
+
+
+
+@Wangare Joan Thirimbu
+
+Wangare Joan Thirimbu, Mar 26, 2:59 PM
+Quoted
+Sent by You
+@Wangare Joan Thirimbu now there are new workflow files for render and referencing those files i need you to create render deployment workflows for be-app and fe-web (STAG).
+
+
+
+i'll share the render service details and a screenshot of environment variables for be-app and fe-web shortly. Based on that information and your understanding, create similar render deployment workflows for both services for the STAG environment:
+
+  - .github/workflows/RENDER-be-app-deploy-stag.yml
+  - .github/workflows/RENDER-fe-web-deploy-stag.yml
+
+
+please use the github action secrets section, the older workflow and the image i'll be sharing to validate the variables and secrets that will be in the workflows with the image having the highest priority because those are the variable the services are using... so if you find a variable in in the image and it's not in the github action or the older workflow files, proceed to creating it with the appropriate value on github actions
+
+does that make sense?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Yes, it makes sense 👍
+
+
+I’ll compare them with the existing workflows and GitHub secrets, then create the STAG deployment workflows for both services, prioritising the values from the screenshot. If anything arises I will make sure to ask.
+
+You, Mar 26, 3:34 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige I've gone through the previous thread and found that we are currently running everything on free workspaces (Hobby plan). We only pay for Render subscriptions on specific services (like botai) when needed, otherwise we run them on the free tier, which has the spin-down limitation. Regarding Render webhooks, they are only available on paid workspaces, starting from the $19/month Professional plan.
+Since we need to send events to Google Chat via a GChat webhook, we will also need to host and deploy what Render calls a webhook receiver. This is basically a Node.js POST API route that receives and validates Render events (such as deployment failures or service downtime). In our case, the webhook receiver will also reformat the Render webhook payload into the format required by Google Chat and then forward it using the GChat webhook URL.
+The webhook receiver itself needs to be deployed. Even if we pay the $19/month workspace fee, we would still need to pay for running the webhook receiver service if we want it to stay active. Otherwise, if it runs on a free instance, it will spin down. When that happens, Render may send a webhook request while the service is asleep, which can fail due to a timeout. Render will retry sending the webhook, and if the service has spun back up by then, the event can still be received, although with some delay.
+That's the conclusion I reached from my findings.
+End Quote press L to link back to original quote
+@Mugisha Yves currently it's build errors we receive via email... do you think we can receive service down mails as well
+
+
+can you look into that option?
+
+Mugisha Yves, Mar 26, 3:34 PM
+Quoted
+Sent by You
+@Mugisha Yves currently it's build errors we receive via email... do you think we can receive service down mails as well
+
+can you look into that option?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Let me look in that as well.
+
+Mugisha Yves, Mar 26, 4:01 PM, Edited
+@Alemya Obed Alenyorige I found that, Render email notifications, when set on "only failure notification", It will send deployment failure and service become unhealthy and so forth while it will send more diferent events when it is set to "all notifications". I have attached some images so you can see all supported notification on email option.
+
+
+
+
+
+
+
+
+
+
+You, Mar 26, 4:10 PM
+Quoted
+
+
+Sent by Mugisha Yves
+2
+
+
+
+
+@Alemya Obed Alenyorige I found that, Render email notifications, when set only failure notification, It will send deployment failure and service become unhealthy and so forth while it will send more diferent events when it is sent to all notifications. I have attached some images tso you can see all supported notification on email option.
+End Quote press L to link back to original quote
+@Mugisha Yves i don’t get you
+
+Mugisha Yves, Mar 26, 4:14 PM, Edited
+Quoted
+Sent by You
+@Mugisha Yves i don’t get you
+End Quote press L to link back to original quote
+By default render email notification send 
+A service build or deploy fails,
+A Docker Image pull fails,
+A con job execution fails,
+A one-off job execution fails,
+A running service becomes unhealthy(service downs).
+when email notification is configured to "Only failure notifications option".
+and it can also send those event along with this:
+A deploy successfully goes live,
+An unhealthy service becomes healthy(service ups),
+when email notification is configured "All notifications" option.
+
+Mugisha Yves, Mar 26, 4:19 PM
+Quoted
+
+
+Sent by Mugisha Yves
+By default render email notification send 
+A service build or deploy fails,
+A Docker Image pull fails,
+A con job execution fails,
+A one-off job execution fails,
+A running service becomes unhealthy(service downs).
+when email notification is configured to "Only failure notifications option".
+and it can also send those event along with this:
+A deploy successfully goes live,
+An unhealthy service becomes healthy(service ups),
+when email notification is configured "All notifications" option.
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige
+
+You, Mar 26, 4:22 PM
+Quoted
+
+
+Sent by Mugisha Yves
+By default render email notification send 
+A service build or deploy fails,
+A Docker Image pull fails,
+A con job execution fails,
+A one-off job execution fails,
+A running service becomes unhealthy(service downs).
+when email notification is configured to "Only failure notifications option".
+and it can also send those event along with this:
+A deploy successfully goes live,
+An unhealthy service becomes healthy(service ups),
+when email notification is configured "All notifications" option.
+End Quote press L to link back to original quote
+@Mugisha Yves ah i see
+
+Wangare Joan Thirimbu, Mar 26, 4:25 PM, Edited
+@Alemya Obed Alenyorige 
+
+
+question: 
+i have checked the secrets and variables carefully and noted CURRENT_USER_PHASE_STAG is missing so i added it to variables and value is set at alpha-1.0. this is okay right?
+
+You, Mar 26, 4:27 PM, Edited
+Quoted
+
+
+Sent by Wangare Joan Thirimbu
+@Alemya Obed Alenyorige 
+
+question: i have checked the keys and variables and noted CURRENT_USER_PHASE_STAG is missing so i added it to variables and value is set at alpha-1.0. this is okay right?
+End Quote press L to link back to original quote
+@Wangare Joan Thirimbu i think both prod and will use it so you can drop the _STAG 
+
+
+
+
+also i think it should be 2.0 because from the website we are at 2.0
+
+Quoted
+Sent by You
+@Wangare Joan Thirimbu i think both prod and will use it so you can drop the _STAG 
+
+
+also i think it should be 2.0 because from the website we are at 2.0
+End Quote press L to link back to original quote
+@Wangare Joan Thirimbu and yes add it
+
+Wangare Joan Thirimbu, Mar 26, 4:28 PM
+@Alemya Obed Alenyorige Alright 👍
+
+You, Mar 26, 4:31 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige
+End Quote press L to link back to original quote
+@Mugisha Yves 
+
+
+given the information 
+i think we’d have to rely on the email in some way while updating the workflow files for deployment alerts
+
+
+because it was to cut down cost that was why we have two workspaces and they’re both on the hobby plan 
+
+
+
+
+or what do you think
+
+Mugisha Yves, Mar 26, 4:32 PM
+Quoted
+Sent by You
+@Mugisha Yves 
+
+given the information 
+i think we’d have to rely on the email in some way while updating the workflow files for deployment alerts
+
+because it was to cut down cost that was why we have two workspaces and they’re both on the hobby plan 
+
+
+or what do you think
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I agree with you and it makes sense
+
+Wangare Joan Thirimbu, Mar 26, 4:44 PM
+@Alemya Obed Alenyorige 
+
+
+Here is the PR link for review: https://github.com/amazethu/amazethu/pull/2211
+
+
+@Mugisha Yves
+
+Mugisha Yves, Mar 26, 5:48 PM
+@Alemya Obed Alenyorige 
+To wrap up the findings, my understanding is that I should send a message explaining both options: the webhook option and the email notification option and that would then consider using the email notification option since it does not cost anything or  If you meant something else, please let me know. Regarding updating the workspaces to use email notifications, I checked and found that all workspaces already have email notifications enabled and set to failure notifications (deployment failures and service downtime). So it looks like everything is already configured. What do you think?
+
+You, Mar 27, 8:14 AM
+Quoted
+
+
+Sent by Wangare Joan Thirimbu
+@Alemya Obed Alenyorige 
+
+Here is the PR link for review: https://github.com/amazethu/amazethu/pull/2211
+
+@Mugisha Yves
+End Quote press L to link back to original quote
+@Wangare Joan Thirimbu left some comments
+
+You, Mar 27, 8:32 AM
+@Wangare Joan Thirimbu i've also made some changes to the initial files, so you can have a look
+
+
+and also have a look at the new files, since the stag version will mostly look similar but not same
+
+Wangare Joan Thirimbu, Mar 27, 8:39 AM
+@Alemya Obed Alenyorige  okay 🤝
+
+You, Mar 27, 8:46 AM, Edited
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige 
+To wrap up the findings, my understanding is that I should send a message explaining both options: the webhook option and the email notification option and that would then consider using the email notification option since it does not cost anything or  If you meant something else, please let me know. Regarding updating the workspaces to use email notifications, I checked and found that all workspaces already have email notifications enabled and set to failure notifications (deployment failures and service downtime). So it looks like everything is already configured. What do you think?
+End Quote press L to link back to original quote
+@Mugisha Yves i think that's fine
+
+
+
+
+@Baba Oladimeji for notifications, we explored two options:
+
+
+1. Webhooks: Google Chat (paid, requires $19/mo workspace upgrade + hosting a webhook receiver)
+2. Email notifications + setting up alerts in the worflow files during deployment failure (free, just that we'd need to be checking the dev mail frequently)
+
+
+
+
+we're going with email notifications since they're free and cover what we need:
+ - Deployment failures
+ - Service downtime
+ - Build failures
+
+
+let me know if you have any thoughts
+
+You, Mar 27, 8:48 AM
+@Mugisha Yves you can configure the email notifications settings appropriately based on this, and also updating the new workflows... remember to turn off the auto deploy features for any of the service if on
+
+Mugisha Yves, Mar 27, 9:11 AM, Edited
+Quoted
+Sent by You
+@Mugisha Yves you can configure the email notifications settings appropriately based on this, and also updating the new workflows... remember to turn off the auto deploy features for any of the service if on
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I've configured Render email service notification to "All Notfications" on workspace level, so we can receive all services builds failure, deployment failures, service down plus successfully deployments and service up. and i have ensured that all services on STA and PROD, Auto Deploy is disabled.
+
+You, Mar 27, 10:04 AM
+@Mugisha Yves @Baba Oladimeji @Wanderi Rowland Mwangi @Wangare Joan Thirimbu  scheduled a presentation for today... hope you the notification
+
+You, Mar 27, 10:05 AM, Edited
+@Wangare Joan Thirimbu @Mugisha Yves we'd be testing out the workflows once they are ready
+
+You, Mar 27, 10:22 AM
+@Wangare Joan Thirimbu we labeled them that way because prod and stag have different config... however the fe-web requires a REACT_APP_FIREBASE_CONFIG variable regardless of whether it's prod or stag... what we have on github actions is to help us differentiate
+
+
+in the file however, when you continue further, you'd see the value is then mapped appropriately... eg
+
+
+the REACT_APP_FIREBASE_CONFIG_PROD would be used in setting the REACT_APP_FIREBASE_CONFIG value in the prod workflow whereas REACT_APP_FIREBASE_CONFIG_STAG would be used in setting the REACT_APP_FIREBASE_CONFIG in the stag workflow
+
+Wangare Joan Thirimbu, Mar 27, 10:38 AM, Edited
+Quoted
+Sent by You
+@Wangare Joan Thirimbu we labeled them that way because prod and stag have different config... however the fe-web requires a REACT_APP_FIREBASE_CONFIG variable regardless of whether it's prod or stag... what we have on github actions is to help us differentiate
+
+in the file however, when you continue further, you'd see the value is then mapped appropriately... eg
+
+the REACT_APP_FIREBASE_CONFIG_PROD would be used in setting the REACT_APP_FIREBASE_CONFIG value in the prod workflow whereas REACT_APP_FIREBASE_CONFIG_STAG would be used in setting the REACT_APP_FIREBASE_CONFIG in the stag workflow
+End Quote press L to link back to original quote
+now that I think of it I have no idea why i deleted the question I asked🤦... here is a rewrite for reference
+
+
+I have noticed you are using REACT_APP_FIREBASE_CONFIG_PROD in prod where in the screenshot it's REACT_APP_FIREBASE_CONFIG. which one should i use when updating stag? they are all in the actions secrets
+
+
+
+
+
+
+
+@Alemya Obed Alenyorige PR is updated
+
+Baba Oladimeji, Mar 27, 10:43 AM
+Quoted
+
+
+Sent by Wangare Joan Thirimbu
+
+
+
+
+now that I think of it I have no idea why i deleted the question I asked🤦... here is a rewrite for reference
+
+I have noticed you are using REACT_APP_FIREBASE_CONFIG_PROD in prod where in the screenshot it's REACT_APP_FIREBASE_CONFIG. which one should i use when updating stag? they are all in the actions secrets
+End Quote press L to link back to original quote
+@Wangare Joan Thirimbu 
+
+
+no question is a bad question as long as it is sincere.
+
+
+good job taking accountability and adding it back, positive sign.
+
+Wangare Joan Thirimbu, Mar 27, 10:45 AM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Wangare Joan Thirimbu 
+
+no question is a bad question as long as it is sincere.
+
+good job taking accountability and adding it back, positive sign.
+End Quote press L to link back to original quote
+@Baba Oladimeji Thank you 🙏
+
+You, Mar 27, 10:55 AM
+@Wangare Joan Thirimbu left some comments... the mongo uri variable naming
+
+Wangare Joan Thirimbu, Mar 27, 11:37 AM, Edited
+@Alemya Obed Alenyorige 
+
+
+for this comment I'm not sure captured what you mean. are you referencing CURRENT_USER_PHASE and MONGO_URI_STAG update i need to do or something else?
+
+
+
+
+
+
+
+You, Mar 27, 11:40 AM
+for this i was refereing to the mongo uri... but the current user phase needs updating is you havent already @Wangare Joan Thirimbu but this was ment for the mongo uri
+
+Wangare Joan Thirimbu, Mar 27, 11:44 AM
+@Alemya Obed Alenyorige PR updated
+
+You, Mar 27, 12:43 PM
+Quoted
+
+
+Sent by Wangare Joan Thirimbu
+@Alemya Obed Alenyorige PR updated
+End Quote press L to link back to original quote
+@Wangare Joan Thirimbu  No PROD_LANDING_PAGE_URL, PROD_WEBAPP_URL  for the fe-web
+
+Wangare Joan Thirimbu, Mar 27, 1:10 PM
+Quoted
+Sent by You
+@Wangare Joan Thirimbu  No PROD_LANDING_PAGE_URL, PROD_WEBAPP_URL  for the fe-web
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I have tried looking at the files, screenshots and what's on prod but i'm not sure what you mean in this two comments
+
+
+
+
+
+
+
+You, Mar 27, 1:11 PM
+@Wangare Joan Thirimbu i mean the urls i tag you here
+
+Quoted
+Sent by You
+@Wangare Joan Thirimbu  No PROD_LANDING_PAGE_URL, PROD_WEBAPP_URL  for the fe-web
+End Quote press L to link back to original quote
+@Wangare Joan Thirimbu these
+
+Wangare Joan Thirimbu, Mar 27, 1:14 PM, Edited
+@Alemya Obed Alenyorige 
+
+
+ahh... i was reading them as unrelated comments thanks for the clarification. PR updated.
+
+You, Mar 27, 1:17 PM
+@Wangare Joan Thirimbu can you rebase?
+
+Wangare Joan Thirimbu, Mar 27, 1:17 PM
+Quoted
+Sent by You
+@Wangare Joan Thirimbu can you rebase?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+yes... are there conflicts?
+
+You, Mar 27, 1:18 PM
+Quoted
+
+
+Sent by Wangare Joan Thirimbu
+@Alemya Obed Alenyorige 
+
+yes... are there conflicts?
+End Quote press L to link back to original quote
+@Wangare Joan Thirimbu oh no, just helps me with the comparisons
+
+Wangare Joan Thirimbu, Mar 27, 1:20 PM
+oh okay @Alemya Obed Alenyorige
+
+You, Mar 27, 1:22 PM
+@Wangare Joan Thirimbu approved
+
+Wangare Joan Thirimbu, Mar 27, 1:25 PM
+Quoted
+Sent by You
+@Wangare Joan Thirimbu approved
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige PR merged cc. @Mugisha Yves
+
+You, Mar 27, 1:26 PM
+@Mugisha Yves can you try out the deployments to the stag environment…
+
+
+
+
+remember to update the serialized domains value on github actions… you can get the value from one of the services before deployment…
+
+
+also communicate any issues you encounter
+
+Mugisha Yves, Mar 27, 2:08 PM, Edited
+Quoted
+Sent by You
+@Mugisha Yves can you try out the deployments to the stag environment…
+
+
+remember to update the serialized domains value on github actions… you can get the value from one of the services before deployment…
+
+also communicate any issues you encounter
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Sorry, Alemya, just saw the message now, deployment will be on On render or aws?
+
+You, Mar 27, 2:59 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige Sorry, Alemya, just saw the message now, deployment will be on On render or aws?
+End Quote press L to link back to original quote
+@Mugisha Yves render... the new workflow files
+
+i think the urls for the prod web app variable on github actions will need to be updated as well @Mugisha Yves
+
+Mugisha Yves, Mar 27, 5:03 PM
+@Alemya Obed Alenyorige The deployment for botai run successful, but be-app failed with this syntax error. do you know why....
+
+
+
+
+
+
+
+You, Mar 27, 5:04 PM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige The deployment for botai run successful, but be-app failed with this syntax error. do you know why....
+End Quote press L to link back to original quote
+@Mugisha Yves it could be from the file itself... let me check
+
+Mugisha Yves, Mar 27, 5:05 PM
+Quoted
+Sent by You
+@Mugisha Yves it could be from the file itself... let me check
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige okay..
+
+You, Mar 27, 5:05 PM
+@Mugisha Yves what of the fe-web?
+
+Mugisha Yves, Mar 27, 5:06 PM
+Quoted
+Sent by You
+@Mugisha Yves what of the fe-web?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige It's still deploying
+
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige It's still deploying
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige It is failing as well
+
+
+
+
+
+
+
+You, Mar 27, 5:43 PM
+@Mugisha Yves the two issues fixed
+
+Mugisha Yves, Mar 27, 5:45 PM
+Quoted
+Sent by You
+@Mugisha Yves the two issues fixed
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Let me re-run the github workflow file. I think i will be using new tag, right?
+
+You, Mar 27, 5:45 PM
+@Mugisha Yves  yes
+
+Mugisha Yves, Mar 27, 5:50 PM
+@Alemya Obed Alenyorige It is still failing,
+
+
+
+
+
+
+
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige It is still failing,
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige it's be-app
+
+Mugisha Yves, Mar 27, 5:53 PM
+@Alemya Obed Alenyorige botai deployed successfully
+
+@Alemya Obed Alenyorige fe-web deployment went through as well
+
+You, Mar 27, 5:56 PM
+can you confirm the environment variables on the service were set well?
+
+Mugisha Yves, Mar 27, 6:05 PM
+@Alemya Obed Alenyorige RENDER_SERVICE_ID env is set correctly in the workflow, the issues like syntx error ,          Run echo "Updating environment variables for Render service: $RENDER_SERVICE_ID"
+Updating environment variables for Render service: srv-d6t6u3vpm1nc739co33g
+/home/runner/work/_temp/0ad4946e-4c3f-4911-b37b-80fafb024f56.sh: line 10: syntax error near unexpected token `('
+Error: Process completed with exit code 2.
+
+You, Mar 27, 6:06 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige RENDER_SERVICE_ID env is set correctly in the workflow, the issues like syntx error ,          Run echo "Updating environment variables for Render service: $RENDER_SERVICE_ID"
+Updating environment variables for Render service: srv-d6t6u3vpm1nc739co33g
+/home/runner/work/_temp/0ad4946e-4c3f-4911-b37b-80fafb024f56.sh: line 10: syntax error near unexpected token `('
+Error: Process completed with exit code 2.
+End Quote press L to link back to original quote
+for the feweb too? @Mugisha Yves
+
+Mugisha Yves, Mar 27, 6:06 PM
+Quoted
+Sent by You
+for the feweb too? @Mugisha Yves
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Fe-web deployment went through
+
+You, Mar 27, 6:07 PM
+Quoted
+Sent by You
+can you confirm the environment variables on the service were set well?
+End Quote press L to link back to original quote
+oh for this i meant the fe-web @Mugisha Yves
+
+check if the envs were set well on the service
+
+Mugisha Yves, Mar 27, 6:07 PM
+Quoted
+Sent by You
+oh for this i meant the fe-web @Mugisha Yves
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Okay!
+
+Quoted
+Sent by You
+check if the envs were set well on the service
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige On be-app ?
+
+You, Mar 27, 6:08 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige On be-app ?
+End Quote press L to link back to original quote
+noo @Wangare Joan Thirimbu fe-web
+
+i’m working on the beapp updates
+
+Wangare Joan Thirimbu, Mar 27, 6:10 PM
+Quoted
+Sent by You
+noo @Wangare Joan Thirimbu fe-web
+End Quote press L to link back to original quote
+@Mugisha Yves I believe this is for you
+
+You, Mar 27, 6:12 PM
+Quoted
+Sent by You
+noo @Wangare Joan Thirimbu fe-web
+End Quote press L to link back to original quote
+@Mugisha Yves this was for you
+
+@Mugisha Yves updates made to the  workflow file you can try again
+
+Mugisha Yves, Mar 27, 6:13 PM
+Quoted
+Sent by You
+noo @Wangare Joan Thirimbu fe-web
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige But fe-web deployment run successfully, and i will go and confirm env variables for it, right ?
+
+Quoted
+Sent by You
+@Mugisha Yves updates made to the  workflow file you can try again
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige okay!
+
+You, Mar 27, 6:14 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige But fe-web deployment run successfully, and i will go and confirm env variables for it, right ?
+End Quote press L to link back to original quote
+@Wangare Joan Thirimbu yes
+
+Wangare Joan Thirimbu, Mar 27, 6:15 PM
+@Alemya Obed Alenyorige 😅
+
+You, Mar 27, 6:18 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige But fe-web deployment run successfully, and i will go and confirm env variables for it, right ?
+End Quote press L to link back to original quote
+@Mugisha Yves yes
+
+Mugisha Yves, Mar 27, 6:23 PM
+@Alemya Obed Alenyorige all services were deployed successfully!
+
+@Alemya Obed Alenyorige about confirming envs... on fe-web, I have forgot to take screenshots of the first envs... so guest i will find and way to confirm that
+
+You, Mar 27, 6:25 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige about confirming envs... on fe-web, I have forgot to take screenshots of the first envs... so guest i will find and way to confirm that
+End Quote press L to link back to original quote
+@Mugisha Yves thats fine just confirm the urls like the api urls in the fe web and the web app urls match that in render
+
+Mugisha Yves, Mar 27, 6:46 PM
+@Alemya Obed Alenyorige In fe-web i can see the APP_SERVER_URL is set to https://api.learn.stag.amaspeak.app, is this correct ? I think is should be the render be-app url
+
+You, Mar 27, 6:46 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige In fe-web i can see the APP_SERVER_URL is set to https://api.learn.stag.amaspeak.app, is this correct ? I think is should be the render be-app url
+End Quote press L to link back to original quote
+yess @Mugisha Yves
+
+the stag url for the be-app service
+
+Mugisha Yves, Mar 27, 6:47 PM
+Quoted
+Sent by You
+yess @Mugisha Yves
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I am going to update it in render env dashbaord
+
+You, Mar 27, 6:51 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige I am going to update it in render env dashbaord
+End Quote press L to link back to original quote
+@Mugisha Yves github secrets needs to be updated instead else a deployment will use what you just found
+
+Mugisha Yves, Mar 27, 6:56 PM
+Quoted
+Sent by You
+@Mugisha Yves github secrets needs to be updated instead else a deployment will use what you just found
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige right, let me do that..
+
+Mugisha Yves, Mar 27, 7:07 PM
+@Alemya Obed Alenyorige I ahve updated it , I will go ahead and redeploy
+
+You, Mar 27, 7:17 PM
+@Mugisha Yves if the service doesn’t go through we can verify later… at least  we can say the workflows are okay…
+
+we just need proper environment variables update
+
+Mugisha Yves, Mar 27, 7:18 PM
+@Alemya Obed Alenyorige yesm i was going to ask you if the bot api url is correct http://botai-stag:5000
+
+or it will need the updates as well
+
+You, Mar 27, 7:19 PM, Edited
+it’s correct
+
+@Mugisha Yves
+
+Mugisha Yves, Mar 27, 7:21 PM
+@Alemya Obed Alenyorige Okay, let me redeploy then
+
+Mugisha Yves, Mar 27, 7:37 PM
+@Alemya Obed Alenyorige The serveices were deployed successfully after env updates
+
+Mugisha Yves, Mar 27, 7:55 PM
+@Alemya Obed Alenyorige I will do manual QA on monday!
+
+Mugisha Yves, Mar 30, 11:30 AM
+@Alemya Obed Alenyorige I opened fe-web stag on render and I am getting this issues, it seems like it is failing to perse FIREBASE_CONFIG value, do you have any idea of why it is happening?
+
+
+
+
+
+
+
+You, Mar 30, 11:32 AM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige I opened fe-web stag on render and I am getting this issues, it seems like it is failing to perse FIREBASE_CONFIG value, do you have any idea of why it is happening?
+End Quote press L to link back to original quote
+can you confirm the value on the service on render vs that on aws for the fe-web @Mugisha Yves
+
+i think it could be a quotes issue in the json but just confirm... @Mugisha Yves
+
+Mugisha Yves, Mar 30, 11:36 AM
+@Alemya Obed Alenyorige the one on render, property:value in {}, aren't quoted. while it is quoted on aws
+
+You, Mar 30, 11:46 AM
+@Mugisha Yves can you check for that of the be-app too?
+
+i think it has a similar variable and if i need to update the flow for that as well
+
+Mugisha Yves, Mar 30, 11:50 AM
+Quoted
+Sent by You
+@Mugisha Yves can you check for that of the be-app too?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige for be-app, FIREBASE_CREDENTIALS on render is the same as aws one, their property:value in {}, are quoted.
+
+You, Mar 30, 12:54 PM
+@Mugisha Yves updates made... quickly attempt the fe-web deployment first and lets see... if that resolves the issue
+
+Mugisha Yves, Mar 30, 1:07 PM
+@Alemya Obed Alenyorige fe-web deployment made successfully and the issues got fixed. I am going ahead and deploy other services as well.
+
+You, Mar 30, 1:23 PM
+@Mugisha Yves you need to update this value on github actions: REACT_APP_PROD_AMASPEAK_WEBAPP_URL
+
+it should be the current url for prod on render, so you can test the stag to prod navigation...
+
+Mugisha Yves, Mar 30, 2:04 PM
+@Alemya Obed Alenyorige I have I updated the REACT_APP_PROD_AMASPEAK_WEBAPP_URL and deployed all services successfully. and i will proceed by doing manual QA
+
+Mugisha Yves, Mar 30, 3:48 PM
+@Alemya Obed Alenyorige I am done with manual QA on STAG, on render, and i have documented everything in app release document.
+
+You, Mar 30, 3:52 PM
+@Mugisha Yves i think it looks good...
+
+
+
+
+i think we can try out the prod version as well...
+
+Mugisha Yves, Mar 30, 3:53 PM
+Quoted
+Sent by You
+@Mugisha Yves i think it looks good...
+
+
+i think we can try out the prod version as well...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Okay, I will go ahead and confirm env for prod as well and then go ahead and do deployment...
+
+You, Mar 30, 3:56 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige I am done with manual QA on STAG, on render, and i have documented everything in app release document.
+End Quote press L to link back to original quote
+cc: @Wangare Joan Thirimbu check the current qa for stag, i think Mugisha captured some UI stuff... just incase
+
+Wangare Joan Thirimbu, Mar 30, 3:59 PM
+@Mugisha Yves any typography related issues you have notice?
+
+Mugisha Yves, Mar 30, 4:00 PM
+Quoted
+
+
+Sent by Wangare Joan Thirimbu
+@Mugisha Yves any typography related issues you have notice?
+End Quote press L to link back to original quote
+@Wangare Joan Thirimbu No. i didn't
+
+You, Mar 30, 4:40 PM
+@Mugisha Yves i think the variable needed to be updated is the serialized domain... i'll proceed to performing the deployments... and you can pickup later
+
+Mugisha Yves, Mar 30, 4:50 PM
+Quoted
+Sent by You
+@Mugisha Yves i think the variable needed to be updated is the serialized domain... i'll proceed to performing the deployments... and you can pickup later
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I am back...
+
+You, Mar 30, 4:57 PM
+@Mugisha Yves i'm deploying the fe-web... once that's done i'll ping you
+
+You, Mar 30, 5:15 PM
+@Mugisha Yves deployments done
+
+Mugisha Yves, Mar 30, 5:19 PM
+Quoted
+Sent by You
+@Mugisha Yves deployments done
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige So I will proceed with manual QA...
+
+Mugisha Yves, Mar 30, 6:35 PM
+@Alemya Obed Alenyorige Manual QA on Prod render is done
+
+You, Mar 30, 10:12 PM
+@Baba Oladimeji the workflow files look good so far
+
+
+
+
+so next if it's okay with you, we'll work on moving the domains that's stag and prod to the services on render while we disconnect it from aws... and then we suspend the services on aws
+
+
+cc: @Mugisha Yves
+
+Baba Oladimeji, Mar 30, 10:13 PM
+Quoted
+Sent by You
+@Baba Oladimeji the workflow files look good so far
+
+
+so next if it's okay with you, we'll work on moving the domains that's stag and prod to the services on render while we disconnect it from aws... and then we suspend the services on aws
+
+cc: @Mugisha Yves
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Sounds good.
+
+
+We have one more day guys before we get billed
+
+Mugisha Yves, Mar 31, 10:17 AM
+@Alemya Obed Alenyorige
+I have connected the learn.stag.amaspeak.app domain to fe-web-stag.onrender.com and learn.amaspeak.app to fe-web-prod.onrender.com. Currently, learn.amaspeak.app (the production domain) is verified and SSL encryption has been issued. Meanwhile, learn.stag.amaspeak.app (the staging domain) is verified, but SSL encryption is still pending.
+I also updated the REACT_APP_PROD_AMASPEAK_WEBAPP_URL environment variable to the newly connected domain, and I am planning to deploy the services so the change can take effect. While reviewing the configuration, I found that the current serialized frontend URLs environment variable already includes the newly connected domain, so I did not make any changes there.
+I will now proceed with deploying the services.
+
+You, Mar 31, 10:21 AM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige
+I have connected the learn.stag.amaspeak.app domain to fe-web-stag.onrender.com and learn.amaspeak.app to fe-web-prod.onrender.com. Currently, learn.amaspeak.app (the production domain) is verified and SSL encryption has been issued. Meanwhile, learn.stag.amaspeak.app (the staging domain) is verified, but SSL encryption is still pending.
+I also updated the REACT_APP_PROD_AMASPEAK_WEBAPP_URL environment variable to the newly connected domain, and I am planning to deploy the services so the change can take effect. While reviewing the configuration, I found that the current serialized frontend URLs environment variable already includes the newly connected domain, so I did not make any changes there.
+I will now proceed with deploying the services.
+End Quote press L to link back to original quote
+@Mugisha Yves yes the serialized already includes the domain but new ones were included and there are older ones 
+
+
+that’s what needs updating or cleaning up
+
+Mugisha Yves, Mar 31, 10:26 AM
+Quoted
+Sent by You
+@Mugisha Yves yes the serialized already includes the domain but new ones were included and there are older ones 
+
+that’s what needs updating or cleaning up
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Okay, already initiated deployment to STAG, but when it's done i will be cleaning up things. so since we no long be using subdomains on backend url, i will go ahead and clean up all Aws dns record in squarespace..
+
+Mugisha Yves, Mar 31, 10:37 AM
+@Alemya Obed Alenyorige Alemya we need to update render deploy fe-web stag, to update health url.
+
+
+
+
+
+
+
+
+
+
+You, Mar 31, 10:38 AM
+Quoted
+
+
+Sent by Mugisha Yves
+2
+
+
+
+
+@Alemya Obed Alenyorige Alemya we need to update render deploy fe-web stag, to update health url.
+End Quote press L to link back to original quote
+@Mugisha Yves you’re right
+
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige Okay, already initiated deployment to STAG, but when it's done i will be cleaning up things. so since we no long be using subdomains on backend url, i will go ahead and clean up all Aws dns record in squarespace..
+End Quote press L to link back to original quote
+@Baba Oladimeji just the backends urls on squarespace not everything
+
+Mugisha Yves, Mar 31, 10:40 AM
+Quoted
+Sent by You
+@Mugisha Yves you’re right
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I have cancelled the fe-web deployment, so we can fix the workflow files. I will go ahead and update it and let you know!
+
+Mugisha Yves, Mar 31, 10:47 AM
+@Alemya Obed Alenyorige here is the PR https://github.com/amazethu/amazethu/pull/2220
+
+You, Mar 31, 10:56 AM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige here is the PR https://github.com/amazethu/amazethu/pull/2220
+End Quote press L to link back to original quote
+@Mugisha Yves approved
+
+Mugisha Yves, Mar 31, 11:22 AM
+@Alemya Obed Alenyorige I guess, we'll be waiting the stag domain to resolve globally and get ssl certificate issued.
+
+
+
+
+
+
+
+You, Mar 31, 11:24 AM
+@Mugisha Yves the stag version is not issued yet?
+
+Mugisha Yves, Mar 31, 11:26 AM
+Quoted
+Sent by You
+@Mugisha Yves the stag version is not issued yet?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Certificate is still pending...
+
+You, Mar 31, 11:28 AM
+@Mugisha Yves can you confirm the url and the setup on squarespace? for stag?
+
+Mugisha Yves, Mar 31, 11:29 AM
+Quoted
+Sent by You
+@Mugisha Yves can you confirm the url and the setup on squarespace? for stag?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige
+
+
+
+
+
+
+
+You, Mar 31, 11:40 AM
+@Mugisha Yves i think it's been issue now
+
+can you check again?
+
+Mugisha Yves, Mar 31, 11:42 AM
+Quoted
+Sent by You
+@Mugisha Yves i think it's been issue now
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige yes it was issued, now. alemya did you fixed anything or it was just matter of time??
+
+You, Mar 31, 11:43 AM
+@Mugisha Yves  time
+
+Mugisha Yves, Mar 31, 11:44 AM
+Quoted
+Sent by You
+@Mugisha Yves the stag version is not issued yet?
+End Quote press L to link back to original quote
+@Alemya Obed AlenyorigeI will be re-deploying fe-web then....
+
+Mugisha Yves, Mar 31, 11:53 AM
+@Alemya Obed Alenyorige All services on stagging were deployed successfully.
+
+Mugisha Yves, Mar 31, 12:11 PM
+@Alemya Obed Alenyorige I'll be testing things out before i make deployment to PROD
+
+You, Mar 31, 12:14 PM
+@Mugisha Yves please be quick about it, since this was mostly the workflow files updates
+
+
+
+
+we need to see this through and suspend the other services... is that fine
+
+Mugisha Yves, Mar 31, 12:15 PM
+Quoted
+Sent by You
+@Mugisha Yves please be quick about it, since this was mostly the workflow files updates
+
+
+we need to see this through and suspend the other services... is that fine
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige yes, I am now going to initiate PROD deployment
+
+Mugisha Yves, Mar 31, 12:48 PM
+@Alemya Obed Alenyorige Deployment to prod was made successfully.
+
+Mugisha Yves, Mar 31, 12:53 PM
+@Alemya Obed Alenyorige I think you can shutdown aws and I am going to clean up serialised frontend url and dns records at squarespace
+
+You, Mar 31, 12:57 PM
+@Mugisha Yves for the dns records just the backends
+
+Mugisha Yves, Mar 31, 1:11 PM
+@Alemya Obed Alenyorige After cleaning up serialised frontend values, I think this it. [
+  "https://learn\\.staging\\.amazethu\\.com",
+  "https://learn\\.stag\\.amaspeak\\.app"
+]
+
+You, Mar 31, 1:12 PM, Edited
+i think the second one only
+
+@Mugisha Yves
+
+Mugisha Yves, Mar 31, 1:13 PM
+Quoted
+Sent by You
+i think the second one only@Mugisha Yves
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige yeah, because we no longer use the amazethu domain
+
+@Alemya Obed Alenyorige I 'll be updating that and then do redeproyment, and increment deployment version to 3.7
+
+You, Mar 31, 1:16 PM
+yeahh @Mugisha Yves actually you’ve drawn my attention to something, the redirects we did the last time we were moving from amazethudotcom to amaspeakdotapp… check if it’s possible to do the same thing with render… if you check amplify, you’d see we do a redirect or something similar check it out and let me know what you find
+
+Mugisha Yves, Mar 31, 1:24 PM
+Quoted
+Sent by You
+yeahh @Mugisha Yves actually you’ve drawn my attention to something, the redirects we did the last time we were moving from amazethudotcom to amaspeakdotapp… check if it’s possible to do the same thing with render… if you check amplify, you’d see we do a redirect or something similar check it out and let me know what you find
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Yes! Let me check!
+
+Mugisha Yves, Mar 31, 2:01 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige I 'll be updating that and then do redeproyment, and increment deployment version to 3.7
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige the fe-web failed to deploy due this error, It seems to be cache issues. I am going to deploy again, if persistence, we would into handling the cache or what do you think?
+
+
+
+
+
+
+
+You, Mar 31, 2:02 PM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige the fe-web failed to deploy due this error, It seems to be cache issues. I am going to deploy again, if persistence, we would into handling the cache or what do you think?
+End Quote press L to link back to original quote
+@Mugisha Yves Okay... how many times has this happened?
+
+Mugisha Yves, Mar 31, 2:02 PM
+Quoted
+Sent by You
+@Mugisha Yves Okay... how many times has this happened?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Only this time!
+
+Mugisha Yves, Mar 31, 2:20 PM
+@Alemya Obed Alenyorige I am trying to cancel the workflow since the fe-web failed and it's not being cancelled. i don't know why?
+
+
+
+
+
+
+
+Mugisha Yves, Mar 31, 2:24 PM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige I am trying to cancel the workflow since the fe-web failed and it's not being cancelled. i don't know why?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige ah, It got cancelled now!
+
+Mugisha Yves, Mar 31, 2:40 PM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige the fe-web failed to deploy due this error, It seems to be cache issues. I am going to deploy again, if persistence, we would into handling the cache or what do you think?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige fe-web deployed successfully, and all other services. I'll proceed by making deployment to PROD.
+
+You, Mar 31, 2:40 PM, Edited
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige I am trying to cancel the workflow since the fe-web failed and it's not being cancelled. i don't know why?
+End Quote press L to link back to original quote
+  @Baba Oladimeji 
+
+
+AWS Billing Cleanup Update:                                                                                                                  
+
+
+  What I've done:                                                                                                                             
+  • Stopped ECS services
+  • Disconnected CloudWatch Container Insights logging
+  • Deleted prod ECR images and left just lastest one. For stag i wanted to do same but i couldn't because my account didn't have enough permission)
+
+
+
+
+
+
+  Key finding: i attempted to pause amplify but all i could find was that, to stop billing i'd need to delete the service or project on amplify. Then i further found that for most of the services, "Stopping" services does not explicitly mean stopping billing. Most AWS services (Amplify, NAT Gateway, ECR, S3, API Gateway) require DELETION to halt
+  charges, not just suspension.
+
+
+
+
+i'd like your thoughts on this, because the options available are:
+  1. Delete each service individually
+  2. Close the AWS account - everything stops automatically, 90-day window to reopen if needed
+
+
+ i think option 2 would be the preferred approach because, according to AWS docs, when you reopen within 90 days:
+  - services/resources remain intact...they're NOT deleted until after 90 days
+  - everything continues from where we left them... no reconfiguration needed
+  - billing restarts immediately for all resources that were there
+
+Baba Oladimeji, Mar 31, 2:48 PM
+Quoted
+Sent by You
+  @Baba Oladimeji 
+
+AWS Billing Cleanup Update:                                                                                                                  
+
+  What I've done:                                                                                                                             
+  • Stopped ECS services
+  • Disconnected CloudWatch Container Insights logging
+  • Deleted prod ECR images and left just lastest one. For stag i wanted to do same but i couldn't because my account didn't have enough permission)
+
+
+
+  Key finding: i attempted to pause amplify but all i could find was that, to stop billing i'd need to delete the service or project on amplify. Then i further found that for most of the services, "Stopping" services does not explicitly mean stopping billing. Most AWS services (Amplify, NAT Gateway, ECR, S3, API Gateway) require DELETION to halt
+  charges, not just suspension.
+
+
+i'd like your thoughts on this, because the options available are:
+  1. Delete each service individually but it doesn't guarantee the billing will stop
+  2. Close the AWS account - everything stops automatically, 90-day window to reopen if needed
+
+ I think option 2 would be the preferred approach
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] I have added your aws account to the admin group so you should have more permissions to do stuff now
+
+
+2] what do you mean by closing the account? how will this impact us? are there any risks or cons of doing this?
+
+
+3] deleting each service individually seems less risky than closing the account right? since I am guessing it should be straight forward to create the service again.
+
+
+4] Is there not an option to pause or shutdown the service for a period of time to see how things go etc before deciding whether we want to delete the services or close the account?
+
+Mugisha Yves, Mar 31, 3:02 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige fe-web deployed successfully, and all other services. I'll proceed by making deployment to PROD.
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Deployment to PROD was made successfully.
+
+You, Mar 31, 3:06 PM
+@Baba Oladimeji 
+  
+1. noted
+
+
+2. Closing the account means:
+     - All services stop immediately, billing stops (except for usage up to that point)
+     - 90-day (3 months) window to reopen...everything stays as-is during this period
+     - After 90 days, AWS permanently deletes everything
+     - Risks: Can't create another AWS account with the same email during closure
+     - We'd still get a final bill for usage up to closure date... that is if we close today, everything stops, billing stops. April: Get one last bill (March usage). Next 90 days: Can reopen if needed, everything intact. After 90 days: Gone forever
+                                                                                                                                               
+  3. Yes, deleting individually is less risky because:
+     - Account stays active. 
+     - We can recreate services as needed
+     - More granular control
+     - However, setting them up again will be additional work
+
+
+  4. The problem with "pause/shutdown":
+     - Some services CAN be paused (EC2 instances, CloudWatch - just the link to monitoring other services but not CloudWatch itself, etc)
+     - But many services DON'T have pause...Amplify, NAT Gateway, ECR (storage), S3 (storage), Elastic IPs
+     - These continue billing even when "not in use" because they consume storage/resources
+     - This is exactly what I discovered with Amplify... there's no pause button, only delete
+
+Baba Oladimeji, Mar 31, 3:15 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+  
+1. noted
+
+2. Closing the account means:
+     - All services stop immediately, billing stops (except for usage up to that point)
+     - 90-day (3 months) window to reopen...everything stays as-is during this period
+     - After 90 days, AWS permanently deletes everything
+     - Risks: Can't create another AWS account with the same email during closure
+     - We'd still get a final bill for usage up to closure date... that is if we close today, everything stops, billing stops. April: Get one last bill (March usage). Next 90 days: Can reopen if needed, everything intact. After 90 days: Gone forever
+                                                                                                                                               
+  3. Yes, deleting individually is less risky because:
+     - Account stays active. 
+     - We can recreate services as needed
+     - More granular control
+     - However, setting them up again will be additional work
+
+  4. The problem with "pause/shutdown":
+     - Some services CAN be paused (EC2 instances, CloudWatch - just the link to monitoring other services but not CloudWatch itself, etc)
+     - But many services DON'T have pause...Amplify, NAT Gateway, ECR (storage), S3 (storage), Elastic IPs
+     - These continue billing even when "not in use" because they consume storage/resources
+     - This is exactly what I discovered with Amplify... there's no pause button, only delete
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Given all these options, it seems deleting the services individually seems like the best option right?
+
+You, Mar 31, 3:25 PM
+  @Baba Oladimeji                                                                                                                          
+actually, I think closing the account would be better for us because:
+
+
+ - we don't need active AWS access for the next 90 days
+ - it's faster and cleaner... no risk of missing something that keeps billing. especially default setups that came with setting up the infra that might still stay one even though the service has been suspended
+ - we can always reopen within 90 days if needed
+
+
+
+
+deleting individually takes more work and there's a chance we miss something.
+
+
+but if you prefer we keep the account active, then I can delete the services one by one.
+
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige fe-web deployed successfully, and all other services. I'll proceed by making deployment to PROD.
+End Quote press L to link back to original quote
+@Mugisha Yves so far everything looks good right...
+
+Mugisha Yves, Mar 31, 3:26 PM
+Quoted
+Sent by You
+@Mugisha Yves so far everything looks good right...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige yeah, so far It looks good!
+
+You, Mar 31, 3:27 PM
+Quoted
+Sent by You
+yeahh @Mugisha Yves actually you’ve drawn my attention to something, the redirects we did the last time we were moving from amazethudotcom to amaspeakdotapp… check if it’s possible to do the same thing with render… if you check amplify, you’d see we do a redirect or something similar check it out and let me know what you find
+End Quote press L to link back to original quote
+any updates on this? @Mugisha Yves
+
+Mugisha Yves, Mar 31, 3:28 PM
+Quoted
+Sent by You
+any updates on this? @Mugisha Yves
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Still looking at it.
+
+You, Mar 31, 3:28 PM, Edited
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige I am trying to cancel the workflow since the fe-web failed and it's not being cancelled. i don't know why?
+End Quote press L to link back to original quote
+@Mugisha Yves i think the workflows can be made better… exiting or failing the workflow entirely when a build fails, we can create a task for this and update it later...
+
+Mugisha Yves, Mar 31, 3:29 PM, Edited
+Quoted
+Sent by You
+@Mugisha Yves i think the workflows can be made better… exiting or failing the workfow
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Yes, Let me create task for it!
+
+Baba Oladimeji, Mar 31, 3:33 PM
+Quoted
+Sent by You
+  @Baba Oladimeji                                                                                                                          
+actually, I think closing the account would be better for us because:
+
+ - we don't need active AWS access for the next 90 days
+ - it's faster and cleaner... no risk of missing something that keeps billing. especially default setups that came with setting up the infra that might still stay one even though the service has been suspended
+ - we can always reopen within 90 days if needed
+
+
+deleting individually takes more work and there's a chance we miss something.
+
+but if you prefer we keep the account active, then I can delete the services one by one.
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+I don't think I am still sure what you mean when you use the term closing account. In this case which account are you referring to? My account or which specific account etc
+
+You, Mar 31, 3:42 PM
+@Baba Oladimeji the account that owns the infra and possibly has the billing attached...
+
+Baba Oladimeji, Mar 31, 3:45 PM, Edited
+Quoted
+Sent by You
+@Baba Oladimeji the account that owns the infra and possibly has the billing attached...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+This is too much work for me to figure out at the moment. I feel much safer deleting all the services and doing the work to ensure nothing else is still running or being billed etc.
+
+
+Makes sense?
+
+You, Mar 31, 3:46 PM
+i'll look into that @Baba Oladimeji
+
+Mugisha Yves, Mar 31, 3:47 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige Yes, Let me create task for it!
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I've created the task, https://github.com/amazethu/amazethu/issues/2221
+
+You, Mar 31, 3:52 PM
+@Baba Oladimeji i realized our program images (that's the tutorial and the french) are in the s3 buckets, how do you proceed with that? having them in code or keeping the s3 bucket... it cost less than a dollar
+
+
+or should we look into other free options or do you have any ideas?
+
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige I've created the task, https://github.com/amazethu/amazethu/issues/2221
+End Quote press L to link back to original quote
+@Mugisha Yves  looks good
+
+Baba Oladimeji, Mar 31, 3:56 PM
+Quoted
+Sent by You
+@Baba Oladimeji i realized our program images (that's the tutorial and the french) are in the s3 buckets, how do you proceed with that? having them in code or keeping the s3 bucket... it cost less than a dollar
+
+or should we look into other free options or do you have any ideas?
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+we can move them from s3 to g-drive and use the g-drive api to access them.
+
+
+let me create a folder for this so you can work on it
+
+You, Mar 31, 4:00 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige Still looking at it.
+End Quote press L to link back to original quote
+@Mugisha Yves  for this i can't remember but i think the configuration was done at dns level on squarespace... you can make a curl request to see if it redirects to the new domain
+
+
+if it does then we don't need to worry about it...
+
+Baba Oladimeji, Mar 31, 4:01 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+we can move them from s3 to g-drive and use the g-drive api to access them.
+
+let me create a folder for this so you can work on it
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] I think you can use this folder and create a new sub-folder or re-use an existing one.
+05. SwEng.UIUX 
+
+
+2] As you mentioned, since it is relatively cheap we can keep it for now to ensure the major services that cost us money has been deleted while we prioritize the move from s3 to g-drive along with other things on our plate
+
+
+3] Hope we don't store mongodb on aws and hope we have not deleted that because that's the database for our users and other stuff etc
+
+
+05. SwEng.UIUX
+
+
+
+
+
+You, Mar 31, 4:15 PM
+@Baba Oladimeji                                                                                                                              
+   
+  1. Noted                                                                
+                  
+  2. Agreed... i think keeping the S3 bucket (the one currently in use) for now and prioritizing deleting the high-cost services while circling back  later would be the right option
+
+
+  3. MongoDB isn't on AWS it's on MongoDB Atlas (separate service). Our AWS account doesn't host the database, so we're safe there. User data is unaffected.
+
+Mugisha Yves, Mar 31, 4:18 PM
+Quoted
+Sent by You
+@Mugisha Yves  for this i can't remember but i think the configuration was done at dns level on squarespace... you can make a curl request to see if it redirects to the new domain
+
+if it does then we don't need to worry about it...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige I've found that it could be done on dns level as well, so I would need to check dns record for amazethudotcom but i can't find the that domain listed in squarespace
+
+You, Mar 31, 4:19 PM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige I've found that it could be done on dns level as well, so I would need to check dns record for amazethudotcom but i can't find the that domain listed in squarespace
+End Quote press L to link back to original quote
+@Mugisha Yves  i'm saying it was probably configure that way, so try a curl request in the terminal  with the old domain to see what happens, whether it redirects or not
+
+that domain is on a different account, so just try that out and see what comes up
+
+Mugisha Yves, Mar 31, 4:25 PM
+Quoted
+Sent by You
+@Mugisha Yves  i'm saying it was probably configure that way, so try a curl request in the terminal  with the old domain to see what happens, whether it redirects or not
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Okay, I have checked the amzethu stag url , doesnt resolve with curl and the amazethu prod url, resolves but points to aws instance. That's why i need to check on the dns record for it. checkout the images
+
+
+
+
+
+
+
+
+
+
+You, Mar 31, 4:34 PM
+Quoted
+
+
+Sent by Mugisha Yves
+2
+
+
+
+
+@Alemya Obed Alenyorige Okay, I have checked the amzethu stag url , doesnt resolve with curl and the amazethu prod url, resolves but points to aws instance. That's why i need to check on the dns record for it. checkout the images
+End Quote press L to link back to original quote
+@Mugisha Yves the stag url you used was not the right one
+
+
+okay, instead of using the shared account, try signing in with your work account on squarespace
+
+Mugisha Yves, Mar 31, 4:44 PM
+Quoted
+Sent by You
+@Mugisha Yves the stag url you used was not the right one
+
+okay, instead of using the shared account, try signing in with your work account on squarespace
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Can't log in there with my email.
+
+
+
+
+
+
+
+You, Mar 31, 4:47 PM
+@Mugisha Yves i'd look into that
+
+Baba Oladimeji, Mar 31, 4:50 PM, Edited
+@Alemya Obed Alenyorige 
+
+
+1] Just a reminder to delete the services for both stag and prod and do searches etc to ensure we don’t miss anything.
+
+
+2] Also maybe you should track the services we are deleting so that in case we need to create them again, we at least have an idea of what we need to do.
+
+Baba Oladimeji, Mar 31, 5:46 PM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige Can't log in there with my email.
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] I think I have to be the one to grant Mugisha access on squarespace
+
+
+2] you should handle stuff on squarespace until I give Mugisha access 
+
+
+cc: @Mugisha Yves
+
+Baba Oladimeji, Mar 31, 11:38 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] I think I have to be the one to grant Mugisha access on squarespace
+
+2] you should handle stuff on squarespace until I give Mugisha access 
+
+cc: @Mugisha Yves
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige
+
+
+I can confirm that for squarespace, developers@amazethu.com is the expected username for accessing the platform and folks should not attempt to use their personal or work gmail to access the platform. It is a shared account.
+
+
+cc: @Mugisha Yves
+
+You, Apr 1, 8:37 AM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige
+
+I can confirm that for squarespace, developers@amazethu.com is the expected username for accessing the platform and folks should not attempt to use their personal or work gmail to access the platform. It is a shared account.
+
+cc: @Mugisha Yves
+End Quote press L to link back to original quote
+@Baba Oladimeji yes, however for the older domain, amazethudotcom, we still access that using the work mail... there isn't a shared account for that...
+
+You, Apr 1, 9:02 AM
+@Mugisha Yves the be-app for stag should use the default, so disconnect the custom domain for it and remove it from the records on squarespace, and update the value for that variable on stag, that is the api value
+
+You, Apr 1, 10:13 AM
+Quoted
+Sent by You
+@Mugisha Yves the be-app for stag should use the default, so disconnect the custom domain for it and remove it from the records on squarespace, and update the value for that variable on stag, that is the api value
+End Quote press L to link back to original quote
+@Mugisha Yves  and github actions
+
+Mugisha Yves, Apr 1, 10:30 AM, Edited
+@Alemya Obed Alenyorige I have disconnected be-app stag custom  domain, updated the API url to render.com default url in github secrets and deleted it's dns record from squarespace. I am now proceeding with deployment to STAG for the changes to reflect...
+
+Mugisha Yves, Apr 1, 11:10 AM
+@Alemya Obed Alenyorige STAG Deployment made successfully, I proceed by deploying to PROD
+
+Mugisha Yves, Apr 1, 11:34 AM
+Quoted
+
+
+Sent by Mugisha Yves
+@Alemya Obed Alenyorige STAG Deployment made successfully, I proceed by deploying to PROD
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige PROD deployment was made successfully.
+
+You, Apr 1, 11:49 AM
+@Baba Oladimeji i've deleted the services and left only the stag s3 bucket which contains the program images... i relied on this sheet which i worked on earlier, to do the deletion, and still based on this, it serves the purpose of tracking the services we are deleting so that in case we need to create them again, we at least have an idea of what we need to do.
+
+
+Low Cost Infra  
+
+
+
+
+i've also completed the documentation on the project here, you can have a look and let me know what you think
+
+
+Project: Low-Cost Infrastructure
+
+Open in chat
+
+
+
+Low Cost Infra 
+
+
+
+
+
+You, Apr 1, 11:53 AM
+Quoted
+
+
+Sent by Mugisha Yves
+
+
+
+
+@Alemya Obed Alenyorige Can't log in there with my email.
+End Quote press L to link back to original quote
+@Mugisha Yves i've worked on this but it'd take 24hrs to 48hrs to propagate... if it does work i'll communicate back if it doesn't i'll still do same
+
+Quoted
+Sent by You
+@Baba Oladimeji i've deleted the services and left only the stag s3 bucket which contains the program images... i relied on this sheet which i worked on earlier, to do the deletion, and still based on this, it serves the purpose of tracking the services we are deleting so that in case we need to create them again, we at least have an idea of what we need to do.
+
+Low Cost Infra  
+
+
+i've also completed the documentation on the project here, you can have a look and let me know what you think
+
+Project: Low-Cost Infrastructure
+Low Cost Infra 
+End Quote press L to link back to original quote
+@Mugisha Yves you can go through and let me know your thoughs as well
+
+Mugisha Yves, Apr 1, 12:48 PM
+Quoted
+Sent by You
+@Mugisha Yves you can go through and let me know your thoughs as well
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige Looks Good!
+
+Baba Oladimeji, Apr 1, 12:49 PM
+Quoted
+Sent by You
+@Mugisha Yves the be-app for stag should use the default, so disconnect the custom domain for it and remove it from the records on squarespace, and update the value for that variable on stag, that is the api value
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige @Mugisha Yves 
+
+
+Next time guys, I think you can do a better job of making it clear what steps need to be taken before delegating or accepting a task to avoid a lot of back and forth to correct issues like this.
+
+
+Really well done though, just something to improve for future projects
+
+Baba Oladimeji, Apr 1, 1:14 PM
+Quoted
+Sent by You
+@Baba Oladimeji yes, however for the older domain, amazethudotcom, we still access that using the work mail... there isn't a shared account for that...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+The right fix for this is not to keep adding work emails but to actually add the shared account so that it becomes managed via the shared account rather than through individual work emails.
+
+
+1] Is this something you can look into and fix?
+
+
+2] You can prioritize it with other things on your plate etc
+
+You, Apr 1, 1:18 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+The right fix for this is not to keep adding work emails but to actually add the shared account so that it becomes managed via the shared account rather than through individual work emails.
+
+1] Is this something you can look into and fix?
+
+2] You can prioritize it with other things on your plate etc
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+1. yes i'll look into it and get back to you when i do
+2. i'll prioritize appropriately
+
+Baba Oladimeji, Apr 1, 1:19 PM
+Quoted
+Sent by You
+@Baba Oladimeji i've deleted the services and left only the stag s3 bucket which contains the program images... i relied on this sheet which i worked on earlier, to do the deletion, and still based on this, it serves the purpose of tracking the services we are deleting so that in case we need to create them again, we at least have an idea of what we need to do.
+
+Low Cost Infra  
+
+
+i've also completed the documentation on the project here, you can have a look and let me know what you think
+
+Project: Low-Cost Infrastructure
+Low Cost Infra 
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+well done and it looks good.
+
+
+1] is it safe to assume all the services for stag and prod on AWS has been deleted?
+
+
+2] is it safe to assume the project is complete now?
+
+You, Apr 1, 1:34 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+well done and it looks good.
+
+1] is it safe to assume all the services for stag and prod on AWS has been deleted?
+
+2] is it safe to assume the project is complete now?
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+
+
+1] yes all services except for the s3 bucket
+2] the primary goals of the project is complete
+
+Baba Oladimeji, Apr 1, 1:40 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+1] yes all services except for the s3 bucket
+2] the primary goals of the project is complete
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+What's are the top things on your plate now?
+
+@Mugisha Yves 
+
+
+What are the top things on your plate now?
+
+You, Apr 1, 1:44 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+1] yes all services except for the s3 bucket
+2] the primary goals of the project is complete
+End Quote press L to link back to original quote
+@Baba Oladimeji with these are follow-up improvements, not blocking issues. :
+  - S3 images to use gdrive
+  - Workflow improvements (better exits during failures)
+  - Old Domain redirects
+                                                                                                                                                 
+just to give you context if you think otherwise...
+
+Mugisha Yves, Apr 1, 1:44 PM, Edited
+Quoted
+
+
+Sent by Baba Oladimeji
+@Mugisha Yves 
+
+What are the top things on your plate now?
+End Quote press L to link back to original quote
+.
+
+You, Apr 1, 1:45 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+What's are the top things on your plate now?
+End Quote press L to link back to original quote
+@Baba Oladimeji i'm to work on the agentic engineering plan and also reviewing some prs
+
+Baba Oladimeji, Apr 1, 1:48 PM
+Quoted
+Sent by You
+@Baba Oladimeji with these are follow-up improvements, not blocking issues. :
+  - S3 images to use gdrive
+  - Workflow improvements (better exits during failures)
+  - Old Domain redirects
+                                                                                                                                                 
+just to give you context if you think otherwise...
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+1] we are on the same page for s3 stuff and the workflow improvements stuff
+
+
+2] I thought the old domain redirects were already addressed. I was able to get redirected to amaspeak[dot]app when I went to amazethu[dot]com. Are you speaking of something different?
+
+Quoted
+
+
+Sent by Mugisha Yves
+.
+End Quote press L to link back to original quote
+@Mugisha Yves 
+
+
+I don't understand you, your message is empty
+
+Mugisha Yves, Apr 1, 1:51 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Mugisha Yves 
+
+I don't understand you, your message is empty
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+Nothing major right now. I'm currently reviewing Wangare's PR and supporting Alemya on another task we may be working on.
+
+You, Apr 1, 1:58 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+1] we are on the same page for s3 stuff and the workflow improvements stuff
+
+2] I thought the old domain redirects were already addressed. I was able to get redirected to amaspeak[dot]app when I went to amazethu[dot]com. Are you speaking of something different?
+End Quote press L to link back to original quote
+@Baba Oladimeji 
+
+
+2] for amazethudotcom, that is to the website, and that one looks good, so when you visit that, it redirects appropriately, but for fe-web, or the webapp, that's what i configured and it's currently propagating which i'll keep an eye on
+
+
+and for visiting it i mentioned sometime back that it's impossible to pass query parameters during the redirects so our internal flag will not be passed along so it's best we devs stick to the new domain while we just configure the old one with the redirect for the users and avoid trying to visit it ourselves as devs
+
+Baba Oladimeji, Apr 1, 2:01 PM
+Quoted
+Sent by You
+@Baba Oladimeji 
+
+2] for amazethudotcom, that is to the website, and that one looks good, so when you visit that, it redirects appropriately, but for fe-web, or the webapp, that's what i configured and it's currently propagating which i'll keep an eye on
+
+and for visiting it i mentioned sometime back that it's impossible to pass query parameters during the redirects so our internal flag will not be passed along so it's best we devs stick to the new domain while we just configure the old one with the redirect for the users and avoid trying to visit it ourselves as devs
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Thanks and your second point about impossible to pass query parameters during redirects should be documented clearly some where so we don't forget this information.
+
+
+well done.
+
+Baba Oladimeji, Apr 1, 3:35 PM
+Quoted
+Sent by You
+@Baba Oladimeji i'm to work on the agentic engineering plan and also reviewing some prs
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Don't take too long to put the initial plan together. Remember from past experiences planning itself is a collaborative effort.
+
+
+I don't expect a final plan, I expect a WIP plan that I can give you feedback if you are going in the right direction etc
+
+Baba Oladimeji, Apr 1, 5:31 PM, Edited
+Quoted
+Sent by You
+@Baba Oladimeji i'm to work on the agentic engineering plan and also reviewing some prs
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Let's target tomorrow for the onboarding session for wangare to the ai-tools and related stuff. I am curious to get her take on this after she is ramped up.
+
+
+cc: @Wangare Joan Thirimbu  @Mugisha Yves
+
+You, Apr 1, 9:03 PM
+@Wangare Joan Thirimbu @Mugisha Yves @Baba Oladimeji created a schedule... for sure i don't know if you all need to be present but sent the invite anyway...
+
+
+cc: @Baba Oladimeji
+
+Baba Oladimeji, Apr 2, 5:59 AM
+Quoted
+Sent by You
+@Wangare Joan Thirimbu @Mugisha Yves @Baba Oladimeji created a schedule... for sure i don't know if you all need to be present but sent the invite anyway...
+
+cc: @Baba Oladimeji
+End Quote press L to link back to original quote
+@Alemya Obed Alenyorige 
+
+
+Mugisha would be having his own onboarding session tomorrow, so he most likely would not be available for this.
+
+
+cc: @Mugisha Yves @Wanderi Rowland Mwangi
