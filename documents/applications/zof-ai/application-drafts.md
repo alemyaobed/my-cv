@@ -73,10 +73,12 @@ The analysis recommended against the migration everyone assumed we
 would do, and defending that recommendation was the hard part. I then
 executed the phased migration we did choose: heaviest service first,
 tag-based deployments, DNS and SSL cutover, end-to-end validation
-including payments and auth, no downtime for users. Close second:
-running hiring end to end, from questionnaire design through filtering
-90 applicants to a final pool, where I owned strategy and delegated
-execution.
+including payments and auth, no downtime for users. Close second: hiring. I
+ran the 2025 round end to end on free-tier tooling, from job ads and
+SmartRecruiter screening through cal.com scheduling and technical and
+behavioral interviews; I then documented that process and am leading
+the second round now, questionnaire to 90 candidates with two-stage
+filtering, owning strategy and delegating execution.
 
 ### How do you currently use AI tools in your work?
 
