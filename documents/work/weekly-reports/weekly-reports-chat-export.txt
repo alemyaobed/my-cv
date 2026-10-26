@@ -1,0 +1,3027 @@
+Baba Oladimeji, Dec 9, 2024, 4:22 AM, Edited
+@Obed Alenyorige reminder to post your weekly report on your accomplishments, learnings and challenges for the past week. Practice setting a reminder for yourself so you can make this a habit.
+
+
+Also please let me know if you would prefer to send this on Monday mornings when you start your day rather than on Sundays.
+
+You, Dec 9, 2024, 9:14 AM
+I think monday mornings will be fine
+
+You, Dec 9, 2024, 10:06 AM, Edited
+Accomplishments:
+Successfully cloned the Amazethu project.
+Set up the various containers for Amazethu.
+Gained insight into the architecture of Amazethu.
+Learnings:
+Refreshed my knowledge of Git and learned new techniques for effectively using Git based on Aurelien's videos.
+Revisited Docker and Docker Compose for some understanding.
+Learned about JSDoc, a tool for generating documentation, and how to use ESLint to enforce JSDoc commenting across the code.
+ 
+
+
+Challenges:
+Had challenges setting up the ssh for github because I already had one for use but eventually was able to figure a way around that.
+Encountered difficulties while setting up the Docker containers, as the README and some environment variables were incomplete or missing.
+
+Baba Oladimeji, Dec 9, 2024, 2:37 PM
+Quoted
+Sent by You
+Accomplishments:
+Successfully cloned the Amazethu project.
+Set up the various containers for Amazethu.
+Gained insight into the architecture of Amazethu.
+
+Learnings:
+Refreshed my knowledge of Git and learned new techniques for effectively using Git based on Aurelien's videos.
+Revisited Docker and Docker Compose for some understanding.
+Learned about JSDoc, a tool for generating documentation, and how to use ESLint to enforce JSDoc commenting across the code.
+ 
+
+Challenges:
+Had challenges setting up the ssh for github because I already had one for use but eventually was able to figure a way around that.
+Encountered difficulties while setting up the Docker containers, as the README and some environment variables were incomplete or missing.
+End Quote press L to link back to original quote
+Please send it as a separate post and not a reply to this thread.
+
+
+For more context, we think of each post as a new topic and reply to a post to continue discussion on a topic, that way it is easier to follow multiple threads etc.
+
+
+Would keep reminding you gently until you get a hang of it 😅
+
+You, Dec 10, 2024, 5:20 PM
+Noted!
+
+@Baba Oladimeji do I need to do that now on this or subsequent ones…
+
+Baba Oladimeji, Dec 10, 2024, 6:19 PM
+Quoted
+Sent by You
+@Baba Oladimeji do I need to do that now on this or subsequent ones…
+End Quote press L to link back to original quote
+Please do it now 🙏
+
+You, Dec 10, 2024, 6:22 PM
+Okay!
+Accomplishments:
+Successfully cloned the Amazethu project.
+Set up the various containers for Amazethu.
+Gained insight into the architecture of Amazethu.
+Learnings:
+Refreshed my knowledge of Git and learned new techniques for effectively using Git based on Aurelien's videos.
+Revisited Docker and Docker Compose for some understanding.
+Learned about JSDoc, a tool for generating documentation, and how to use ESLint to enforce JSDoc commenting across the code.
+ 
+
+
+Challenges:
+Had challenges setting up the ssh for github because I already had one for use but eventually was able to figure a way around that.
+Encountered difficulties while setting up the Docker containers, as the README and some environment variables were incomplete or missing.
+
+Quoted
+Sent by You
+Accomplishments:
+Successfully cloned the Amazethu project.
+Set up the various containers for Amazethu.
+Gained insight into the architecture of Amazethu.
+
+Learnings:
+Refreshed my knowledge of Git and learned new techniques for effectively using Git based on Aurelien's videos.
+Revisited Docker and Docker Compose for some understanding.
+Learned about JSDoc, a tool for generating documentation, and how to use ESLint to enforce JSDoc commenting across the code.
+ 
+
+Challenges:
+Had challenges setting up the ssh for github because I already had one for use but eventually was able to figure a way around that.
+Encountered difficulties while setting up the Docker containers, as the README and some environment variables were incomplete or missing.
+End Quote press L to link back to original quote
+@Baba Oladimeji
+
+You, Dec 16, 2024, 10:29 AM, Edited
+Accomplishments:
+Successfully completed the jsdoc on various functions and classes in relation to project documentation
+Understanding of how firebase authentication works and how to implement it as well as how it was implemented in the project.
+Learnings:
+Exposure to Firebase as a tool for handling authentication processes.
+ 
+
+
+Challenges:
+Encountered difficulties with the implementation of reauthentication. However, I believe I have identified potential reasons for the unexpected outcomes and aim to resolve the issue promptly while testing my hypothesis.
+
+Baba Oladimeji, Dec 23, 2024, 4:06 PM
+@Obed Alenyorige you forgot your weekly report again. This should be done by you every Monday morning before you start your week.
+
+
+Please make the necessary adjustments.
+
+You, Dec 23, 2024, 4:08 PM
+Sorry it skipped me
+
+You, Dec 23, 2024, 4:21 PM, Edited
+Accomplishments:
+Successfully completed the showing of a popup modal using the dialog component of react when the error of “auth/requires-recent-login” is thrown by firebase.
+Implemented the custom popup type of warning.
+Updated the previous implementation which used the dialog to use the newly implemented popup warning.
+Detected some inconsistencies with my branch which contained work on the jsdoc commenting and the main which Tadj and I resolved.
+Learnings:
+ 
+
+
+Challenges:
+When I thought it was working fine after the implementation of the custom popup warning and testing it out, I later on realized I was still using the dialog and wrapping it around the custom warning component and taking it out was not properly rendering the popup in terms of positioning, so I had to find out how other popup modals were shown and I realized there was a popup service for that. It took me some time to get to understand what was happening and how to use it for the popup warning.
+I faced the challenge of properly passing the buttons as props to the popup service which I enventually figured out
+And also I’m waiting on reviews on my previous tasks as to whether what I did was right or it needed more.
+
+Baba Oladimeji, Dec 28, 2024, 4:34 PM
+@Obed Alenyorige (not urgent)
+
+
+The payment processing partner we are using WorldRemit (https://www.worldremit.com/en) are informing me that they are having issues with sending money to GCB. Do you have an alternative bank that I can send the money to? or is mobile money with MTN an option we can use?
+
+
+International Money Transfer - Send Money Online | WorldRemit
+www.worldremit.com
+
+
+
+You, Dec 28, 2024, 10:48 PM
+@Baba Oladimeji  Thanks for the update. It’s unfortunate to hear about the issues with WorldRemit and GCB.
+
+
+As for alternatives, I'd prefer to use Telecel mobile money instead of MTN but if that’s not possible the MTN will do.
+
+
+
+
+Do I provide them here or? I mean the numbers…
+
+You, Dec 30, 2024, 1:10 PM
+Accomplishments:
+My attention was drawn to the removal of bot 2.1 and the areas I needed to address. I successfully tackled these issues and am currently awaiting a review.
+Additionally, I worked on resizing the image on the website’s landing page, which is also awaiting review.
+
+
+Learnings:
+One of my previous tasks was related to Redux, so I took the opportunity to get an overview of Redux and how it works, gaining a basic understanding of its concepts.
+
+
+Challenges:
+I faced a challenge of resizing the image on the landing page because I was not getting a proper understanding of how each of the properties was directly or indirectly affecting each other. However, I eventually grasped the concepts and resolved the issue.
+
+You, Jan 6, 2025, 12:18 PM
+Accomplishments:
+I managed to run the playwright tests locally
+I merged approved tasks and made necessary changes based on comments on some of the PRs, with some still awaiting review
+Created a task for updating the year next to the copyright on the footer component on the website and assigned it to myself.
+
+
+Learnings:
+Increased confidence level in debugging and also completed the videos on debugging and deployment
+Got an overview of Playwright and also an understanding of the tests that were written
+Got an overview of how sprint planning is done at Amazethu
+Got to know how to create a task on a sprint in Github
+
+
+Challenges:
+I faced challenges setting up the playwright, and also my internet was not that great, but I was able to get around that eventually and with the help of Elias
+Figuring out a workflow to write an e2e test for.
+
+You, Jan 6, 2025, 1:42 PM
+And @Baba Oladimeji for the 1v1 meetings, I thinks 11am utc in Ghana works for me
+
+You, Jan 13, 2025, 9:52 AM, Edited
+6th - 10th January 
+Accomplishments:
+Merged my outstand PR
+Debug some issues I had starting my containers
+Created a test container for testing playwright
+DId a QA for user subscription
+Increased confidence in how sprinting and creation of tasks are done 
+
+
+Learnings:
+I got to understand how the remote config and how the deployment workflows are done, which improved my understanding of those concepts.
+Got to learn how to do a QA.
+Learnt how APIdog was used for API testing
+Got a brief overview of how stripe subscription works
+
+
+Challenges:
+
+Baba Oladimeji, Jan 17, 2025, 2:09 PM
+@Alemya Obed Alenyorige I'm running late for our meeting
+
+Baba Oladimeji, Jan 17, 2025, 9:41 PM
+@Alemya Obed Alenyorige I struggle to understand you well when you explain things. I would like you to improve on this, but I don't think I have something yet that can be helpful for you. Let me know what you think while I try to figure out something here.
+
+You, Jan 18, 2025, 11:03 PM, Edited
+@Baba Oladimeji Thank you for pointing this out. I truly appreciate the feedback, as I’ve also noticed this as an area I really need to improve on.
+
+
+I am actively exploring ways to communicate my thought process more effectively so that everyone, including yourself, can clearly understand my ideas and perspectives.
+
+
+Being technically skilled loses its impact if I can’t convey my thoughts in a way that others can follow. I’ll continue working on this, and I’m open to any additional suggestions or resources you think might help.
+
+You, Jan 20, 2025, 10:47 AM, Edited
+13th - 17th January 
+Accomplishments:
+Updated the QA document on user subscription for the web app based on comments made the last time and inputs received during the review.
+Rerun tests for feature points discovered during the review process.
+Made an update to the footer of the website to render the copyright year dynamically and created a PR for that as well.
+
+
+
+
+Learnings:
+
+
+
+
+Challenges:
+Getting my playwright test to run as expected
+
+You, Jan 27, 2025, 4:07 PM
+20th - 24th January 
+Accomplishments:
+Improved my playwright test for guest user subscription based on comments left on my PR
+Recorded my playwright test and demoed the implementation of my test to you.
+Reviewed some open PRs of Wanderi and Osa
+Reworked my commit history to make it cleaner.
+
+
+
+
+Learnings:
+Had the opportunity to review a peer’s work.
+Reworking my commit history gave me a deeper understanding of Git, particularly how to properly revert changes.
+Got introduced to the STAR criteria for effectively communicating and articulating ideas.
+
+
+
+
+Challenges:
+
+You, Feb 7, 2025, 1:50 PM
+Hi @Baba Oladimeji, I might not be available for our one-on-one at the scheduled time. Would it be possible to spare 10 minutes afterwards or I can ping you when I'm available?
+
+You, Feb 7, 2025, 1:54 PM
+Additionally, I realized that I had overlooked submitting my level-up report for last week. I apologize for that and will make sure to include it along with this week's report for your review.
+
+Baba Oladimeji, Feb 7, 2025, 2:01 PM
+@Alemya Obed Alenyorige ping me when you are available
+
+You, Feb 7, 2025, 2:11 PM
+@Baba Oladimeji please I’m available now
+
+You, Feb 10, 2025, 8:10 AM
+27th - 31st January 
+Accomplishments:
+Got my PR consisting of additional feature point tests reviewed and approved.
+Recorded a playwright test to demonstrate TanStack was still showing on my end.
+Learnt about the root cause of the TanStack router component showing when I run the tests on my end and ways to mitigate it.
+Had a meeting with the QA team to review the current QA document and had some changes made to the QA document for guest user subscription.
+Went through some of your PRs.
+Ran most of the playwright tests on my end and confirmed they were passing.
+Made changes to the existing Playwright test on guest user subscription based on suggestions you gave.
+
+
+Learnings:
+
+
+
+
+Challenges:
+
+You, Feb 10, 2025, 8:25 AM
+3rd - 7th February 
+Accomplishments:
+Got my PR consisting of additional feature point tests reviewed and approved.
+Updated QA document on guest user to follow how Wanderi did his
+Reviewed existing PRs
+Ran the new Playwright test on my end and confirmed they were passing.
+Changed the staging access code using the firebase console.
+Implemented some additional feature points for the guest user subscription
+
+
+Learnings:
+Explored more on playwright documentations to find a way around implementing a feature point
+Explored remote config and feature flags
+Increased knowledge on how to review a PR by watching a video
+
+
+Challenges:
+The signing-up part in playwright
+
+Baba Oladimeji, Feb 12, 2025, 10:48 PM, Edited
+@Alemya Obed AlenyorigeI am curious why you did not reach out to me for feedback before going in the direction you went with for the feedback task? From what I remember, in the morning you mentioned you were looking into stuff and I mentioned you should reach out when you are done looking.
+
+
+But it seems you had a meeting Osaruo instead and I have no context on what was discussed and then it seems you made some changes that does not align with what the intent of the task was.
+
+
+Let's discuss so I can learn what went wrong here.
+
+You, Feb 17, 2025, 2:55 PM
+@Baba Oladimeji concerning the thread issue, getting to the end of Osaruo’s  post he stated we could drop our PRs that needed review under that same thread… if I’m getting you right even though that was said, mine should have been a new post or… because it was from the suggestions they made after reviewing my PR ( still under Osaruo’s) that I was still replying to in the thread Osaruo created
+
+Baba Oladimeji, Feb 17, 2025, 3:41 PM
+@Alemya Obed Alenyorige you missed your weekly report again
+
+You, Feb 17, 2025, 5:21 PM
+10th - 14th February 
+Accomplishments:
+Finished up the QA test for feature points for guest user
+Fixed the feedback implementation
+Configured feedback to be manipulated using two variables
+Did an in-depth study of how remote config was used in the code base and how it can be configured for the feedback in PROD, STAG and LOCAL.
+
+
+
+
+Learnings:
+Explored remote config and feature flags in depth and how it was implemented in the code base
+
+
+Challenges:
+
+You, Feb 25, 2025, 10:20 AM, Edited
+17th - 21st February 
+Accomplishments:
+Updated the QA test for guest users to use utility components
+Used remote-config for displaying and enforcing feedback
+Investigate the issue that was making the drop-downs appear without data
+Made my first deployment to staging
+Investigated the image differences between the various QA tests
+
+
+
+
+Learnings:
+explored more on react hooks
+
+
+Challenges:
+on the task of removing the remote-config from the codebase, trying to figure out the differences in the `package-lock.json` and which differences are okay
+
+You, Mar 2, 2025, 7:49 PM
+24th - 28th February 
+Accomplishments:
+Updated the QA test for guest users to use utility components following Osaruo’s merge and run them as single tests, in parallel and sequential and ensured they were passing on my end.
+Updated implementation of feedback on the logic of the presence of the environment variables directly affecting the feedback 
+Implemented the fix for testbed drop-downs without data
+Joined the interview session and got an overview of how the whole interview process is 
+Successfully removed the remote-config folder from the code base and ensure the remote firebase console was still working properly following its removal 
+Updated all tests that used the mocked program list endpoint to use the actual program list received from the backend 
+
+
+
+
+Learnings:
+explored the concepts of workspaces in react or JavaScript 
+Explored app scripts on Google sheets or documents 
+Revised concepts on CORS
+
+
+Challenges:
+on the task of returning proper user friendly notifications in the case of an error during feedback submission I found out that the response was not properly returned and following through why it was so, I discovered that google app scripts doesn’t support CORS which might make getting a proper response from the submission process difficult
+
+You, Mar 2, 2025, 8:08 PM
+Hello  @Baba Oladimeji, on Saturday morning, I wasn’t feeling very well and decided to visit the doctor due to some symptoms I had. After some checks, everything seemed fine, but they couldn’t pinpoint the issue, so I was given some medication and asked to come back on Monday at 10 am or if the symptoms reappeared.
+
+
+Thankfully, I’ve been feeling fine since then. I wanted to give a heads-up that I’ll be available for the sprint planning, but I may not be able to stay till the end depending on how the follow-up goes. If everything checks out positive, I’ll proceed with my day as usual.
+
+
+I wanted to inform you and kindly seek permission in case I may need to step away.
+
+You, Mar 5, 2025, 7:57 PM, Edited
+Hello @Baba Oladimeji, Tomorrow is our Independence Day, and I was hoping a day off to celebrate. I wasn't able to catch you after the evening sync earlier, but I wanted to kindly ask if that would be possible
+
+You, Mar 9, 2025, 9:44 PM
+3rd - 7th March
+Accomplishments:
+Deducted hypothesis on feedback behaviour during error and confirmed the hypothesis
+Deduced a way to solve the improper response returned during feedback submission and also a work-around for the CORS issue and reported to the team as well as put this resolution on the issue
+Debugged why changing meta data on products on stripe was not taking effect on the application
+Fixed the stripe meta data implementation
+Came up with some potential internship project ideas
+Reviewed some PRs and also worked on fixing a merge conflict on my already existing branch and rerun all the tests to confirm they were passing and requested again a review from the team
+ Investigated and found out why the reload-bot-config button on the testbed was resulting in an error and implemented a partial fix for the issue
+Learnings:
+Got some exposure to the backend as well as botai
+
+
+Challenges:
+
+Baba Oladimeji, Mar 14, 2025, 1:39 PM
+@Alemya Obed Alenyorige can I please move our 1on1s to right after evening syncs on Tuesdays instead of Fridays?
+
+You, Mar 17, 2025, 2:01 AM, Edited
+10th - 14th March
+Accomplishments:
+Finally got my long existed PR on guest subscription QA reviewed and merged 
+Looked into the implementation of the reload bot config feature from the frontend through to the backend and botai
+Learnings:
+Read about tanstack router a bit and it’s configurations and how it’s set up in the frontend 
+
+
+Challenges:
+Frontend versioning and reading from environment variable to determine which version to use
+
+Baba Oladimeji, Mar 17, 2025, 1:45 PM
+@Alemya Obed Alenyorige reminder to make sure you only tag Wanderi and myself to review your migration work.
+
+
+Going forward Osaruo is the QA guy and should be notified for QA and app quality discussions not frontend or backend issues that (which are not related to QA)
+
+
+Is this clear?
+
+You, Mar 24, 2025, 8:22 AM
+17th - 21st March
+Accomplishments:
+Reviewed various QA PRs so it can be rebased to the versioning task.
+Worked with Osaruo on how to improve the live QA test.
+Completed my versioning task and got it merged.
+Removed the toastify feature for indicating how many interactions were left.
+Worked on the feedback by pass and communicated with the product team about my progress and challenges.
+Learnings:
+
+
+
+
+Challenges:
+
+Baba Oladimeji, Mar 25, 2025, 5:35 PM
+@Alemya Obed Alenyorige I just finished with Osaruo and I am on the call
+
+You, Mar 27, 2025, 7:47 PM
+Hello@Baba Oladimeji, I have received the transaction. Thank you very much!
+
+Baba Oladimeji, Mar 29, 2025, 1:41 AM
+@Alemya Obed Alenyorige are you the one still working ?
+
+Baba Oladimeji, Mar 30, 2025, 12:41 AM
+@Alemya Obed Alenyorige (not urgent) Going forward because I have a lot going on and I want to ensure you keep progressing at Amazethu you'll be the one driving your performance reviews. Within the next few weeks, I'll share a template with you where you'll let me know what how you think your performance for the month was and if you think you are eligible for a bonus or promo. This would really help me be fair to you given all the other things I have to juggle at the moment. 
+
+
+We can discuss more in our 1on1, I just wanted to leave a mental note here so I don't forget.
+
+
+Keeping you motivated as we go on this journey is of high importance to me 🙏
+
+You, Mar 31, 2025, 10:39 AM, Edited
+24th - 28th March
+Accomplishments:
+Finished up on my project plan
+Worked on a task to switch frontend-vite to use v3 of backend and made the PR available for review.
+Applied versioning to the QA folder and made the necessary updates to scripts in the package.json file to ensure the tests were still running.
+Had a meeting with the team to publish ads for new roles on the various platforms for job applications
+Worked on feedback submission fix using the backend as a proxy and made the PR for this available for review.
+Worked on the task of showing proper notification in the case of a feedback submission error and made the PR for this available for review.
+Removed the token check from the appscript script for both STAG and PROD
+Applied versioning to the purple tag on the program select page (as in it's able to switch and display the appropriate text based on the current version the frontend is) and made the PR for this available for review.
+Learnings:
+
+
+
+
+Challenges:
+Removal of token from codebase not making submission behave as expected
+
+Baba Oladimeji, Apr 2, 2025, 5:09 PM
+@Alemya Obed Alenyorige I'm in our 1on1 call
+
+You, Apr 6, 2025, 10:19 PM, Edited
+31st March – 4th April
+
+
+Accomplishments:
+Finalized the project plan document after a review session with Baba.
+Investigated issues with feedback submission and discovered that the problem stemmed from a mismatch between the Apps Script deployment and the token validation logic. Instead of removing the token:
+Improved the implementation of the token check.
+Updated the Apps Script code, created a new deployment, and ensured alignment between the frontend and backend.
+Enhanced the overall feedback submission flow for better reliability.
+Conducted research to evaluate design-first vs implementation-first approaches in Figma workflows.
+Verified the feedback error notification feature and informed the team for PR reviews.
+Started work on the reminder feature project: Created rough designs while keeping you in the loop
+Met with Wanderi for clarity on the update conversation thread endpoint, and began implementation.
+Made updates to App Script code for both staging and production spreadsheets and created reminder tasks to track script URL updates.
+Provided regular code reviews for team PRs throughout the week.
+Assisted in debugging production issues to get it working 
+Learning:
+	
+
+
+Challenges:
+ Initial confusion regarding token removal delayed progress, but debugging revealed the need for proper script deployment and code synchronization, which resolved the issue and improved the overall implementation.
+
+Baba Oladimeji, Apr 9, 2025, 8:18 AM
+@Alemya Obed Alenyorige sorry I was having network issues 
+
+
+Can we continue our call here
+
+
+
+Join video meeting
+
+
+
+
+You, Apr 9, 2025, 8:30 AM
+@Baba Oladimeji okay… sorry i didn’t see the message earlier
+
+You, Apr 14, 2025, 12:49 AM
+7th – 11th April
+
+
+Accomplishments:
+Had a session with the product team on how to update the bot tutor 
+Had a session with Osaruo on importing candidates from the various job application platforms onto smart recruiter and doing profile screening 
+Split my project tasks into sub tasks on GitHub 
+Implemented the first two tasks of the project which are; active and inactive reminder icons. And then showing them for only free and paid users
+Made an update to the convo thread update endpoint and tested manually 
+Made updates to the QA tests for frontend v3 to ensure they passed 
+Updated the redux store to include version to the key
+Updated QA tests that used the version key
+Made an update to the switching task to do the mapping automatically depending on the version of the frontend
+
+
+Learning:
+Read more about material UI and redux store key setting
+	
+
+
+Challenges:
+Getting staging and prod working
+
+Baba Oladimeji, Apr 15, 2025, 4:41 PM
+@Alemya Obed Alenyorige are you joining?
+
+Baba Oladimeji, Apr 17, 2025, 8:06 AM
+@Alemya Obed Alenyorige we are waiting for you
+
+You, Apr 21, 2025, 9:42 PM
+14th – 18th April
+
+
+Accomplishments:
+Added test case scenarios to the dev test document for the update convo thread endpoint
+With the product team, we narrowed down the CORs issue we were facing on staging and proceeded to find out what was causing it; turns out it was the timeouts 
+Fixed the issue of the timeouts
+Debugged what was causing the error when one refreshes on the sessions page and proceeded to implement a fix for it 
+
+
+Learning:
+Read about how to get the consent of the user to be able to access their google calendar 
+Read about Google cloud console and it’s role in implementing the reminder feature
+Getting familiar with the google cloud console
+Got familiar with some of aws services; amplify and ecs 
+Gained more knowledge on how routing is done in single page applications and how it’s different from the traditional routing process and how it might affect accessing contents from a server serving the single page application 
+	
+
+
+Challenges:
+Working on the backends for the reminder feature as I’m getting familiar with the google cloud console and it’s configurations
+
+Baba Oladimeji, Apr 22, 2025, 6:26 AM
+@Alemya Obed Alenyorige I have removed your admin access to AWS because you have not yet setup MFA. Please go to the "AWS Setup" section of the "Company Onboarding" tab to complete the MFA setup. Let me know when you have done this so I can grant you access again.
+
+
+General Onboarding
+
+Open in chat
+
+
+
+General Onboarding
+
+
+
+
+
+You, Apr 27, 2025, 9:51 PM
+22nd–25th April
+
+
+Accomplishments:
+Completed the import of candidates on SmartRecruiter
+Completed the task of implementing the backends for the reminder feature
+Performed a rough test on the endpoints using my work email and confirmed the endpoints were behaving as expected
+Explore inspect.dev and ngrok
+Made an update to the update convo thread endpoint to match the expectation raised during a evening sync
+Configured an environment variable on the local environment on remote config for controlling the appearance of the reminder feature
+Updated the frontend versioning to handle cases of unsupported frontend versions
+Learning:
+Explored ngrok and inspect.dev and their potential use cases
+    
+
+
+Challenges:
+Setting up inspect.dev and ngrok on my machine
+Running the test on botai locally
+
+You, Apr 29, 2025, 9:17 AM
+Hello @Baba Oladimeji , I received the payment… thank you
+
+You, May 4, 2025, 10:49 PM, Edited
+28th April –2nd May
+
+
+Accomplishments:
+Completed the rating of candidates on SmartRecruiter
+Defined constants for working with the reminder feature 
+Completed the task of implementing the UI for setting and updating a reminder but strategically using the pop up service 
+Implemented getting access token for accessing google calendar 
+Updated the reminder feature backends; GET and UPDATE endpoints as well as detailed error handling on the controller module of the reminder feature. Took out the recurrence rule setting from the backend 
+Completed the creation of a custom hook to be use in the reminder feature’s operation 
+Utilized the notification service for showing notifications for successful and failed actions (creating, updating and deleting) in the reminder feature 
+Confirmed the active and inactive state of the reminder icon worked as expected 
+Implemented recurrence type DAILY to map the daily recurrence rule the google calendar expects along with its UI
+Implemented recurrence type WEEKLY to get days of the week and map the weekly recurrence rule the google calendar expects along with its UI
+Performed a quick test of the core features of the reminder feature and verified they worked
+Completed the implementation phase of the reminder feature project
+Documented ideas and issues in the project plan document of the reminder feature 
+Learning:
+Explore google calendar api on how recurring events are and how they are set
+    
+
+
+Challenges:
+
+You, May 12, 2025, 9:38 AM, Edited
+5th–9th May
+
+
+Accomplishments:
+Came up with a guide on how I want to approach the frontend clean-up
+Worked on the Frontend-vite cleanup for v3
+Renamed files from v2-something.ts → something.ts
+Renamed internal references (functions, variables, exports) that contains “v2” in the name to remove “v2”
+Renamed internal references (functions, variables, exports) that contains “v3” in the name to remove “v3”
+Removed v1 URLs from constants in datastore/apis/constants.ts
+Removed v1 concepts, especially in the Program API
+Deleted admin-api.ts file
+Reviewed & decided fate of reload-bot-config.ts (marked TBD)
+Removed upload.ts in datastore/api/ due to usage of v1 URLs
+Removed upload-controller in datastore/slice/ (since it's tied to above upload.ts and unused)
+Removed unused constants in datastore/api/constants.ts
+Cleaned up unused constants in datastore/utils/constants.ts
+Standardized naming of constants (e.g., action names like yes, allow, etc.)
+Updated all references to reflect new naming
+Ensured there are no floating literals (string, numbers, etc) - 1st pass
+Checked if fixtures are still needed — remove if unused (they are no longer used in frontend)
+Learning:
+    
+
+
+Challenges:
+
+You, May 18, 2025, 10:34 PM, Edited
+12th - 16th May
+
+
+Accomplishments:
+Cleaned up the type.ts and updated  all references
+Cleaned up the .env.local file for frontend
+Synced with team on the Admin side of things
+Collaborated in setting up of cal.com interview event
+ Researched on technical interview questions and update doc
+Created the drop-down atom component
+Removed the drop-down folder in the molecules section and moved the contents and logic to the appropriate location 
+Had a mock technical interview with the team
+Reviewed PRs for the frontend clean up
+Learning:
+    
+
+
+Challenges:
+
+You, May 26, 2025, 12:16 AM, Edited
+19th - 23rd May
+
+
+Accomplishments:
+Cleaned up the authorization section of molecules on the frontend
+Sync with Wanderi on how to go about conducting the technical interviews
+Update eslint file on the frontend to enforce the naming conventions
+Worked on renaming routes to pages
+Removal of presigned URLs concepts from the frontend
+Renamed frontend-vite to fe-web and update all workflow files and docker files
+Debugged why there were build errors after cleanup with Wanderi
+Worked on further cleanup on types and interfaces after using the eslint file to enforce the naming conventions
+Updated the old design document
+Confirmed 70% cleanup on the frontend was done
+Conducted interviews set for the week and updated the candidated technical interview tracking document
+Reviewed PRs for the frontend clean up as well as botai
+Learning:
+    
+
+
+Challenges:
+
+Baba Oladimeji, May 27, 2025, 11:40 AM
+@Alemya Obed Alenyorige I want to confirm something because I think I got things mixed up.
+
+
+Our agreed starting salary was 200 right ?
+
+You, Jun 1, 2025, 11:01 PM
+26th - 30th May
+
+
+Accomplishments:
+Synced with Wanderi on botai cleanup split to do the split properly
+cleaned up the Botai routes folder
+cleaned up the botai services folder
+cleaned up the botai utils folder
+cleaned up the .env and the EnvConfig and removed unused constants
+Completed the cleanup for botai by confirming with Wanderi
+Synced with Wanderi to go through the botai cleanup done and Split tasks on the backend-ts and begin cleanup
+Resolved some conflicts on my some of my PRs
+Cleaned up utils folder of the be-app
+cleaned up services folder of the be-app
+Cleaned up the environment variables section of the be-pp
+Had some various debugging sessions to help resolve some issues that came up doing the cleanups
+Had interview sea with candidates and collaborated with Wanderi to give them ratings
+Learning:
+    
+
+
+Challenges:
+
+You, Jun 9, 2025, 5:44 AM
+02nd - 06th June
+
+
+Accomplishments:
+Completed be-app cleanup by cleaning up constants and literals, and cleaning up of types. And also the subscription service in the be-app
+Started with the 30%cleanup on the frontend 
+cleaned up bottom panel
+cleaned up testbed panel dropdown
+looked into further cleaning in the subscription folder of the frontend
+looked into why subscription is nested
+cleaned up program session arena to remove infused bottom panels
+Further cleaned up on the bottom panel
+created the route for testbed config
+created a  Testbed arena based on the panel
+moved hamburger icon to sessions controll panel from the testbed panel and configure it properly
+created a Testbed control panel simlar to the bottom panel
+created a page for tesbed config that will use the arena
+moved close and apply buttons from program session control to the testbed control panel and configure properly(resetting and navigation for close, application of config and navigation for apply)
+implemented the resetting on the close button
+implemented the application of config on the apply button
+clean up control panels after movements and creations
+Fixed why navigation to sessions page from testbed was not working 
+Fixed build errors 
+Update of jsdoc for new and various components 
+Had interview session with candidates and collaborated with Wanderi to give them ratings
+Learning:
+    
+
+
+Challenges:
+
+You, Jun 16, 2025, 8:01 AM, Edited
+10th - 14th June
+
+
+Accomplishments:
+Updated work on the testbed config arena page
+Tested the testbed config update on PROD to see how it will look like and update
+Confirmed the fix for build error works
+Removed the isMobileMenuOpen redux setting
+Updated various sections where it's used
+Updated organisms with the new naming convention for dropdowns, buttons,etc
+Completed the hiring process 
+Assisted in Popups cleaning and reviewed
+Had the popups tested locally
+Cleaned up the atoms section along with affected arenas
+Looked into the usage of  s3_cache folder
+Had s3_cache removed along with the s3rver as they were linked and i could recognize their importance
+Learning:
+    
+
+
+Challenges:
+
+You, Jun 22, 2025, 9:38 PM
+16th - 20th June
+
+
+Accomplishments:
+Updated package-lock files for be-app and fe-web
+Looked into the usage of google_sheets_upload and remove if unnecessary
+Confirmed the husky implementation
+updated UI/UX document for for popups, arenas and panels
+Had a sync with Wanderi on the deployments after cleanup where I was to do the deployments and Wanderi manual QA before review 
+Faced some challenges during deployments, collaboratively rectified them and eventually made deployments to STAG
+Updated the STAG section of the app release tracking document following the successful deployment  to STAG
+Commenced work on error and alerts
+looked into automated user-flow alerts to pro-actively trigger alerts to improve app reliability[ have tests eg. playwright run periodically and then send alerts]
+Looked into whether we can have the tests on a separate repo
+Looked  into Ensuring Smooth Version Transitions During Deployments
+Created and fine tuned a user flow workflow file for running the playwright tests periodically
+Cleaned up the initial feedback request flow implementation and Created a new feedback request flow which is currently in review 
+Implementation a way to ensure smooth version transition during deployments which is currently in review
+Learning:
+Looked in GitHub actions and the creation of workflow files
+    
+
+
+Challenges:
+
+Baba Oladimeji, Jun 27, 2025, 8:53 AM
+@Alemya Obed Alenyorige are you available for a quick call?
+
+You, Jun 29, 2025, 9:59 PM, Edited
+23rd-27th June
+
+
+Accomplishments:
+Fine-tuned the automated user-flow workflow file to run once at the set time and not spam the alerts channel
+Explored ways to eventually include the summary of the tests to the message that is to be sent as an alert in the workflow file
+Took Wanderi through the implementation and ways to simulate and test the task on ensuring smooth version transitions during deployments
+Improved the feedback implementation and addressed comments on the PR
+Attended and drew the curtains on the behavioral interview sessions
+Synced with Wanderi on the task of the logs cleanup
+Cleaned up the be-app logs
+Synced with Wanderi on the config folder about its relevance
+Removed the config folder and files from our code base and updated the code base to adjust to its removal
+Synced with Wanderi on the improvements of error logging in our various systems
+Improved the error loggings of our be-app service
+Synced with Wanderi on the spamming of web crawlers in our alerts channel to come up with a way to battle the issue
+Formatted the fe-web error message that's send to our alerts channel
+Guided Wanderi on the updating of the staging passcode
+Learning:
+Wanderi took me through the AWS cloudwatch implementation he did.
+    
+
+
+Challenges:
+
+You, Jul 1, 2025, 11:26 AM, Edited
+Hello@Baba Oladimeji due to the roadblock we hit yesterday for the deployments, I wasn't able to take the day off...
+
+You, Jul 7, 2025, 8:48 AM
+30th-04th July
+
+
+Accomplishments:
+Used remote config for reminder feature so its availability is configurable on PROD and STAG
+Coordinated with wanderi to make deployments. STAG deployments & PROD deployments
+Conducted manual QA on STAG after deployment
+Updated the following fe-web playwright tests and ensured they are passing.
+paid-user-actions.spec.ts
+google-signin.spec.ts
+stripe-subscription-monthly.spec.ts
+stripe-subscription-yearly.spec.ts
+subscription-autorenewal.spec.ts
+Guest user test without interaction
+Guest user interaction test
+Updated feedback implementation to cover gaps realized during the fixing of tests.
+Learning:
+    
+
+
+Challenges:
+
+
+
+
+
+
+
+You, Jul 14, 2025, 10:24 AM
+07th-11th July
+
+
+Accomplishments:
+Completed deprecation on fe-web v2
+Completed deprecation on botai v2
+Wanderi and I synced to make deployments to STAG and PROD and performed manual QA on both platforms
+Improved the feedback further after deployments and QA
+Updated the implementation of the update convothread endpoint
+Cross checked update with the dev test document to make necessary updates on the document
+Implemented the test case scenarios under the updated convothread in the dev test document
+Made an update to the smooth version transition task for improved coverage on the redux key
+Had a sync on the text to text feature to discuss how to implement it and how to split the tasks between us
+Worked on assembling the arena for the text-to-text feature after the base components were created
+Tested the tutorial tutor lib updates to ensure it actually tracked user progress
+
+
+Learning:
+    
+
+
+Challenges:
+
+You, Jul 21, 2025, 7:45 AM, Edited
+14th-18th July
+
+
+Accomplishments:
+Completed Implementation of text-to-text feature	
+Ensured the text-to-text feature syncs properly with the backend with more testing.
+Got Updated chatoptions, Created arena for the text-to-text feature and Integration of the newly created components with the Panels and Arena reviewed and merged.
+Synced with the team to ensure we can proceed with deployments of the text to text feature and split up the deployment tasks amongst ourselves for STAG and PROD
+Completed botai rampup
+Got Implemented fix after debug Updated status codes for errors in on the UPDATE convo thread endpoint ,Tested implementation of test scenarios for update convo thread along with updates to test case implementation reviewed and merged
+Synced with team to discuss how to make the subscription validation middleware configurable
+Implemented feature to make subscription validation middleware configurable.
+Improved reminder feature based on feedback
+Updated the ui and provision constants for the fields
+Configured consent for use of calendar api on STAG and PROD
+Synced with the team to proceed with deployments of  updates made on the reminder feature to stag for review
+
+
+Learning:
+    
+
+
+Challenges:
+
+You, Jul 22, 2025, 5:08 PM, Edited
+Hello @Baba Oladimeji will you be available for our 1on1?
+
+You, Jul 27, 2025, 10:29 PM, Edited
+21st-25th July
+
+
+Accomplishments:
+Synced with team to get the text to text feature as the default mode of interaction
+Synced with team to make deployments to PROD and STAG
+Synced with Wanderi to capture experiences based on QA done on the app
+Playwright tests for the text to text feature:
+Had discussions with team on updating playwright tests with text-to-text feature being the default interaction mode.
+Grouped already existing tests into modes whilst updating the scripts to run them
+Created guest user playwright tests for text-to-text interaction mode.
+Created guest user without interaction playwright tests for text-to-text interaction mode.
+Created paid user interactions playwright tests for text-to-text interaction mode
+Looked into ways to update the test lists(parallel and sequential) now that some tests are affected by the interaction modes with team and made the necessary implementations.
+Looked into creating new tester credentials that can be used in the tests to sign in to the app without any issues.
+ Had discussions with team on  automated user-flow alerts to pro-actively capture and trigger alerts to improve app reliability PROD and had an implementation for that.
+
+
+Learning:
+    
+
+
+Challenges:
+
+You, Aug 4, 2025, 10:29 AM
+28th July - 1st August
+
+
+Accomplishments:
+Fixed the bug of the control panel covering page of the bot response on the sessions page where scrolling to view the full response was impossible
+Updated the program list page as the control panel of the page covered the list as well
+updated the feedback request flow to not request feedback on demo program
+Synced with team to eventually get the new language tutor integrated in the codebase
+Synced with team on how to update the various services to support this new language tutor
+Made update to tutor initialization
+Made update to the createConvothread route
+Made update to the Interact route
+Made update to the reset route and its flow for the three services
+Updated the interaction modes for the fe-web
+Learning:
+    
+
+
+Challenges:
+
+You, Aug 10, 2025, 6:30 PM, Edited
+04th - 08th August
+
+
+Accomplishments:
+Synced with team to come up with a way to make deployment to have only bug fixes available on PROD and STAG and do manual QA for both environments
+created task to serve as a mental note on adding tests for capturing blocking ui issues like the one discovered on text2text mode in the near future
+Made Testbed updates after new tutor integration
+Worked on fe-web and botai up support tutor environment config updates
+Ensured testbed is functional with updates
+Synced with team to make deployments to STAG after full tutor integration and did manual QA
+Updated the fe-web tests
+Implemented a feature ensuring status of our tests (either success or failure) are sent to our local alerts channel
+added same alerts done for prod on critical routes to stag as well since automated tests will be disabled for now
+Updated our readme to capture this change in our deployment workflow where we manual playwright tests need to be run before deployment to stag is done
+Performed some dogfooding on some of our latest models
+Had some discussions in preparations for our incoming interns
+
+
+Learning:
+    
+
+
+Challenges:
+
+You, Aug 12, 2025, 5:07 PM
+@Baba Oladimeji will you be available for the 1on1
+
+You, Aug 17, 2025, 8:25 PM
+11th - 15th August
+
+
+Accomplishments:
+Synced on going through the Plan of the week doc and update our sprint planning board to have tasks not worked on for the sprint.
+Looked into fixing the program image render; that's where on programs select you have to refresh to get the images to display properly
+Improved the smooth version transition feature which is currently under monitoring 
+Looked into the cache busting issue and access suggested solution
+Looked into other possible solutions for the cache busting issue
+Implemented possible solution to handle cache busting for our index.html file as it was without any mechanism to handle cache busting 
+Completed dogfooding process with the new language tutor
+Performed dogfooding for Pierre and Sophie 
+Recorded experiences in the Dogfooding doc
+Had session regarding market and traction engineering 
+Improved the gchat reporter utility for detailed errors when running tests
+Supported my buddy (Wangare) for the first week of their onboarding process.
+Have infra onboarding session with the interns
+Learning:
+Learnt about cache busting
+Discovered vite handles cache busting automatically
+Brushed up on google analytics
+Go introduced to traction engineering 
+    
+
+
+Challenges:
+
+You, Aug 24, 2025, 11:10 PM, Edited
+18th - 22nd August
+
+
+Accomplishments:
+Synced with team to make deployment to STAG with bug fixes
+Looked in ways we can have both language tutors available ( on STAG and on PROD)
+Discussed approaches to having both language tutors available and concluded on going with versioning
+Collaborated with Wanderi to version the codebase; duplicating versions (v3, v4)
+Worked on switch between the versions
+Downgraded v3 to support language tutor 0.1.2
+Assisted my buddy with the onboarding process (Manual QA and other stuff)
+Fixed some bugs detected as we made deployments to STAG and PROD for the versioning and language tutor downgrades
+Learning:
+
+
+    
+
+
+Challenges:
+
+
+
+
+
+
+[Wangare]
+
+
+Ups
+Likes to learn
+When a concept is unclear, she tries as much as possible to ask questions
+She understands what QA is
+She understands what a user workflow is in QA 
+She has made significant progress on performing manual QA here at Amazethu
+
+
+Downs/improvements
+Doesn’t proactively reach out when I expect her to[this improved towards the end of the week]
+She can be more forthcoming
+
+You, Sep 1, 2025, 7:32 AM, Edited
+25th - 29th August
+
+
+Accomplishments:
+Synced with team to make deployment to STAG and then eventually PROD with bug fixes while manual QA was performed on them
+Reviewed buddy's work on manual and ensured its completion
+Made significant progress on traction engineering, which boosted my confidence in that area.
+Mad some updates on the Appscripts (the copied one) to get the dashboard responsive while trying to carry Wanderi along
+Updated the route of /session to /conversation and updated any related artifacts while also simplifying the arenas naming
+Completed a session with the team where the interns were taken through what automated QA is and how automated QA is implemented linking that to manual QAs that were done
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+
+
+
+
+
+[Wangare]
+
+
+Ups
+She has been able to complete manual QA
+She understands what automated QA is
+She has an overview of how manual QA is transitioned into an automated QA
+
+
+Downs/improvements
+Was hoping she could get to the practical side of things on automated QA
+
+You, Sep 2, 2025, 10:20 PM
+Hello @Baba Oladimeji, following our 1on1, this evening my eyes started hurting in addition. I got some drugs and have gotten tried the ginger garlic onion remedy. But looking at how I feel now specifically the eyes, I think it will be great to have some time off sorry for the inconvenience.
+
+You, Sep 15, 2025, 12:01 AM
+08th - 12th September
+
+
+Accomplishments:
+Synced with team to make deployment to STAG and then eventually PROD with bug fixes while monitoring manual QA performed on them
+Synced with team to make the necessary changes to get v4 as the current version of the codebase
+Synced with team to get v4 to prod while making Sophie the default tutor
+Updated the user feedback sheets and updated appscript for the metrics dashboard and also the appscript for feedback sheet to accommodate these updates.
+Completed phase of traction engineering and its related tasks
+Synced with Wanderi to go through the github actions workflow files and decide their fate
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+
+
+
+
+
+[Mugisha]
+
+
+Ups
+The team was able to rely on him for manual QA after deployments to the various environments
+He's been able to take the responsibility of running the tests daily
+He is very proactive
+
+
+Downs/improvements
+His communication during speech can be improved
+
+You, Sep 21, 2025, 9:35 PM
+15th - 19th September
+
+
+Accomplishments:
+Synced with team to split traction phase 2 tasks amongst ourselves
+Synced with team to discuss how to go on with the codebase onboarding session for the interns
+Had an fe-web onboarding session with the team
+Assigned some fe-web tasks to the interns and saw to it that they were completed
+Enabled desktop mode for our fe-web while taking out any desktop restrictions
+Began layer 2 of the feedback system
+- Updated the form for taking feedback
+- Updated the feedback sheet to match the new set of questions
+- Updated the appscript to automatically parse data from the new set of questions from the feedback
+- Had a series of syncs on how to implement the number of conversations and interactions tracking on the backends
+- Updated the backends to support the tracking on the number of conversations and interactions on the backends
+- Updated to fe-web to display the feedback based on these tracking
+- Implemented a way to automatically end a conversation when our app's backbutton is not used.
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+
+
+
+
+
+[Mugisha]
+
+
+Ups
+Reliable on doing QA and feature testing
+Made progress on fe-web tasks/updates/bug-fixes
+He is very proactive
+
+
+Downs/improvements
+
+Baba Oladimeji, Sep 25, 2025, 5:57 PM
+@Alemya Obed Alenyorige 
+
+
+I apologize if you feel I am putting too much pressure on you.
+
+
+I’ll try and tone it down a bit, but I’ll suggest you ask for any backend clarification from Wanderi first and let Wanderi reach out to me if he his not sure what to do.
+
+
+Thanks for understanding, I appreciate you bro 🙏
+
+You, Sep 29, 2025, 6:20 AM, Edited
+22nd - 26th September
+
+
+Accomplishments:
+Completed layer 2 feedback system
+Completed layer 3 feedback system
+Gated layer 2 and 3
+Updated layer 1 to include the usertype and updated the feedback sheet's appscript in accordance
+Updated layer 2 and layer 3 feedback based on the new models design and architectural design
+Supported the interns while reviewing their works
+Updated layer3 for  undoing and redoing
+Looked into whether it was possible to undo a logging and if not, a possible way around that.
+implemented the analytics for layer3 three including the botmessages logging
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+You, Oct 6, 2025, 12:44 AM, Edited
+29th September - 03rd October
+
+
+Accomplishments:
+Completed remaining tasks for Phase 2 of traction engineering.
+Synced with Wanderi on Phase 3 planning and task breakdown.
+Performed QA testing on undoing ratings and reviewed associated PRs.
+Synced and executed deployments to staging.
+Participated in syncing discussions to resolve report creation issues.
+Continued work on Phase 3 traction engineering tasks.
+Reviewed several pull requests related to ongoing work.
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+You, Oct 13, 2025, 1:13 AM, Edited
+06th - 10th October
+
+
+Accomplishments:
+Synced with Wanderi on BE-app tests and discussed PROD Stripe integration, ensuring clarity and next steps.
+Worked on making stripe for PROD functional
+Enhanced the smooth version transition feature, ensuring more reliable handling across releases.
+Collaborated on the integration of the new tutor system
+Looked into ways to get subtle internal updates of the tutor downloaded rather than using the cached tutor, as the URL to install the tutor did not change in the requirements.txt and related files.
+Integrated new internal subtle updates to the language tutor ensuring that stag and prod gets the latest updates
+Conducted QA testing on device, validating feature behavior and raising any regressions.
+Completed on Phase 3 Traction Engineering analytics tasks
+Performed dogfooding on the new tutor
+Synced on making stag and prod deployment
+Led and participated in syncs around deployments to staging and production, including:
+Hands-on walkthrough sessions for deployment processes.
+Supervised and guided interns as they executed real deployments to stag and production.
+Reviewed multiple PRs throughout the week related to feature implementation and cross-functional updates.
+Learning:
+
+
+    
+
+
+Challenges:
+
+You, Oct 20, 2025, 12:14 AM, Edited
+13th - 17th October
+
+
+Accomplishments:
+Synced with Wanderi to identify and discuss features that need to be gated for controlled rollout/modification.
+Synced with Wanderi on ways to prevent scraping and unauthorized data access on our web platform.
+Investigated and documented the steps required to support external Google sign-in on our production project.
+Updated the OAuth consent screen:
+Switched app status from testing to production.
+Changed user type from internal to external.
+Re-tested sign-in flow on PROD, encountered the “This app isn’t verified” warning.
+Researched and outlined causes and next steps, including OAuth verification requirements.
+Configured intervals for layer 2 updates and number of days after data clearance via Firebase Remote Config for better client behavior control.
+Drafted a complete Terms of Service document, working through legal/technical decisions (age restrictions, jurisdiction, contact info, etc.).
+Implemented domain name verification through Google Search Console.
+Configured auth.learn.amazethu.com in DNS (Squarespace) to route sign-in flows via our verified domain.
+Updated Firebase and Google Cloud Console (OAuth credentials and firebase.json) to reflect the new sign-in redirect domain.
+Recorded a screen walkthrough video of the app's sign-in and Google Calendar integration for OAuth scope verification.
+
+
+
+
+Learning:
+Gained experience with the Google OAuth verification process, including:
+Consent screen configuration nuances
+Scope justification requirements
+Domain verification and DNS setup
+Preparing verification-ready video walkthroughs
+    
+
+
+Challenges:
+
+Baba Oladimeji, Oct 21, 2025, 2:34 PM
+@Alemya Obed Alenyorige anything you want us to discuss in our 1on1 today or can we skip?
+
+Baba Oladimeji, Oct 27, 2025, 6:10 AM
+@Alemya Obed Alenyorige are you available for a quick call?
+
+You, Oct 27, 2025, 3:09 PM, Edited
+20th - 24th October
+
+
+Accomplishments:
+Updated and finalized the demo video for OAuth verification; shared for review.
+Updated project documentation and deployed corresponding website updates.
+Submitted the app for Google OAuth verification review.
+Temporarily disabled Layer 2 and 3 configurations on prod to facilitate controlled updates.
+Implemented Layer 2 and 3 updates and deployed to staging for testing.
+Updated and maintained Traction Engineering dashboards.
+Fixed website redirection issues and verified deployments.
+Updated Privacy Policy and Terms of Service pages, followed by website redeployment.
+Synced with Wanderi on deprecating v3 where i worked on deprecating the fe-web v3.
+Reviewed and merged multiple pull requests.
+
+
+
+
+Learning:
+Explored Windsurf and Trae tools for potential use in development and deployment workflows.
+    
+
+
+Challenges:
+
+Baba Oladimeji, Oct 28, 2025, 5:04 PM
+@Alemya Obed Alenyorige I’m in another call.
+
+
+I’d ping you when I’m done.
+
+You, Nov 3, 2025, 4:18 AM, Edited
+27th - 31st October
+
+
+Accomplishments:
+Continued work on website tasks, including updates and progress syncs with Wangare and Wanderi.
+Created and refined a documentation draft for posts.
+Monitored the Google Cloud Platform (GCP) console for status updates and addressed follow-up tasks as needed.
+Successfully completed the Google OAuth verification process — app officially verified on GCP.
+Explored Windsurf and Trae tools further to assess their applicability in the development and deployment workflow.
+Reviewed multiple pull requests (PRs) and contributed to ongoing code review cycles.
+Reviewed and merged multiple pull requests.
+
+
+
+
+Learning:
+Deepened understanding of Windsurf and Trae, focusing on how these tools could streamline development processes.
+Gained additional experience with Google Cloud Platform, particularly around the OAuth verification and monitoring process.
+    
+
+
+Challenges:
+
+Baba Oladimeji, Nov 4, 2025, 4:07 PM
+@Alemya Obed Alenyorige are you fine if we have our 1on1  now ?
+
+You, Nov 10, 2025, 8:42 AM, Edited
+03rd - 7th November
+
+
+Accomplishments:
+Continued website updates based on review feedback and collaborated with buddy to complete related tasks.
+Synced with Wanderi to update project documentation following review outcomes.
+Collaborated with Wanderi to provide a report on development tools currently under testing (e.g., Windsurf and Trae).
+Created new tasks based on team discussions and review feedback to streamline ongoing improvements.
+Investigated and worked on resolving issues related to the UTM query.
+Developed and refined documentation for internal processes to improve team clarity and onboarding.
+Continued to explore Windsurf, Trae, and other potential tools for integration into the development workflow.
+Conducted daily internal reviews of French program content on STAG (15 minutes each day).
+Reviewed BotAI dev test cases for completeness and accuracy.
+Reviewed and merged multiple pull requests (PRs) across projects.
+Caught up on progress and updates related to metrics to stay aligned with engineering goals.
+
+
+
+
+Learning:
+Deepened understanding of Windsurf and Trae, focusing on how these tools could streamline development processes.
+    
+
+
+Challenges:
+
+You, Nov 17, 2025, 8:01 AM, Edited
+10th - 14th November
+
+
+Accomplishments:
+Set up a shared account for developers on v0.dev and created a document that the associates can have access to as well
+Looked into the full page screenshot option
+Review botai ai dev tests
+Examined sample code that was provided from v0 and looked into ways it could be applied to our website codebase
+Synced with my dev buddy on updates needed to be made on the websites and worked towards them
+Extensively explored windsurf & claude code + glm and shared my experience with the team
+Shared updates made on the website with team and worked on comments that were given
+Synced with Wanderi on updates needed for infra given the new domain name acquired
+Worked on updating workflow files to accommodate the migration of the website to firebase
+Created the STAG and PROD version of the website projects on firebase along with their analytics projects
+Made deployments to these STAG and PROD environs for the website and mapped the services to the new domain name acquired
+
+
+
+
+Learning:
+Learnt about how to setup new projects on firebase from scratch
+Learnt how to automatically integrate deployments of projects on firebase in our workflow files
+Learnt how to set up analytics projects and how they are tied to the firebase projects
+    
+
+
+Challenges:
+
+You, Nov 23, 2025, 11:22 PM
+17th - 21st November
+
+
+Accomplishments:
+Looked into the full page screenshot option
+Review botai ai dev tests
+Examined sample code that was provided from v0 and looked into ways it could be applied to our website codebase
+Synced with my dev buddy on updates needed to be made on the websites and worked towards them
+Extensively explored windsurf & claude code + glm and shared my experience with the team
+Shared updates made on the website with team and worked on comments that were given
+Synced with Wanderi on updates needed for infra given the new domain name acquired
+Worked on updating workflow files to accommodate the migration of the website to firebase
+Created the STAG and PROD version of the website projects on firebase along with their analytics projects
+Made deployments to these STAG and PROD environs for the website and mapped the services to the new domain name acquired
+
+
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+Baba Oladimeji, Nov 24, 2025, 2:08 PM
+@Alemya Obed Alenyorige there would be no pay deductions for the mistake made as you took responsibility and made it clear that you understand the impact. Great job in communication and taking responsibility, these are very very deep and strong amazethu core values. Kudos and well done for also doing that in a public channel which serves as an example for others. 💪
+
+You, Dec 1, 2025, 12:10 AM, Edited
+24th - 28th November
+
+
+Accomplishments:
+Completed botai ai dev tests review 
+Performed daily internal review on our French program on STAG
+Synced with my dev buddy on updates needed to be made on the websites and worked towards them
+Provided support for Mugisha on his internship project
+Provided report on the AI tools for development
+Worked on updates post review on STAG
+Deployed websites updates to STAG
+Provided support for getting the updates of the webapp to STAG for review
+
+
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+Clarity on migrations of the new domains
+
+You, Dec 1, 2025, 12:17 AM
+@Baba Oladimeji   I’d like to inform you that 5th December is a public holiday here in Ghana.
+Just bringing it up ahead of time so you’re aware before team planning.
+
+You, Dec 7, 2025, 10:28 PM
+1st - 04th December
+
+
+Accomplishments:
+Migrated website-vite to website along with all it's artefacts
+Performed daily internal review on our French program on STAG
+Worked on updates on Website based on iterative inputs and reviews
+Deployed website to stag along the process
+Provided support for Mugisha on his internship project
+Provided support for getting the webapp to prod
+Provided support for the app verification on the new domain
+Reviewed our analytics data with Wanderi to assess their reliability and also how that affects our decisions there on.
+
+
+
+
+
+
+Learning:
+Trying to navigate my way around figma
+    
+
+
+Challenges:
+Buttondown signup inconsistencies
+
+Baba Oladimeji, Dec 9, 2025, 3:06 PM
+@Alemya Obed Alenyorige 
+
+
+Anything you have in mind to discuss today or can we skip?
+
+You, Dec 14, 2025, 10:53 PM
+08th - 12th December 
+
+
+Accomplishments:
+Got alpha 2.0 version of the website to prod
+Examined sample code that was provided from v0 and looked into ways it could be applied to our website codebase
+Synced with my dev buddy on updates needed to be made on the websites and worked towards them
+Shared updates made on the website with team and worked on comments that were given
+Synced with Wanderi on updates needed for infra given the new domain name acquired
+Worked on updating workflow files to accommodate the migration of the website to firebase
+Created the STAG and PROD version of the website projects on firebase along with their analytics projects
+Made deployments to these STAG and PROD environs for the website and mapped the services to the new domain name acquired
+
+
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+Baba Oladimeji, Dec 16, 2025, 5:21 PM
+@Alemya Obed Alenyorige 
+
+
+I would appreciate it if we can skip our 1on1 this week.
+
+
+I am behind on the AI stuff so I have been coding all week to catch up.
+
+
+If you have something urgent to discuss please let me know and we can find time to follow up on thursday or friday.
+
+You, Dec 22, 2025, 2:06 AM
+15th - 19th December 
+
+
+Accomplishments:
+Worked on some post alpha 2.0 tasks
+Examined sample code that was provided from v0 and looked into ways it could be applied to our website codebase
+Synced with my dev buddy on updates needed to be made on the websites and worked towards them
+Shared updates made on the website with team and worked on comments that were given
+Synced with Wanderi on updates needed for infra given the new domain name acquired
+Worked on updating workflow files to accommodate the migration of the website to firebase
+Created the STAG and PROD version of the website projects on firebase along with their analytics projects
+Made deployments to these STAG
+
+
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+Baba Oladimeji, Dec 29, 2025, 10:31 AM
+@Alemya Obed Alenyorige 
+
+
+You missed your weekly report
+
+You, Dec 29, 2025, 10:55 AM
+22nd - 23rd December 
+
+
+Accomplishments:
+Worked on updating the logo 
+Worked on getting the logo updates to stag and doing another QA
+Proceeded with getting the post alpha 2.0 updates worked on so far to PROD and verified the updates worked as expected
+Monitored updates and metrics post alpha 2.0 release 
+Worked along with Mugisha on making progress on their internship project
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+Waiting on Google to pick up and reflect the updated logo changes (indexing / cache delay)
+
+You, Jan 5, 12:23 AM, Edited
+29th - 30th December 
+
+
+Accomplishments:
+Synced with Wanderi on how we’re trending on traction
+Investigated a subscription bug and implemented fixes for it
+Monitored updates and metrics post alpha 2.0 release 
+Worked along with Mugisha on making progress on their internship project
+Came up with some potential blog ideas for review
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+Waiting on Google to pick up and reflect the updated logo changes (indexing / cache delay)
+The fixed subscription bug is not taking effect  on  the user account  that has the problem… best guess for why it’s still happening is the time scheduled by stripe to update that subscription is passed, so the web hook event is not being sent
+
+Baba Oladimeji, Jan 6, 4:44 PM
+@Alemya Obed Alenyorige 
+
+
+Please I have moved our 1on1 this week to Thursday.
+
+
+I have my hands super busy today
+
+You, Jan 12, 1:15 AM, Edited
+05th - 09th January
+
+
+Accomplishments:
+Completed fixes for post alpha 2.0
+Made some deployments to stag and did manual qa
+Proceeded to getting the fixes and updates to prod
+Synced with Wanderi on the frontend ui design to code project to assess what was done, what was left and if it was in the right direction
+Monitored the seo side of things for any updates in regards to the logo fixes made
+Assisted Mugisha on making progress on their internship project
+Dedicated some time to assess our codes and signin implementation to see if it was possible to make the calendar requirement optional and documenting that by creating a task for it
+Learning:
+
+
+    
+
+
+Challenges:
+Waiting on Google to pick up and reflect the updated logo changes (indexing / cache delay)
+
+Baba Oladimeji, Jan 13, 3:36 PM
+@Alemya Obed Alenyorige 
+
+
+Can we skip today or are there things you want us to discuss?
+
+You, Jan 19, 1:34 AM, Edited
+12th - 16th January
+
+
+Accomplishments:
+Completed simulation for internship project with buddy
+Assisted with getting the internship project to stag and eventually prod
+Made progress on the audio2text project plan document
+Make progress on integrating our first blog post to our website
+Set up remote config flags to control the appearance of the nav links, the social media links and the blogs feature as well as its affect on the generations of our sitemap
+Completed some PR reviews
+Had a sync with Wanderi on coming up with a document for the onboarding checklist for assoc devs
+Checked up updates on google search console for anything positive in relation to the logo not appearing still
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+Waiting on Google to pick up and reflect the updated logo changes (indexing / cache delay)
+
+You, Jan 25, 11:20 PM, Edited
+19th - 23rd January
+
+
+Accomplishments:
+Reviewed comments left on blog and made updates 
+Made deployments of the blog integration to stag while doing manual qa for iterative review and finalized on the approved blog content and integration 
+Updated the documentations for the workflow for blog integrations in our codebase
+Made deployments of the approved blogs to prod and did manual qa
+Generated sharable URLs for our first blog and updated the blog calendar document
+Took up the running of playwright for the week in question
+Reviewed and made updates to the audio2text plan document and finally go it approved
+Joined the ai onboarding session
+Verified that the updates worked on for the website logo to get it appearing on the google search engine finally worked
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+Baba Oladimeji, Jan 27, 5:04 PM
+@Alemya Obed Alenyorige 
+
+
+Is there anything you want us to discuss today or can we skip?
+
+You, Feb 2, 12:00 AM
+26th - 30th January
+
+
+Accomplishments:
+Made progress on the audio2text project plan document
+Make progress on integrating our first blog post to our website
+Set up remote config flags to control the appearance of the nav links, the social media links and the blogs feature as well as its affect on the generations of our sitemap
+Completed some PR reviews
+Had a sync with Wanderi on coming up with a document for the onboarding checklist for assoc devs
+Checked up updates on google search console for anything positive in relation to the logo not appearing still
+
+
+Learning:
+
+
+    
+
+
+Challenges:
+
+You, Feb 9, 1:57 AM
+02nd - 06th February s
+
+
+Accomplishments:
+Completed phase 1 of the audio2text
+Deployment of feature to stag and doing manual qa
+Setting up for presentation 
+Fixed issues raised during first presentation 
+Made deployments of fixes to stag and doing manual qa
+Set up another presentation and got approved for commencement of phase 2
+Completed some PR reviews
+Had a sync with Wanderi on the frontend to design to code project 
+
+
+Learning:
+Google collab for prototyping
+    
+
+
+Challenges:
+
+Baba Oladimeji, Feb 10, 3:23 PM
+Play
+
+0:00
+/
+0:27
+
+
+
+Hey Almia, um please let's keep our one onone for today except there are things that um are super important or things that you want us to discuss then let me know but otherwise um yeah please let's keep our oneon one today and uh I would uh I'll really appreciate that but otherwise let me know if there are other things that we need to discuss. Thank you.
+View transcript
+Hide transcript
+
+
+
+
+
+You, Feb 16, 5:32 AM, Edited
+09nd - 13th February
+
+
+Accomplishments:
+Made progress on phase 2
+Got a a presentation for the phase 2
+Took up the running of the playwright test
+Onboarded Mugisha to the research progress made so far 
+Completed some PR reviews
+Had a sync with Wanderi on  new tutor integration
+Guided Mugisha with the new tutor integration
+Had a sync on convothread reset implementation 
+Had a debugging session post bug integration
+Joined various presentations from other team members 
+
+
+Learning:
+Google collab for prototyping
+Got to explore some various providers 
+    
+
+
+Challenges:
+Unable to complete the 15minute daily interaction with the tutor
+
+You, Feb 17, 5:35 PM
+@Baba Oladimeji will you be available for our 1on1?
+
+Baba Oladimeji, Feb 19, 6:07 AM
+@Alemya Obed Alenyorige 
+
+
+Is it possible for us to have a quick sync before the morning sync or before your presentation?
+
+You, Feb 23, 4:35 AM, Edited
+16th - 20th February
+
+
+Accomplishments:
+Made progress on phase 2
+Got a a presentation for the phase 2
+Provided support for Wangare on the design to code project 
+Completed some PR reviews
+Had a sync with Mugisha on updates to the reset implementation
+Fixed the tests to handle the new convothread reset feature
+Made deployments to stag for the reset fix
+Discovered a new bug and made a fix to that and made further deployments
+Joined various presentations from other team members 
+
+
+Learning:
+Explored creative problem-solving approaches when tackling novel technical challenges
+Gained insights into the value of simplicity and clarity in problem-solving and the importance of staying human-centered when navigating uncertainty
+Learnt to focus on identifying the core problem before jumping to solutions
+    
+
+
+Challenges:
+Unable to complete the 15-minute daily interaction with the tutor
+
+Baba Oladimeji, Feb 24, 3:36 PM
+@Alemya Obed Alenyorige 
+
+
+can we skip our 1on1 today or is there something you want us to discuss?
+
+You, Mar 2, 5:55 AM, Edited
+23rd - 27th February
+
+
+Accomplishments:
+Fixed and implemented the conversation reset feature
+Updated the tests to match the new flow after conversation reset implementation 
+Run the daily playwright tests
+Worked in the agent4dev project plan
+Worked on the lowinfra project plan
+Provided support for Wangare on the design to code project 
+Completed some PR reviews
+Made deployments to stag for the reset fix
+Joined various presentations from other team members 
+
+
+Learning:
+Gained insights into the value of simplicity and clarity in problem-solving and the importance of staying human-centered when navigating uncertainty
+    
+
+
+Challenges:
+Unable to get tutor updates and conversation reset to prod due to new subscription bugs
+
+Baba Oladimeji, Mar 5, 2:48 AM
+@Alemya Obed Alenyorige 
+
+
+I’m thinking of having you takeover being the captain of the development team while Wanderi and myself figure out the experimentation team.
+
+
+So you’ll keep doing your work and providing guidance for Mugisha and Wangare as Wanderi and I figure things out.
+
+
+How do you feel about this ?
+
+You, Mar 9, 5:29 AM, Edited
+02rd - 05th March 
+
+
+Accomplishments:
+Fixed stag and prod subscription issues
+Got the tutor updates, the conversation reset and the subscription fixes to prod
+Performed manual QA on prod and ensured everything was okay
+Re-enabled subscription for prod
+Made progress on the low infra cost project
+Provided support for Wangare on the design to code project 
+Completed some PR reviews
+Joined various presentations from other team members 
+
+
+Learning:
+Gained a deeper understanding of how the subscription works and the configurations on the stripe platform
+    
+
+
+Challenges:
+
+You, Mar 16, 4:41 AM, Edited
+09th - 13th March 
+
+
+Accomplishments:
+examined the google search console message and verified everything looked good
+completed milestone 1 of the low cost infra project: documenting the current aws usage
+had a presentation on milestone 1 on the low cost infra project
+completed milestone 2 of the low cost infra project: researchings into low cost infra options
+had a presentation on milestone 2 on the low cost infra project
+Provided support for Wangare on the design to code project 
+Completed some PR reviews
+Joined various presentations from other team members 
+
+
+Learning:
+Gained a deeper understanding of our aws infrastructure and also how some of the infra plaforms out there operate
+    
+
+
+Challenges:
+
+Baba Oladimeji, Mar 17, 2:39 PM
+@Alemya Obed Alenyorige 
+
+
+Anything top of mind or can we skip 1on1 this week?
+
+Baba Oladimeji, Mar 18, 5:50 PM
+@Alemya Obed Alenyorige 
+
+
+It has been almost an hour since Wangare sent you this message without your response. That’s not cool during work hours. You need to find a way to manage your time to fix this. Especially when others are being blocked by your review etc. You either communicate proactively that you are busy so they should expect a slow response or you let them do the review themselves without you or you find a way to do the review then go back to the work on your plate.
+
+
+Leaving people hanging for more than 10 minutes is not acceptable during work hours bro.
+
+
+I trust you to know how best to address the issue.
+
+
+https://chat.google.com/room/AAAAvb8TYyM/9IZau41V5zE/77iXiPld4yo
+
+You, Mar 23, 4:38 AM, Edited
+16th - 20th March 
+
+
+Accomplishments:
+came up with a migration plan for testing out or setting up our infra on the various platforms, starting with render
+had a presentation on the plan document and go the approval to begin with render
+set up the three services starting with botai, then be-app and fe-web
+set up a new role on atlas for this new infra setup
+configured the domain names for the services on render
+setup authentication  and also configured the rewrites for the fe-web service on render
+Provided support for Wangare on the design to code project 
+Completed some PR reviews
+Joined various presentations from other team members 
+
+
+Learning:
+Explored the various features of render and how services are set up on the platform
+    
+
+
+Challenges:
+
+Baba Oladimeji, Mar 25, 3:53 PM
+@Alemya Obed Alenyorige 
+
+
+Are you available for a quick sync?
+
+Baba Oladimeji, Mar 26, 10:16 AM, Edited
+@Alemya Obed Alenyorige 
+
+
+Advice for you, when you notice there is a lot of back and forth over text between you and a colleague, it usually indicates there a gaps in understanding and the quickest way to address that is to schedule a call where you can listen and explain yourself.
+
+
+Then one of you can provide a summary in text after the call.
+
+
+Too much back and forth can result in a situation where both of you are talking past yourselves and are using words that the other person does not understand but you think they do and vice-versa.
+
+You, Mar 30, 5:34 AM, Edited
+23rd- 27th March 
+
+
+Accomplishments:
+validate the stag setup on render
+setup the prod infra on render with the services
+assisted mugisha on setting up some of the services on the PROD infra
+tested the new infra for PROD
+set up a new role on atlas for this new PROD infra setup
+assisted wangare on coming up with workflows for the PROD infra for render
+had a presentation on the progress made and the current state of things with the low cost infra project
+setup authentication  and also configured the rewrites for the fe-web service on the PROD infra
+Provided support for Wangare on the design to code project 
+Completed some PR reviews
+Learning:
+Explored the various features of render and how services are set up on the platform
+    
+
+
+Challenges:
+
+You, Apr 6, 1:53 AM, Edited
+30th March- 3rd April 
+
+
+Accomplishments:
+completed infra setup
+setup the prod infra on render with the services
+assisted mugisha on setting up some of the services on the PROD infra
+tested the new infra for PROD
+set up a new role on atlas for this new PROD infra setup
+assisted wangare on coming up with workflows for the PROD infra for render
+had a presentation on the progress made and the current state of things with the low cost infra project
+provided support for the dev team
+Provided support for Wangare on the design to code project
+performed my 15-minute internal review on the french program
+Completed some PR reviews
+Learning:
+Explored the various features of render and how services are set up on the platform
+    
+
+
+Challenges:
+
+You, Apr 13, 4:54 AM, Edited
+06th-10th April 
+
+
+Accomplishments:
+included two tutors for Kiswahili in the language tutor library
+updated the tests in the notebook for building the language tutor to accommodate these new updates
+successfully built a new version of the language tutor with the new Kiswahili tutors
+integrated the new tutor into botai and updated the fe-web service to support the appropriate mappings of the tutor
+had a presentation on the new tutor integration and did some demo
+deployed the updates to stag and then eventually prod
+updated the databases for stag and prod to reflect the new paths for the program images
+joined several syncs on best practices for using the cli agents
+discovered and deleted some new services on aws that were set up on another region other than our usual virginia
+had a sync with Wanderi on discussing the next steps for the agentic engineering task
+provided support for the dev team
+performed my 15-minute internal review on the french program
+Completed some PR reviews
+Learning:
+go to experience how things are done on the experimentation side of things
+got the complete picture of the whole system setup, from language tutor to building it to hosting it to integrating it in our app
+experience how cli agents are used on the experimentation side of things
+    
+
+
+Challenges:
+deleting some of the s3 buckets was taking longer than expected
+from the email that was received, it appears there were other aws instances that were runing on another region with some of them difficult or impossible to delete
+
+You, Apr 14, 4:35 PM
+@Baba Oladimeji it’s time for our 1on1
+
+You, Apr 20, 12:21 AM, Edited
+13th-17th April 
+
+
+Accomplishments:
+completed the implementation of the agent4dev project
+fix some of the failing playwright tests given the new updates we had
+ran the playwright tests for the week
+assisted in AWS account shutdown and mongodb cloud billing setup
+had a presentation on the agent4dev project
+had an onboarding session for Wangare on the traction side of things
+worked on the onboarding document for the agent4dev
+had a sync with Wanderi on discussing the next steps for the agentic engineering task
+provided support for the dev team
+performed my 15-minute internal review on the french program
+Completed some PR reviews
+Learning:
+how billings are linked: aws vs mongodb cloud
+    
+
+
+Challenges:
+
+You, Apr 27, 3:27 AM
+20th-24th April 
+
+
+Accomplishments:
+completed the implementation of the agent4dev project
+fix some of the failing playwright tests given the new updates we had
+ran the playwright tests for the week
+assisted in AWS account shutdown and mongodb cloud billing setup
+had a presentation on the agent4dev project
+had an onboarding session for Wangare on the traction side of things
+worked on the onboarding document for the agent4dev
+had a sync with Wanderi on discussing the next steps for the agentic engineering task
+provided support for the dev team
+performed my 15-minute internal review on the french program
+Completed some PR reviews
+Learning:
+deeper understanding of how loggings are done with google analytics 
+    
+
+
+Challenges:
+
+Baba Oladimeji, Apr 28, 5:09 AM
+@Alemya Obed Alenyorige 
+
+
+I had to cancel our 1on1 for this week. I have to cut my trip short in America to head back to Canada.
+
+
+Please accept my apologies for the late notice it was unexpected.
+
+You, May 4, 5:06 AM, Edited
+27th April -1st May 
+
+
+Accomplishments:
+updated the analytics logging in the codebase 
+verified the logevents using the debug view on google analytics for local
+made deployments to stag
+verified the logevents using the debug view on google analytics for stag
+updated the stag traction dashboard formulae and configs to match the new updates
+monitored, reviewed and further updated the stag traction dashboard based on new stag data collected
+explored a better way of handling GA4's automatic logging events
+tested out the options found for handling those automatic events locally using google analytics for local
+made deployments of these updates to stag and monitored the data collected
+had a sync with Wangare on how to do the monitoring and review on traction
+updates some of our onboarding docs and did some git actions cleanup
+performed my 15-minute internal review on the french program
+Completed some PR reviews
+Learning:
+gaining in-depth experience with google analytics
+    
+
+
+Challenges:
+
+You, May 11, 5:23 AM
+4th  - 8th May 
+
+
+Accomplishments:
+updated the analytics logging in the codebase 
+verified the logevents using the debug view on google analytics for local
+made deployments to stag
+verified the logevents using the debug view on google analytics for stag
+updated the stag traction dashboard formulae and configs to match the new updates
+monitored, reviewed and further updated the stag traction dashboard based on new stag data collected
+explored a better way of handling GA4's automatic logging events
+tested out the options found for handling those automatic events locally using google analytics for local
+made deployments of these updates to stag and monitored the data collected
+had a sync with Wangare on how to do the monitoring and review on traction
+updates some of our onboarding docs and did some git actions cleanup
+performed my 15-minute internal review on the french program
+Completed some PR reviews
+Learning:
+gaining in-depth experience with google analytics
+    
+
+
+Challenges:
+
+You, May 17, 11:57 PM, Edited
+11th  - 15th May 
+
+
+Accomplishments:
+worked on the audio segments for the demo video
+collaborated with Wangare on coming up with the demo video (11min, 3mins and 1 min)
+looked into useversionsync hook issue on it's effect on analytics and made a fix for it
+investigated the teachmode bug and made a fix for it
+improved our teachmode logging by logging it as an event
+made updates to the google analytics projects to accommodate this new custom even of teachmode
+made deployments of these updates to stag and eventually prod while performing qa
+verified that the new custom event parameter for teachmode appears and is filterable
+explored a way arround the automatic collected events and provided an update on that
+made updates to our traction dashboard for stag and prod using color, notes and stars to indicate confidence in data metric calculated
+updated stag traction dashboard to now filter with the new teach mode flag included
+did a couple of presentations on the progress made on traction so far while communicating findings, blockers, etc
+monitored, reviewed and further updated the stag traction dashboard based on new stag data collected
+performed my 15-minute internal review on the french program
+Completed some PR reviews
+Learning:
+gaining in-depth experience with google analytics
+explored a new scope in video editing
+    
+
+
+Challenges:
+
+You, May 25, 5:30 AM, Edited
+18th  - 22nd May 
+
+
+Accomplishments:
+improved traction dashboard by including dropdowns for the user modes we have
+had presentation on the progress made on the traction side of things
+explored posthog as a substitute for GA4 on oure traction infra
+integrated posthog in our codebase for analytics with additional events to help differentiate source of data appropriately
+cleaned up the implementation of GA4 for analytics
+made deployments to stag for both website and webapp
+created new sheets for the integration of the posthog pipeline in our sheets
+wrote and tested 21 PostHog API queries (HogQL) for all dashboard reports against live data
+pdated deployment workflows with PostHog environment variables for both STAG and PROD
+monitored, reviewed and further updated the stag traction dashboard based on new stag data collected
+performed my 15-minute internal review on the french and kiswahili program
+had a sync with Wangare to discussion pain points observed during dogfooding
+Completed some PR reviews
+Learning:
+explored posthug for analytics
+learned HogQL (PostHog's SQL query language); person properties, session tracking via subqueries, new vs returning user identification
+    
+
+
+Challenges:
+GA4's newVsReturning dimension has no direct PostHog equivalent... solved using person.created_at timestamps
+some metrics are also not straight forward and need some workaround to extract
+matching the existing data tab format from the GA4 extension so Dashboard formulas don't need rewriting
+
+You, May 25, 5:33 AM
+@Baba Oladimeji Wednesday is a public holiday here and i want to take the day off
+
+Baba Oladimeji, May 26, 4:33 PM
+@Alemya Obed Alenyorige 
+
+
+Can we skip our 1on1 for today or is there something you want us to discuss?
+
+You, May 31, 11:11 PM, Edited
+25th  - 29th May 
+
+
+Accomplishments:
+documented the current state of traction
+fixed the microphone inconsistency issue 
+fixed the playback issue
+worked on the Program Content Review(PCR) feature project plan and had it reviewed and approved 
+worked on the quick and dirty ui designs for the PCR feature
+had a presentation on the designs
+implemented milestones 3-6 of the PCR feature
+did some review on the Program Voice samples
+Completed some PR reviews
+Learning:
+
+
+    
+
+
+Challenges:
+
+Baba Oladimeji, Jun 2, 1:26 PM
+@Alemya Obed Alenyorige 
+
+
+Skipping 1on1 this week, due to health issues.
+
+You, Jun 7, 11:15 PM, Edited
+1st - 5th June 
+
+
+Accomplishments:
+completed the rest of the milestones for the PCR feature (milestones 7-8)
+deployed updates to stag and did some more testing in the PCR feature
+had some presentations and demo on the feature
+worked on comments and feedback after presentation and repurposing the response rating feature to be used for the content review
+deployed updates to stag after addressing those comments and did some more testing in the PCR feature
+had another presentation on the PCR feature
+joined some various syncs on the PV/UX improvements
+Completed some PR reviews
+Learning:
+    
+
+
+Challenges:
+
+You, Jun 15, 5:45 AM, Edited
+8th - 12th June 
+
+
+Accomplishments:
+worked on comments and feedback for the t2t mode of the PCR feature after the last presentation
+deployed updates to stag and did some testing 
+completed the quick and dirty designs for the PCR feature on a2a
+had a presentation on the quick and dirty designs and got it approved 
+completed the the extension of the PCR feature for a2a
+deployed updates to stag and did some more testing on the PCR feature extension to a2a
+had some presentations and demo on the feature
+had a demo session after implementation of the extension
+worked on a fix for a PCR bug discovered during demo
+Completed some PR reviews
+Learning:
+    
+
+
+Challenges:
+the pcr bug on segments
+
+Baba Oladimeji, Jun 16, 2:44 PM
+@Alemya Obed Alenyorige I'm just joining our 1on1 call
+
+You, Jun 22, 5:40 AM, Edited
+15th - 19th June 
+
+
+Accomplishments:
+fixed the PCR bug discovered during the final demo
+deployed updates to stag and did some testing 
+deployed updates to prod and did some testing 
+worked on updating our traction infrastructure 
+had various presentations on the infrastructure for traction
+addressed comments that came up during the demo
+Completed some PR reviews
+Learning:
+    
+
+
+Challenges:
+user identity differentiation on posthog
+lower confidence on user differentiation data
+
+Baba Oladimeji, Jun 23, 2:37 PM
+@Alemya Obed Alenyorige  
+
+
+Can we skip 1on1 today or do you have something top of mind to discuss?
+
+You, Jun 28, 8:51 PM, Edited
+22nd - 26th June 
+
+
+Accomplishments:
+ fixed the PCR bug discovered during the final demo
+ deployed updates to stag and did some testing 
+ deployed updates to prod and did some testing 
+ worked on updating our traction infrastructure 
+ had various presentations on the infrastructure for traction
+ addressed comments that came up during the demo
+ Completed some PR reviews
+Learning:
+    
+
+
+Challenges:
+
+You, Jun 29, 12:04 AM
+@Baba Oladimeji also this Friday is a holiday here in Ghana, so i’d like to get the day off.
+
+1 draft, 
+Baba Oladimeji, Jul 3, 12:41 PM
+@Alemya Obed Alenyorige 
+
+
+1] Please take photos of the front and back of your government ID or the biographical pages of your government passport.
+
+
+2] You can post them as a reply to this thread
+
+You, Jul 6, 12:09 AM, Edited
+29th June - 02 July
+
+
+Accomplishments:
+  addressed the hard-close limitation on traction
+  deployed the traction updates to stag and did some testing 
+  deployed traction updates along with some app updates to prod and did some testing 
+  worked on updating our traction infrastructure; app script and dashboard
+  had various presentations on the infrastructure for traction
+  addressed comments that came up during the demo
+had some syncs to discuss product reviews 
+attended to the email from stripe and also retired the older services on render that were faulty 
+  Completed some PR reviews
+Learning:
+    
+
+
+Challenges:
+
+Baba Oladimeji, Jul 7, 1:46 PM
+@Alemya Obed Alenyorige 
+
+
+Anything to discuss or can we skip today?
+
+You, Jul 13, 6:05 AM, Edited
+5th - 9th July
+
+
+Accomplishments:
+   addressed the ui/ux limitation on the app
+worked on the cancel during recording fix and had a demo 
+   deployed the app updates to stag and did some testing 
+   worked on updating our traction infrastructure; app script and dashboard
+   had various presentations on the infrastructure for traction
+   addressed comments that came up during the demo
+ had some syncs to discuss product reviews 
+ attended to the email from google search console
+   Completed some PR reviews
+Learning:
+    
+
+
+Challenges:
+
+You, Jul 14, 4:40 PM
+@Baba Oladimeji it's time for our 1on1, are you available?
+
+You, Jul 20, 3:32 AM
+12th - 17th July
+
+
+Accomplishments:
+    addressed the ui/ux limitation on the app
+ worked on the cancel during recording fix and had a demo 
+    deployed the app updates to stag and did some testing 
+    worked on updating our traction infrastructure; app script and dashboard
+    had various presentations on the infrastructure for traction
+    addressed comments that came up during the demo
+  had some syncs to discuss product reviews 
+  attended to the email from google search console
+    Completed some PR reviews
+Learning:
+    
+
+
+Challenges:
+
+Baba Oladimeji, Jul 20, 7:52 AM
+@Alemya Obed Alenyorige 
+
+
+Are you available for a quick call now?
+
+You, Jul 21, 1:49 AM, Edited
+@Baba Oladimeji for this message: prod-alerts-new  was it because we thought Wanderi was leaving  or should i still go ahead with it regardless?
+
+Baba Oladimeji, Jul 22, 12:04 PM
+@Alemya Obed Alenyorige 
+
+
+Thanks a lot for contributions as a captain and a developer to a successful achievement taking the team into beta.
+
+
+It has been a pleasure working with you and getting to observe your growth first hand.
+
+
+You’ll be getting a bonus for this month and a pay raise starting next month.
+
+
+I’ll share details when I am done with the budget.
+
+
+Thank you so much once again, looking forward to achieving more milestones with you on this special and unique journey.
+
+
+🙏🤗🙏
+
+You, Jul 27, 12:22 AM
+20th - 24th July
+
+
+Accomplishments:
+did some content review on Wangare's progress, both text and audio
+had various syncs and demos on the PCR and PCRI projects to get aligned.
+completed the PCR v2 project plan
+completed milestone 1 of the PCR v2 project and had it reviewed
+attended to the indexing mail from google search console
+worked on the ui/ux fixes and deployed the to stag for more testing
+deployed beta-v1 updates to prod after product approval
+    monitored the traction dashboard
+    Completed some PR reviews
+Learning:
+    
+
+
+Challenges:
+
+Baba Oladimeji, Jul 27, 2:10 PM
+@Alemya Obed Alenyorige 
+
+
+Below is a sample update from Wanderi. I think adopting a similar structure to how you present your weekly report can be very helpful. Thinking of this as a weekly journal does help you truly reflect and answer the questions properly so that they are especially meaningful to you if you choose to reference it in the future etc. Don't just go with the flow and do this as a regular weekly routine, take the time you need to reflect so you can see your progress, challenges and growth over time when you look back at it.
+
+
+====
+
+
+Weekly Report (July 6 – July 10, 2026)
+Achievements:
+Implemented latency tracking for the various layers of the GPS algorithm to improve visibility into algorithm performance.
+Continued development of the GPS algorithm sanitization layer and validated the updates through testing.
+Made further improvements to the GPS calc-dist algorithm and tested the implementation to verify correctness.
+Re-generated French datasets based on the updated ASRS Notation Guide for use in the latest GPS experiments.
+Updated sanitization rules and weighted cost configurations for the remaining Introduction, Kiswahili, and French programs.
+Performed manual testing of the updated sanitization rules and documented observations for team review.
+Shared findings from manual testing and experimentation with the team to support ongoing algorithm refinement.
+Conducted additional manual testing on the updated alignment and calc-dist algorithm to validate behavior across different datasets.
+Continued iterative GPS experimentation to assess the impact of the latest algorithm improvements.
+Challenges:
+API limitations when using claude code + GLM as the CLI agent
+Technical issues with my work devices. 
+Learnings:
+Gained a deeper understanding of how latency tracking can be used to identify performance bottlenecks within different stages of the GPS algorithm.
+Learned that small adjustments to sanitization rules and weighted costs can significantly influence pronunciation scoring outcomes, highlighting the importance of iterative testing.
+Improved understanding of the interaction between alignment, distance calculations, and sanitization when evaluating pronunciation accuracy.
+Reinforced the value of combining automated experiments with manual validation to ensure algorithm improvements translate into better real-world performance.
+Next Steps:
+Continue running GPS experiments to measure the impact of algorithm updates on scoring accuracy and PI/UX.
+Share experiment results with the team.
+
+Baba Oladimeji, Jul 28, 5:57 PM
+@Alemya Obed Alenyorige 
+
+
+Are you available to join our 1on1 sync again ?
+
+Baba Oladimeji, Jul 29, 12:00 AM
+@Alemya Obed Alenyorige 
+
+
+Following up on this.
+
+
+https://chat.google.com/room/AAQAma5dCS0/Qg8jEr6Uz8I/vciYdYMHorU
+
+
+As we make the transition you have to manage your energy. You cannot try to be the captain on both teams, that’s too much effort and you will burn yourself out.
+
+
+What you want to do is remain the great captain you are for the dev team but treat Mugisha as captain in training for the emp team so he can grow to be a good partner for you over time.
+
+
+He won’t be perfect at the start and would make mistakes but over time he’d learn to just be as good as you.
+
+
+Your primary focus should still be on the dev team.
+
+
+I’ll remove you from the emp team channel. So that the conversations between you and Mugisha happen on the joint prod-eng team.
+
+Baba Oladimeji, Jul 30, 10:46 AM
+@Alemya Obed Alenyorige 
+
+
+You have the thinking bubble on a lot of messages. Please ensure you start them so you can provide your thought without forgetting and thus leaving them hanging etc
+
+You, Aug 3, 6:26 AM, Edited
+Weekly Report (July 27 – July 31, 2026)
+
+
+Achievements:
+investigated the weekend STAG and PROD alerts to check whether real users were involved. cross-referenced PostHog and the logs, and confirmed it was the known CORS error rather than an actual user.
+supported both the emp and dev teams through the week.
+synced with Wangare to go over the beta-v1 product review and assign tasks from it.
+rotated several credentials as part of the offboarding, and guided the team through doing the same.
+handled a PROD issue that came out of the database credential change. synced with Wangare to diagnose it, made sure our principles were followed, and worked out how to prevent it from happening again.
+worked on PCR updates from the last sync, updated the project plan, and ran a demo with some follow-up comments.
+addressed the comments from the previous sync.
+aligned with Mugisha on what's needed to enforce the PCRI text layout.
+assessed the hiring threads to map out the duration and stages of the last hiring process.
+Challenges:
+couldn't reset the z[dot]ai credential. it looks tied to account access or ownership, so it's blocked for now.
+didn't get to the traction monitoring i'd planned. the credential rotation, the PROD issue took priority and the PCR/PCRI projects took priority.
+Learnings:
+on the alerts investigation: PostHog and the logs together are a decent way to attribute traffic, but neither one captures the real client IP, which makes it hard to confirm exactly what triggered an alert.
+on the PROD database issue: it reinforced why GitHub secrets have to stay the single source of truth. a manual fix can be silently overwritten by a deploy if the secret isn't updated to match.
+on z[dot]ai: not all shared accounts let you rotate credentials directly. some are gated by account ownership, which is worth knowing before you start.
+Next Steps:
+follow up on the z[dot]ai credential (the access or ownership blocker).
+do the traction monitoring i missed this week.
+continue the PCR and PCRI work, working through the demo comments and the PCRI text layout alignment with Mugisha.
+
+Baba Oladimeji, Aug 4, 4:03 PM
+@Alemya Obed Alenyorige 
+
+
+Our 1on1 is now
+
+You, Aug 5, 6:22 AM, Edited
+hello @Baba Oladimeji, i wanted  to let you know that i’ll be unavailable this morning due to an urgent personal matter that requires my attention. as a result, i’ll be unavailable for a few hours in the morning and will miss the morning session, but i’ll let the team know once i’m back. apologies for the short notice, and thank you for your understanding.
+
+Baba Oladimeji, Aug 6, 4:29 PM, Edited
+@Alemya Obed Alenyorige 
+
+
+I just want to first of all check-in with you to ensure you are not overwhlemed and also to encourage you for your efforts thus far.
+
+
+I know I am throwing a lot at you, but just take it one at a time.
+
+
+Don't worry if things fall off along the way, we just need to focus on the most important P0 items first and take those one at a time.
+
+
+Once again, well done. 🙏
+
+You, Aug 10, 4:23 AM
+Weekly Report (August 3 - August 7, 2026)
+
+
+Achievements:
+ investigated the weekend STAG and PROD alerts to check whether real users were involved. cross-referenced PostHog and the logs, and confirmed it was the known CORS error rather than an actual user.
+ supported both the emp and dev teams through the week.
+ synced with Wangare to go over the beta-v1 product review and assign tasks from it.
+ rotated several credentials as part of the offboarding, and guided the team through doing the same.
+ handled a PROD issue that came out of the database credential change. synced with Wangare to diagnose it, made sure our principles were followed, and worked out how to prevent it from happening again.
+ worked on PCR updates from the last sync, updated the project plan, and ran a demo with some follow-up comments.
+ addressed the comments from the previous sync.
+ aligned with Mugisha on what's needed to enforce the PCRI text layout.
+ assessed the hiring threads to map out the duration and stages of the last hiring process.
+Challenges:
+ couldn't reset the z[dot]ai credential. it looks tied to account access or ownership, so it's blocked for now.
+ didn't get to the traction monitoring i'd planned. the credential rotation, the PROD issue took priority and the PCR/PCRI projects took priority.
+Learnings:
+ on the alerts investigation: PostHog and the logs together are a decent way to attribute traffic, but neither one captures the real client IP, which makes it hard to confirm exactly what triggered an alert.
+ on the PROD database issue: it reinforced why GitHub secrets have to stay the single source of truth. a manual fix can be silently overwritten by a deploy if the secret isn't updated to match.
+ on z[dot]ai: not all shared accounts let you rotate credentials directly. some are gated by account ownership, which is worth knowing before you start.
+Next Steps:
+ follow up on the z[dot]ai credential (the access or ownership blocker).
+ do the traction monitoring i missed this week.
+ continue the PCR and PCRI work, working through the demo comments and the PCRI text layout alignment with Mugisha.
+
+You, Aug 11, 4:06 PM
+@Baba Oladimeji its time for our 1on1… are you available?
+
+Baba Oladimeji, Aug 13, 1:24 PM
+@Alemya Obed Alenyorige 
+
+
+1] I really love the leadership you showed in this thread prod-eng . 
+
+
+2] You really did a great job in coaching and guiding both Mugisha and Wangare without being aggressive at all. You were gentle but direct and clear while still retaining an open mind for them to push back if they had strong points.
+
+
+3] Really well done!
+
+You, Aug 17, 3:29 AM, Edited
+Weekly Report (Aug 10 - 14)
+
+
+Achievements:
+updated the PCR document and had it reviewed.
+implemented the PCR-audio structure and layout.
+migrated the initial audio review to the new structure to test the layout implementation.
+ran a demo on the PCR-audio and addressed the comments from it.
+updated the PCRI-audio project plan and demoed it.
+addressed the comments from the PCRI-audio demo.
+documented how the CLI agent is used for traction.
+did a couple of PR reviews.
+Challenges:
+none significant this week.
+Learnings:
+deleting the account that deployed an Apps Script breaks its deployment url (surfaced by the feedback submission bug).
+Next Steps:
+work on the PCRI-audio milestones.
+
+Baba Oladimeji, Aug 17, 3:15 PM
+@Alemya Obed Alenyorige 
+
+
+Are you available for a quick call ?
+
+You, Aug 24, 5:46 AM, Edited
+Weekly Report (Aug 17 - 21)
+
+
+Achievements:
+addressed the comments on the PCR-infra and PCRI-audio plans and got them reviewed.
+created tasks for the PCRI-audio milestones.
+worked on milestone 1 of the PCRI-audio and ran a demo on the integration.
+synced with Wangare on task reassignment and the audio integration.
+updated the project plans based on review feedback.
+reviewed several PRs (feedback tests, ASR fallback flows).
+Challenges:
+none significant this week.
+Learnings:
+learned how the PCRI-Text flow works in the language tutor.
+learned how the close-try is generated at runtime.
+Next Steps:
+complete the text population to include the close-try.
+update the audio to include the close-try.
+
+Baba Oladimeji, Aug 26, 5:43 PM
+@Alemya Obed Alenyorige 
+
+
+1] Another interesting question for you.
+
+
+2] Under what conditions would you consider having wander back on the team?
+
+
+3] Nothing at all is happening in this direction, I just want to get a read on how you are thinking about this.
+
+You, Aug 31, 5:45 AM, Edited
+Weekly Report (Aug 24 - 28)
+
+
+Achievements:
+updated the PCR and PCRI project plans based on review comments and got them reviewed.
+updated the appscripts for the four-digit segment id scheme.
+had a sync on the text population and updated the text and audio populations to include the close-try.
+updated the text integration flow based on the conversations.
+pinged Wangare for the close-try review pass.
+reviewed Wangare's website QA doc for the alpha signup flow.
+documented the 2025 hiring process and came up with the plan for the next hiring phase.
+opened the populate script and integration PRs and ran the cli-agent review on them.
+recovered the SmartRecruiters access after the login block and refreshed the hiring tools state.
+ran the hiring onboarding session with Wangare and Mugisha.
+reviewed PRs and addressed the comments on them across the week.
+Challenges:
+none significant this week
+Learnings:
+recapped how interview scheduling links up: cal[dot]com booking links inside the interview emails sent from SmartRecruiters, with no direct integration between them.
+recapped the 2025 hiring round ran on free-tier tooling end to end, with candidates added into SmartRecruiters manually from the job platforms.
+Next Steps:
+integrate the close-try for text and audio once the review is done and approved.
+address the remaining comments on the hiring docs.
+look into how our hiring process can be made smoother
+determine next steps for hiring once plan is approved.
+
+Baba Oladimeji, Sep 1, 4:03 PM
+@Alemya Obed Alenyorige 
+
+
+I'm on the call for our 1on1
+
+You, Sep 7, 6:02 AM, Edited
+Weekly Report (Aug 31 - Sep 04)
+
+
+Achievements:
+looked into how the hiring process can be made smoother with better tools, and updated the plan with the findings: the infrastructure section with the flow, and the manual path settled on.
+identified and addressed the gaps in the hiring plan through review with Baba, two rounds, including the new offer stages and the assignees.
+assisted in preparing the job ad and the job boards for posting; the ads went live and were reviewed once up.
+handled the hiring comms templates through Baba's review: anonymized them, added the take home assignment and government ID lines, and templated the dates.
+handed the platform prep over to Wangare with a sync, and handled the tanzajob account issue with its follow-up plan.
+reviewed audio segments in the audio review.
+updated the appscript for the audio playing feature on the sheet.
+joined the presentation sync of the PX testbed.
+Challenges:
+the hiring review rounds took most of the week's focus, so the close-try integration stayed in progress instead of completing.
+Learnings:
+learned the job boards' mechanics end to end: ad credits refresh monthly, ads run 60 days, validation strips external apply links, and titles and company names lock after creation.
+learned SmartRecruiters can publish and distribute to about twenty channels on the free plan, which reshaped the tooling decision.
+Next Steps:
+complete the close-try integration for text and audio once approved.
+have the demo of the integration.
+follow up on the tanzajob support thread (reply expected, ad auto-deletes on 16.09 if unresolved).
+
+Baba Oladimeji, Sep 8, 3:13 PM
+@Alemya Obed Alenyorige 
+
+
+I moved our 1on1 earlier. Is it possible to have it in like 2 minutes?
+
+You, Sep 14, 6:21 AM, Edited
+Weekly Report (Sep 7 - 11)
+
+
+Achievements:
+completed the close-try integration for text and audio, and had the demo of the integration.
+resolved a python incompatibility in the tutor build: colab's runtime moved to python 3.13, which broke the dependency install and would have silently shipped a wheel that crashes at deploy. pinned the runtime to a 3.12 version, rebuilt, and verified the wheel against local botai.
+built the new language tutor library with the integrated text and populated the new text review tab.
+integrated the reviewed audio and populated the new audio review tab.
+got the updated language tutor to stag.
+handed the traction onboarding to Wangare: the doc walkthrough, the dashboard verification task, and her first catch confirmed and fixed (the pipeline counting a stale signup event).
+handled the tanzajob resolution with Wangare, and the board exclusion decision is recorded in the plan.
+Challenges:
+none significant this week.
+Learnings:
+recapped on how to build language tutor 
+learned the tutor build's python coupling: the build python and the deploy python must match
+learned that colab now defaults to 3.13 in recent updates. while botai runs 3.12, and colab supports pinning past runtimes (the 2026.07 runtime, python 3.12.13) as the clean fix.
+Next Steps:
+build the control panel for the audio review tab.
+get final pass on the hiring plan and close the plan task.
+support Wangare through stage 3 sourcing as the round runs.
+
+Baba Oladimeji, Sep 15, 3:35 PM
+@Alemya Obed Alenyorige 
+
+
+Can you please join our 1on1 call now?
+
+You, Sep 17, 3:05 PM
+@Baba Oladimeji 
+
+
+Monday is a public holiday here, so i'd like to be off that day.
+
+You, Sep 21, 6:18 AM, Edited
+Weekly Report (Sep 14 - 18)
+
+
+Achievements:
+built the control panel for the audio review tab.
+fixed the notebook for building the language tutor (the python compatibility fix).
+assisted with the content review of new segments.
+completed the content integration and released the new tutor versions, and populated the sheets for another review.
+updated the hiring plan through multiple review rounds: the infrastructure diagram and prose restructured into numbered steps, the stages grouped into five phases, and the two-sheet split (filtering and tracker) settled.
+ran the candidate transfer demo with Wangare (boards to SmartRecruiters to filtering sheet).
+created the hiring stage tasks on the sprint board and added them to sprint 40.
+reviewed PRs across the week.
+Challenges:
+none significant this week.
+Learnings:
+none significant this week.
+Next Steps:
+PCR milestones 3 and 4: Path 2 audio-only review on 3 new groups, then Path 1 on 3 more groups with the carry-forward check. after M4 both PCR plans are complete.
+support Wangare through the candidate transfer and rating as the hiring round runs.
+
+You, Sep 22, 4:37 PM
+@Baba Oladimeji its time for our 1on1 are you available to join?
+
+Baba Oladimeji, Sep 27, 12:35 PM
+@Alemya Obed Alenyorige 
+
+
+Your pay was increased by $20 due to your growth in leadership which makes your pay now $350.
+
+
+However, I did not feel you have completed the ramp up expected in the emp team so I could not get you to the $375 amount.
+
+
+Well done, you are making progress and we are getting closer to achieving our business goals
+
+You, Sep 28, 6:28 AM
+Weekly Report (Sep 21 - 25)
+
+
+Achievements:
+completed the second and final phases of the audio content integration, released the new tutor versions, and populated the sheets for another review round.
+had the demo wrapping up PCR (M3 and M4 milestones shown to the team).
+reviewed progress on hiring with the team: discussed the vetting and rating criteria, agreed on the points-based scoring system for the filtering sheet, and the candidate ratings are underway.
+had the sync with Baba on the Wanderi decision, GPS isolation approach, and Mugisha joining the captain group.
+got updates to stag.
+reviewed PRs across the week.
+Challenges:
+none significant this week.
+Learnings:
+recapped on the vetting criteria used in hiring candidates
+Next Steps:
+complete the GPS isolation project plan.
+rate the candidates on hiring
+
+You, Oct 5, 6:05 AM
+Weekly Report (Sep 28 - Oct 2)
+
+
+Achievements:
+worked on the GPS isolation project plan, demoed it, and addressed the feedback and comments through multiple review rounds.
+performed the content review.
+attended the XP testbed sync.
+reviewed PRs across the week.
+started rating candidates on the filtering sheet (in progress).
+Challenges:
+the candidate rating sat unstarted for most of the week while the GPS isolation plan and other reviews took the focus
+Learnings:
+gained an understanding of how the GPS (the machinery for pronunciation scoring) is structured and wired in the language tutor codebase, and what makes up the codebase overall.
+Next Steps:
+complete the candidate rating on the filtering sheet.
+finalize the GPS isolation project plan review.
+
+You, Oct 6, 4:08 PM
+@Baba Oladimeji it's time for our 1on1, will you be available to have it?
+
+Baba Oladimeji, Oct 7, 3:22 PM
+@Alemya Obed Alenyorige 
+
+
+Can we have our 1on1 now ?
+
+You, Oct 12, 2:41 AM, Edited
+Weekly Report (Oct 5 - 9)
+
+
+Achievements:
+joined the practice experience testbed syncs to catch up on the progress made.
+completed addressing the comments on the GPS isolation plan and had it reviewed.
+successfully handed over the GPS isolation project to Mugisha.
+completed rating the candidates on the filtering sheet.
+performed the content review.
+caught up on traction.
+reviewed PRs.
+Challenges:
+none significant this week.
+Learnings:
+recapped on the retention part of traction
+Next Steps:
+complete integrating the reviewed contents into the tutor.
+demo the retention tab work in the traction sheets.
+
+Baba Oladimeji, Oct 13, 2:24 PM
+@Alemya Obed Alenyorige 
+
+
+Sort of I was not clear enough, Wangare is to do the execution of the admin stuff but you should be the one doing the strategy and planning.
+
+
+So for example, she is the one to send the messages to the candidates, but you are the one to inform her on what she should send and select or modify the templates etc.
+
+
+I don’t want us putting too much on her plate at once. The expectation is for you to do all the thinking and decision making and let her do the actual execution to help you manage your bandwidth.
+
+
+Does that make sense, and can you make the necessary adjustments
+
+You, Oct 19, 1:41 AM, Edited
+Weekly Report (Oct 12 - 16)
+
+
+Achievements:
+completed the updates to PCR-infra to support Kiswahili and the PCRI-text workflow to protect reviewed content.
+addressed all comments from the traction demo on the retention tab: the daily dropdown fix, the reliable-data date label, the user-mode definitions doc, and the sheet timezone set to UTC.
+demoed the traction retention table twice (initial demo and the fixes demo), with both meeting summaries posted.
+found and fixed the signup event design issue (signup_successful firing on every sign-in, not just new accounts): fixed on both the sheet side (cohort counting by first signup ever) and wrote the app-side fix (isNewUser gating).
+set up the PROD traction sheet and populated it.
+flagged the signup_prompt_shown event issue (fires for logins, not just signups) for further assessment.
+drove the hiring questionnaire from concept through execution: the timeline discussion, the questionnaire design through multiple review rounds with Wangare (mail template, question set, behavioral questions, deadline mechanics), testing with work accounts, and team's final approval. the mails went out to 90 candidates and responses are coming in.
+shared the cal[dot]com setup steps with Wangare and the interview timeline discussion with the team.
+joined the GPS isolation m0 demo sync.
+reviewed PRs across the week.
+Challenges:
+none significant this week.
+Learnings:
+gained a deeper understanding of retention metrics and their design, which led to discovering a design flaw in how our sign-in and sign-up events interface with the metrics
+Next Steps:
+monitor the questionnaire responses and review them once the deadline passes.
+assess the signup_prompt_shown event issue and decide if it needs a fix or a reframing.
+prep the technical interview process with Mugisha (format, questions, escalation pattern).
+continue the text review integration of the french program content.
+
+Baba Oladimeji, Tue 4:49 PM
+@Alemya Obed Alenyorige 
+
+
+Can you join our 1on1 call again?
+
+You, Tue 4:52 PM
+Quoted
+
+
+Sent by Baba Oladimeji
+@Alemya Obed Alenyorige 
+
+Can you join our 1on1 call again?
+End Quote press L to link back to original quote
+@Baba Oladimeji yes on the call
+
+Baba Oladimeji, Wed 3:22 AM, Edited
+@Alemya Obed Alenyorige 
+
+
+1] Just following up on our conversation during our 1on1
+
+
+2] A reminder that you are doing well, but you just need to make some adjustments to ensure your efforts are aligned with my expectations of your performance at your level.
+
+
+3] The way we work is counter-intuitive from most other companies and work environments. For us the process matters more than the results. If you hyper focus on the result you miss the point that we are actually developing processes that over time get us the results we want not the other way around. If we get great results with a broken process or a process we don't understand and cannot improve and maintain, that's not a good situation for us.
+
+
+4] For us we focus on the process and try our best to make it as lightweight as possible because we are also aware that processes would change as our understanding of the landscape we are operating in evolves and matures. So the important thing is to keep going through our process iteratively, learning and making changes along the way until we start getting closer to the results we want.
+
+
+5] Let me know if you find this helpful. Well done once again, keep it up.
+
+You, 25 min, Edited
+Weekly Report (Oct 19 - 23)
+
+
+Achievements:
+completed the integration of text and audio review of the french program content for version 0.3.12, deployed updates to stag, and populated the sheet with the updated french content.
+populated the sheet with kiswahili content for another set of review.
+planned the rating criteria for the questionnaire responses and rated them.
+joined the questionnaire review sync: the second filtering was applied (age plus average), producing a pool of 34 from the 51 responses. the summary was sent async for review and approval.
+updated the hiring plan doc to reflect the questionnaire stage and the second filtering.
+went through the discussions on traction.
+reviewed PRs.
+Challenges:
+balancing the content review alongside the hiring process and traction work slowed/blocked the review
+Learnings:
+the lesson from the challenge faced is recognizing when a process is at a good-enough state to hand off and switching focus, rather than managing everything in parallel looking for results
+process matters more than results: the goal is building lightweight, iterable processes that produce results over time, not hyper-focusing on outputs. knowing when something is good enough to hand off is the skill to develop.
+Next Steps:
+await review and approval of the questionnaire filtering decisions.
+monitor traction and the PROD sheet.
+begin technical interview preparation with Mugisha once the pool is confirmed.
