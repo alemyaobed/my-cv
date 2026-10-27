@@ -1,0 +1,107 @@
+Step by step Migration plan
+
+This is a  General Migration Plan and it is designed to be platform-agnostic. It outlines the phased migration of Amazethu's infrastructure to platforms explored, starting with the platform with the highest ranking number and also starting with most resource-intensive service, botai, to ensure stability before moving the be-app and fe-web. The choice of starting with botai first was based on the service with the highest or most demanding compute resources.
+
+Phase 1: botai
+Milestone 1: Platform Account Setup
+Task 1.1: Create a Team Workspace with our dev account on the platform
+Task 1.2: Connect the GitHub Repository to the account
+Milestone 2: Resource Provisioning
+Task 2.1: Create a Private Service named botai-stag. For initial testing this will be public but once done, it will be set back to Private
+Task 2.2: Select the appropriate compute resource for botai
+Task 2.3: Set runtime to docker
+Task 2.4: Set root directory to backends/botai
+Task 2.5: Configure health check endpoint
+Milestone 3: Environment Variables and Secrets Setup: The secrets will follow a hybrid approach; 1. Manual Seed (Once): Manually add "Infrastructure Secrets" (e.g., MONGO_URI, DATABASE_PASSWORD) directly into the platform's dashboard. 2. Workflow Managed (Continuous): Use the platform's CLI (like render-cli or railway-cli) within our GitHub Actions to sync "Application Config" during deployments. Overall  in retrieving the values, the vars on GitHub actions can be used whereas for secrets, the secrets manager on AWS can be used
+Task 3.1: Add secrets to platform dashboard.
+Task 3.2: MongoDB Atlas Network Access Setup. IP Whitelisting, etc.
+Task 3.3: Create new secrets on Github Actions such as project ID,etc if need be.
+Milestone 4: CI/CD Integration and Deployment
+Task 4.1:Create GitHub workflow file, eg: .github/workflows/[platform]-botai-deploy-stag.yml
+Task 4.2:Perform the Initial Deployment and monitor logs for successful build
+Milestone 5: Networking & Service Discovery
+Task 5.1:Generate the Internal Hostname (e.g., http://botai-stag:5000) for private communication with be-app.
+Task 5.2:Provision a Temporary Public URL (e.g., botai-stag.onrender.com) to allow external testing with APIdog.
+Task 5.3:Create new subdomains on squarespace and map the Custom Sub-domain (e.g., micro[platform-name].learn.stag.amaspeak.app) for our domain name testing.
+Task 5.4: Get DNS records (CNAME) from platform
+Task 5.5: Update CNAME record in Squarespace DNS
+Task 5.6: Verify SSL certificate is issued
+Task 5.7: Test service is accessible via custom domain
+Milestone 6: Testing & Validation (Health & Monitoring)
+Task 6.1: Verify service starts without any errors
+Task 6.2: Endpoint Testing - test the endpoints using apidog while monitoring logs, etc
+Task 6.3: Monitor and assess spin up time if any
+
+Phase 2: be-app
+Milestone 1: Resource Provisioning
+Task 1.1: Create a Web Service named be-app-stag
+Task 1.2: Select the appropriate compute resource for be-app
+Task 1.3: Set runtime to docker
+Task 1.4: Set root directory to backends/be-app
+Task 1.5: Configure health check endpoint
+Milestone 2: Environment Variables and Secrets Setup: same as was done for botai
+Task 2.1: Add secrets to platform dashboard. CRITICAL: Update BOT_API_URL to point to new platform's botai internal URL. eg:BOT_API_URL=http://botai-stag:5000
+Task 2.2: IP Whitelisting in MongoDB Atlas
+Task 2.3: Create new secrets on Github Actions such as project ID,etc if need be.
+Milestone 3: CI/CD Integration and Deployment
+Task 3.1: Create GitHub workflow file: .github/workflows/[platform]-be-app-deploy-stag.yml
+Task 3.2: Perform initial deployment and monitor logs for successful build
+Milestone 4: Networking & Service Discovery
+Task 4.1:  Verify BOT_API_URL correctly resolves to botai-stag internal hostname
+Task 4.2: Provision a Temporary Public URL (e.g., be-app-stag.onrender.com) for testing
+Task 4.3: Create custom subdomain on Squarespace (e.g., api[platform].learn.stag.amaspeak.app) for our domain name testing
+Task 4.4: Update references where necessary, eg: stripe webhook, etc so successful testing can be done.
+Task 4.5: Get DNS records (CNAME) from platform
+Task 4.6: Update CNAME record in Squarespace DNS
+Task 4.7: Verify SSL certificate is issued
+Task 4.8: Test service is accessible via custom domain
+Milestone 5: Testing & Validation (Health & Monitoring)
+Task 5.1: Verify service starts without errors
+Task 5.2:  Endpoint Testing - test the endpoints using apidog while monitoring logs, etc
+Task 5.3: Monitor and assess spin up time if any
+
+Phase 3: fe-web
+Milestone 1: Resource Provisioning
+Task 1.1: Create a Static Site or Web Service named fe-web-stag
+Task 1.2: Set root directory to frontends/fe-web
+Milestone 2:  Environment Variables and Secrets Setup: same as was done for botai
+Task 2.1: Add secrets to platform dashboard.
+Task 2.2: Create new secrets on Github Actions such as project ID,etc if need be.
+Milestone 3: CI/CD Integration and Deployment
+Task 3.1: Create GitHub workflow file: .github/workflows/[platform]-fe-web-deploy-stag.yml
+Task 3.2: Perform initial deployment and monitor logs for successful build
+Milestone 4: Networking & Domain Setup
+Task 4.1: Add custom domain in platform (e.g., learn[platform].stag.amaspeak.app)
+Task 4.2: Get DNS records (CNAME) from platform
+Task 4.3: Update CNAME record in Squarespace DNS
+Task 4.4: Verify SSL certificate is issued
+Task 4.5: Test site loads via custom domain
+Task 4.6: Add the new staging domain (e.g., learn[platform].stag.amaspeak.app) to the Authorized Domains list in the Firebase Console.
+Milestone 5: Health & Monitoring
+Task 5.1: Verify site builds successfully
+Task 5.2: Verify site loads in browser
+Task 5.3: Test frontend → be-app API calls
+Task 5.4: Test authentication flow
+Task 5.5: Test Stripe checkout flow
+Task 5.6: Test audio recording and transcription (end-to-end)
+Task 5.7: Test on mobile devices
+Task 5.8: Verify analytics tracking (Clarity,etc)
+
+Phase 4: end to end testing
+Milestone 1: Full Stack Integration Testing
+Task 1.1: Test user registration flow (fe-web → be-app → MongoDB)
+Task 1.2: Test login flow
+Task 1.3: Test audio → transcription flow (fe-web → be-app → botai)
+Task 1.4: Test Stripe payment flow
+Task 1.5: Test subscription activation
+Task 1.6: Test user dashboard and settings
+Task 1.7: Test logout flow, etc
+
+Phase 5: Notifications & Alerting
+Milestone 1: Configure Alert Notifications
+Task 1.1: Configure platform alert notifications (email/gchat)
+Task 1.2: Test service down alerts
+Task 1.3: Test error rate alerts
+Task 1.4: Verify Google Chat alert webhook still works
+
+Phase 6: Update to test domain names and Prod migrations
