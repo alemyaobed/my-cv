@@ -1,0 +1,120 @@
+Project: Low-Cost Infrastructure
+Project or Feature Description
+Purpose and Scope: This project aims to research, evaluate, and plan the transition of Amazethu's current infrastructure from AWS to a suite of low-cost or free-tier providers. The goal is to sustain operations for the current user base (~30 active users) at near-zero cost until the user count scales significantly (e.g., to thousands), at which point a move back to a robust enterprise cloud like AWS can be justified. The scope covers the evaluation of alternatives for dynamic hosting, containerized compute (Node.js and Python/ML), object storage, and API management. The goal is to identify options that reduce operational costs during the alpha/beta phase while maintaining the current deployment speed and security standards.
+Main Objectives and Goals:
+Document current state: Catalog all AWS services currently in use and their purposes
+Cost Reduction: Research and identify viable free-tier infrastructure providers or a combination of services that reduces monthly infrastructure spend significantly for the current user volume.
+Feasibility Analysis and Vendor Evaluation: Create comparison matrix of features, limits, and costs of providers against current AWS usage.
+Provide recommendations: Deliver decision framework with clear thresholds
+Formulate Migration Roadmap: Create a low-risk plan to transition services while maintaining Squarespace DNS management.
+Scopes and Limits:
+Will cover:
+Research and evaluation of AWS-hosted components: ECS Fargate (be-app, botai), Amplify (fe-web), API Gateway, etc
+Comparison of free-tier offerings from alternative providers (Cloudflare, Render, Railway, etc.)
+Analysis of migration complexity and effort for each component
+Documentation of scaling thresholds and cost projections
+Testing approach for validating alternatives (POC on STAG environment)
+Recommendations for phased transition plan
+Will not cover:
+Mobile app (Expo) - remains on current infrastructure as it is not of highest priority
+Website - already migrated to Firebase Hosting
+MongoDB Atlas [ confirmation if it's free]
+PROD environment changes
+Key Definitions:
+Free-tier provider: Cloud infrastructure provider offering services at zero cost up to defined usage limits
+Low-cost provider: Cloud infrastructure provider offering services at significantly reduced cost compared to enterprise providers like AWS
+Scaling threshold: Usage level at which free-tier limits are exceeded and paid tiers are triggered
+POC (Proof of Concept): Small-scale deployment to validate technical feasibility before full migration
+Requirements Definition
+Target Personas:
+A stakeholder: Product leads, technical advisors, and decision-makers who will use this research to make infrastructure decisions.
+Developer: Dev team members responsible for the development and maintenance of  e app.
+User Stories:
+As a stakeholder, I should be able to:
+Review clear comparison of infrastructure options and costs
+Understand scaling thresholds and when free tiers become insufficient
+Make informed decisions about infrastructure strategy
+Approve migration roadmap based on research findings
+As a developer, I should be able to:
+Replicate our current GitHub Actions deployment workflow on the new provider so that our "push-to-deploy" automation remains intact.
+ Access and manage environment variables and secrets (like API keys) through the new provider's interface.
+Access real-time deployment logs and historical logs for debugging failed builds or runtime errors.
+Monitor resource utilization
+Verify the health and state of services. Eg, healthy, deploying, crashed, running etc
+  Map our Squarespace custom domains to the new infrastructure without complex DNS re-configurations or long propagation delays.
+  Receive automated notifications if a deployment fails or if we are approaching the free-tier usage limits.
+
+Design Architecture
+System Architecture:
+Current Infrastructure:
+Backend Services:
+be-app - Node.js API service (Port 4000)
+botai - Python ML/conversation service (Port 5000)
+Current AWS Services in Use:
+AWS ECS Fargate - Container orchestration for backend services
+AWS ECR - Container registry for Docker images
+AWS API Gateway - HTTP API routing to backend services
+AWS Secrets Manager - Environment variable and secret storage
+AWS Amplify - Frontend hosting for fe-web
+AWS CloudWatch - Logging and monitoring
+AWS ACM - SSL/TLS certificate management
+Non-AWS Services:
+MongoDB Atlas - Database (status: free M0 or paid tier to be confirmed)
+Squarespace - DNS management (domain registrar)
+Firebase - Authentication (already integrated)
+Alternatives to Research:
+Cloudflare
+Render
+Railway
+Fly.io
+Vercel
+And others
+Technical Specifications (if necessary)
+Technologies and Frameworks (if necessary):
+Backend Runtime: Node.js 20.x (be-app), Python 3.12 (botai)
+Frontend Framework: React + Vite
+Database: MongoDB (via Mongoose/PyMongo)
+Container Runtime: Docker
+CI/CD: GitHub Actions
+Auth: Firebase Auth
+Data Management (if necessary): Describe how data will be stored, processed, and transmitted.
+MongoDB Atlas
+Two databases: amaspeakservice (be-app), botservice (botai)
+Performance, Scalability, and Security Considerations:
+Current usage metrics to gather: Monthly API requests, Database storage used, Database operations per second, Memory/CPU utilization, Network egress
+Free tier thresholds to document: Request limits, Compute hours limits, Storage limits, Bandwidth limits, Sleep/hibernation behavior
+Security considerations: Environment variable management, Secret storage approach, Network security, HTTPS/TLS certificates
+Execution Plan with estimated timelines
+Milestones and Timeline estimates (Top-level Task breakdown):
+Milestone 1: Current State Documentation (ETA 1 day)
+Task 1.1: Document all AWS services in use with purposes
+Task 1.2: Gather current usage metrics (requests, storage, compute)
+Deliverable: Current infrastructure documentation
+Milestone 2: Alternative Research(ETA 2-3 days)
+Task 2.1: Identify and document potential providers including Cloudflare
+3 Key Questions
+Can it run our stack?
+React (frontend), Node.js (be-app), Python (botai), Docker containers
+Service-to-service communication (be-app ↔ botai)
+Custom domains + SSL
+  What does it cost?
+ Free Tier: Can it run all 3 services together? If yes, what are the limits?
+Paid Tier: Pricing structure (per service, per project, etc.)
+  How easy is it to adopt?
+Deployment method (Git integration, CLI, GitHub Actions)
+One project with multiple services?
+Environment variables & secrets
+Logging & monitoring
+Migration effort (code/config changes needed)
+Deliverable: Feature comparison matrix
+Milestone  3: Feasibility Analysis (ETA 1-2 days)
+Task 3.1: Map current services to alternatives
+Task 3.2: Identify what CAN be replaced
+Task 3.3: Identify what CANNOT be replaced (and why)
+Task 3.4: Document migration complexity for each option
+Deliverable: Feasibility assessment per service with Final Recommendation & Roadmap
+Milestone 4: Testing Plan & Recommendations(ETA 2-3 days)
+Task 4.1: Define testing approach (POC on STAG)
+Task 4.2: Phase STAG infra to use new approach
+Task 4.3: Present findings to stakeholders
+Deliverable: Final research report

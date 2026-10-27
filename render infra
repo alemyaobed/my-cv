@@ -1,0 +1,128 @@
+RENDER INFRA
+On Render, all free services spin down after 15 minutes of inactivity. The only exception is static sites, which stay up permanently.
+
+When a service spins down:
+The service goes to sleep
+The next request takes longer (spin-up time)
+Users may experience delays on first interaction
+
+Subscription
+Render has two separate subscription layers:
+Workspace Subscription
+Applies at the workspace level (topmost level)
+Controls features available to all services in that workspace
+Two main plans: Hobby (Free) and Professional (Paid)
+Service Subscription
+Applies to individual services
+Controls resources for that specific service
+Multiple tiers: Free, Starter, Standard, Pro, etc.
+
+Both subscriptions cost money independently. You pay for the workspace AND you pay for each service.
+Our Choice
+Workspace Subscription: We Chose Hobby Plan (Free)
+What We Got:
+Cost: $0
+1 project allowed (we created 2 separate workspaces instead)
+2 custom domains per workspace
+500 free pipeline minutes per workspace (for builds/deployments)
+What We Didn't Get:
+Unlimited custom domains. We were restricted to 2
+Multiple projects in one workspace
+More team members (10+)
+Webhooks integration (needed for Google Chat alerts)
+Why We Chose Hobby:
+Cost: $19-38/month saved per workspace
+2 custom domains per workspace is sufficient
+500 pipeline minutes per workspace works was the right option since the other workspace charges $19 per user added
+We created two separate Hobby workspaces instead of one Professional workspace
+Restrictions We Accepted:
+Only 2 custom domains per workspace (had to prioritize which services get custom domains)
+No webhooks for real-time chat notifications (using email instead)
+Managing two separate workspaces instead of one which gives as 4 slots for domains, and our services are 6
+
+Services subscription
+fe-web
+Uses the static site setup on render
+Free
+Does not spin down
+be-app
+Uses the webservice setup on render
+Free tier with spin-down after 15 minutes (0.5 CPU, 512MB RAM)
+Ping workflow keeps it warm (currently set to 56 minutes)
+botai
+Uses the webservice setup on render
+Standard tier ($25/month, 2GB RAM, 1 CPU)
+Does not spin down
+Total cost
+Per Environment (STAG or PROD)
+Fe-web
+Monthly Cost: $0
+Be-app
+Monthly Cost: $0
+Botai
+Monthly Cost: $25
+Pipeline Minutes (extra): $5 if >500 free min used ($5 per 1000 extra min)
+Subtotal per Environment: $25-$35/month
+Estimated Monthly Total (Both Environments Combined): $50-$60/month
+
+
+Internal Service Communication
+On Render, the backend services communicate using internal service names (not custom domains:
+STAG: be-app calls botai at http://botai-stag:5000
+PROD: be-app calls botai at http://botai-prod:5000
+Benefits:
+Traffic stays within Render's network (faster, more secure)
+No custom domain needed for service-to-service communication since we had a limitation on that
+This matches our AWS setup approach
+
+Workspace Structure
+We use TWO separate Hobby workspaces instead of one Professional workspace.
+Workspace 1: STAG
+Project name: amazethu-STAG-INFRA
+Plan: Hobby (Free)
+Custom Domains Allocated: 2 (with just one used)
+Pipeline Minutes: 500 free per month
+Custom Domains Used:
+learn.stag.amaspeak.app → fe-web
+be-app-stag.onrender.com → be-app
+botai uses default: botai-stag.onrender.com  for external calls but internal communications is through the internal url, http://botai-stag:5000
+
+Workspace 2: PROD
+Project name: amazethu-PROD-INFRA
+Plan: Hobby (Free)
+Custom Domains Allocated: 2 (with just one used)
+Pipeline Minutes: 500 free per month
+Custom Domains Used:
+learn.amaspeak.app → fe-web
+be-app-prod.onrender.com → be-app
+botai uses default: botai-prod.onrender.com  for external calls but internal communications is through the internal url, http://botai-prod:5000
+
+
+Deployment Workflows
+We chose controlled deployments over the auto deploy feature render offers due to how we ship features to our various environments and also tagging every deployment.
+Our approach:
+Auto-deploy is DISABLED for both STAG and PROD services
+New GitHub Actions workflows with a flow similar to what we are familiar with:
+Tag-based deployments for version control
+Manual triggers for control
+Automatic secrets injection (no manual dashboard updates)
+Health checks after deployment
+Automatic tagging on successful STAG deployment
+Checking for tag existence and deployment from a particular tag for PROD deployment
+ All Render deployment workflows are prefixed with RENDER- for easy identification. eg, RENDER-botai-deploy-stag.yml, RENDER-be-app-deploy-prod.yml, etc.
+Monitoring Workflows: ping-be-app-render.yml - Keep services warm (STAG + PROD)
+
+Notifications and Monitoring
+We evaluated two options for service notifications and chose email based on cost considerations.
+Option 1: Webhooks → Google Chat
+Cost: $19/month for Professional workspace upgrade.
+Additional cost: Hosting a webhook receiver service and keeping alive without spin-downs
+Benefit: Real-time chat notifications
+Verdict: Too expensive for our current scale and user volume. This beats the purpose of the double setup of the hobby workspaces to cut cost as discussed at the beginning of the document
+Option 2: Email Notifications (CHOSEN)
+Cost: Free
+Coverage: Deployment failures, service downtime, build failures
+Delivery: Email to configured recipients
+Verdict: Sufficient for our current needs, although we would need to be constantly checking our emails
+Render Email Notifications Configuration (using option 2)
+Current Setup: The notification set to "All notifications" on both workspace PROD and STAG for all services
