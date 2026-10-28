@@ -27,26 +27,35 @@ before submitting. No internal codenames anywhere in these answers.
 
 ## LinkedIn outreach: Delight (Kekeli) Bessie, AI Engineer at Zof AI
 
-Second-degree connection with over ten mutual connections. Sequence:
-connect with a note first, no ask; send the message only after they
-accept.
+Second-degree connection with over ten mutual connections. The site
+outage is the natural, genuine opener. Sequence: connect with the note,
+send the message after they accept.
 
 ### Connection note (under 300 characters)
 
-Hi Delight, I read your LLM-from-scratch PyTorch guide and the patient
-agent posts. I work on LLM evaluation harnesses for a language tutor
-from Kumasi. Would love to connect and follow your work at Zof.
+Hi Delight, I came across the AI Software Engineer posting at Zof and
+tried to apply, but the site seems to be down. I also read your
+LLM-from-scratch PyTorch guide, great stuff. Would love to connect.
 
 ### Message after they accept
 
-Thanks for connecting, Delight. Your PyTorch guide is the kind of
-under-the-hood work I am trying to deepen: my day job is backend and
-infrastructure, and I have been building evaluation harnesses with
-simulated students for an LLM language tutor, so RAG and agentic
-architectures are the direction I am growing into. I have applied for
-the AI Software Engineer role at Zof in Accra. If you are open to it, I
-would love to hear what the team values most in engineers there. Either
-way, following your work.
+Thanks for connecting. I tried submitting an application for the AI
+Software Engineer role but zof.ai has been unreachable since yesterday.
+Is that known on your side, and is there another way to apply in the
+meantime? For context: I am a software engineer in Kumasi, three years
+in, currently running cloud infrastructure after leading a migration
+from AWS to Render, and I build evaluation harnesses for an LLM
+language tutor alongside my backend work. Your PyTorch guide is exactly
+the depth I am working toward.
+
+### What to expect
+
+- They may not know the site is down; the message does them a favor.
+- Likely replies: thanks for flagging, try again later, or a link to an
+  alternate apply route. Any reply puts your name on the role before
+  the application lands.
+- If silence, do not send a second follow-up; submit the application
+  the moment the site recovers regardless.
 
 ## Written responses
 
