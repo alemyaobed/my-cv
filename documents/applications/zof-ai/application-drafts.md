@@ -31,12 +31,11 @@ Second-degree connection with over ten mutual connections. Everything
 goes in the single connection note (LinkedIn caps it at 300
 characters); there is no separate follow-up message.
 
-### Connection note (about 230 characters)
+### Connection note
 
 Hi Delight, I saw the AI Software Engineer ad at Zof and tried to
 apply, but the site seems down. Any idea what's going on or what to
-expect? Also read your PyTorch LLM guide, great stuff. Would love to
-connect. - Obed, Kumasi
+expect?
 
 ### What to expect
 
