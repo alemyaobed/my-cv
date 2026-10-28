@@ -25,6 +25,29 @@ before submitting. No internal codenames anywhere in these answers.
 - Portfolio: leave empty for now (site not deployed) or reuse the
   GitHub profile link.
 
+## LinkedIn outreach: Delight (Kekeli) Bessie, AI Engineer at Zof AI
+
+Second-degree connection with over ten mutual connections. Sequence:
+connect with a note first, no ask; send the message only after they
+accept.
+
+### Connection note (under 300 characters)
+
+Hi Delight, I read your LLM-from-scratch PyTorch guide and the patient
+agent posts. I work on LLM evaluation harnesses for a language tutor
+from Kumasi. Would love to connect and follow your work at Zof.
+
+### Message after they accept
+
+Thanks for connecting, Delight. Your PyTorch guide is the kind of
+under-the-hood work I am trying to deepen: my day job is backend and
+infrastructure, and I have been building evaluation harnesses with
+simulated students for an LLM language tutor, so RAG and agentic
+architectures are the direction I am growing into. I have applied for
+the AI Software Engineer role at Zof in Accra. If you are open to it, I
+would love to hear what the team values most in engineers there. Either
+way, following your work.
+
 ## Written responses
 
 ### Why are you interested in Zof AI?
