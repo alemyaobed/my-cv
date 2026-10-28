@@ -27,35 +27,24 @@ before submitting. No internal codenames anywhere in these answers.
 
 ## LinkedIn outreach: Delight (Kekeli) Bessie, AI Engineer at Zof AI
 
-Second-degree connection with over ten mutual connections. The site
-outage is the natural, genuine opener. Sequence: connect with the note,
-send the message after they accept.
+Second-degree connection with over ten mutual connections. Everything
+goes in the single connection note (LinkedIn caps it at 300
+characters); there is no separate follow-up message.
 
-### Connection note (under 300 characters)
+### Connection note (about 230 characters)
 
-Hi Delight, I came across the AI Software Engineer posting at Zof and
-tried to apply, but the site seems to be down. I also read your
-LLM-from-scratch PyTorch guide, great stuff. Would love to connect.
-
-### Message after they accept
-
-Thanks for connecting. I tried submitting an application for the AI
-Software Engineer role but zof.ai has been unreachable since yesterday.
-Is that known on your side, and is there another way to apply in the
-meantime? For context: I am a software engineer in Kumasi, three years
-in, currently running cloud infrastructure after leading a migration
-from AWS to Render, and I build evaluation harnesses for an LLM
-language tutor alongside my backend work. Your PyTorch guide is exactly
-the depth I am working toward.
+Hi Delight, I saw the AI Software Engineer ad at Zof and tried to
+apply, but the site seems down. Any idea what's going on or what to
+expect? Also read your PyTorch LLM guide, great stuff. Would love to
+connect. - Obed, Kumasi
 
 ### What to expect
 
-- They may not know the site is down; the message does them a favor.
-- Likely replies: thanks for flagging, try again later, or a link to an
-  alternate apply route. Any reply puts your name on the role before
-  the application lands.
-- If silence, do not send a second follow-up; submit the application
-  the moment the site recovers regardless.
+- They may not know the site is down; the note does them a favor.
+- Likely replies: thanks for flagging, try later, or an alternate apply
+  route. Any reply puts your name on the role before applying.
+- If silence, send nothing further; submit the application the moment
+  the site recovers regardless.
 
 ## Written responses
 
