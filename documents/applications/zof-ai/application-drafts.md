@@ -1,114 +1,135 @@
 # Zof AI application drafts
 
-Role: AI Software Engineer (Senior band), Accra, Ghana.
-Form: zof.ai/careers. Review and adjust every answer in your own voice
-before submitting. No internal codenames anywhere in these answers.
+Role: AI Software Engineer, Accra, Ghana (senior band). Form at
+zof.ai/careers. This file mirrors the form field by field, in form
+order. Answers follow the style of documents/refs/answer-style-sample:
+first person, situation to action to outcome, concrete names and
+numbers, no slogans.
 
-## Form fields
+## 1 Basic information
+
+- Full name: Obed Alemya ALENYORIGE
+- Email: alemyaobed@gmail.com
+- Phone or WhatsApp: +233 53 137 6875
+- Current location: Kumasi, Ghana
+
+## 2 Professional links
+
+- LinkedIn URL: https://www.linkedin.com/in/alemyaobed/
+- GitHub URL: https://github.com/alemyaobed
+- Portfolio (optional): https://alemyaobed.vercel.app
+- Resume or CV link: https://alemyaobed.vercel.app/resume
+
+## 3 Role-specific background
 
 - Years of experience: 3
-- Strongest programming languages: Python, TypeScript
-- Best project link: https://github.com/alemyaobed/ai-perfectionism-and-semantic-drift
-- AI tools you use: Claude Code, Gemini, Cursor
-- Comfort with frontend: Comfortable (React, Tailwind; shipped features)
-- Comfort with backend: Strongest area (Django, FastAPI, Node.js, Express)
-- Comfort with databases: Strong (PostgreSQL, MongoDB, MySQL)
-- Comfort with AI coding tools: Daily driver, with written team workflows
-- Systems or products you have worked on: A production AI
-  language-learning platform: LLM tutor with evaluation testbeds and
-  simulated students, content generation and review pipelines, speech
-  (transcription and TTS), subscription payments; plus its cloud
-  infrastructure, which I migrated from AWS to a low-cost platform.
-- Earliest start date: after notice period, flexible
-- Resume link: https://alemyaobed.vercel.app/resume (live; printable to
-  PDF from the page)
-- Portfolio: leave empty for now (site not deployed) or reuse the
-  GitHub profile link.
+- Strongest programming languages: JavaScript, TypeScript, Python
+- Best project link: https://craftsmangh.com
+  (One link, the project that best shows the skills. A live product a
+  reviewer can open in ten seconds beats any repo.)
+- AI tools you use: Claude Code, Gemini
+- Comfort levels: frontend Advanced, backend Advanced, databases
+  Advanced, AI coding tools Advanced
+
+### Systems or products you have worked on
+
+I work on a language-learning platform running in production. Backend
+services in Python (FastAPI) and Node.js/Express, a React frontend,
+PostgreSQL and MongoDB. My work there has covered three things.
+Features: a Google Calendar reminder system with recurrence rules.
+Quality: Playwright user-flow tests with automated failure alerts,
+which cut our deployment errors by about 20 percent. Infrastructure:
+I documented our AWS estate, compared providers on cost and limits,
+and executed the migration to Render, phased with no user downtime, at
+roughly one sixth of the previous cost. Around the platform I build
+the evaluation tooling for our LLM tutor: a local testbed with
+simulated students and review pipelines for AI-generated content.
+
+On my own time I run two products. craftsmangh.com, a live directory
+for finding shops and craftsmen in Sunyani, built with TypeScript,
+Vite and Vercel. And a Python pipeline that turns a narration script
+into a finished 1080p video: WhisperX alignment, automated AI
+illustration, ffmpeg assembly with captions and music.
+
+## 4 Location fit
+
+- Hacker-house environment question: Yes
+- Earliest start date: one month's notice (adjust to your reality)
+- Relocation note (optional): based in Kumasi, relocating to Accra is
+  no obstacle
+
+## 5 Written responses
+
+### Why are you interested in Zof AI?
+
+At my current job I spent months making sure an LLM-based tutor
+actually taught correctly: tests that simulated students, review
+pipelines checking AI-generated lesson content against expert
+standards, alerts when deployments went wrong. That work taught me how
+much of AI engineering is verification. The model output is the easy
+part; trusting it is the hard part. When I read what Zof is building,
+it read like the problem I had been working on from the other side. I
+want to work on that problem full time, in a team that treats quality,
+cost and latency as engineering constraints rather than afterthoughts.
+
+### Why are you interested in this location?
+
+I live in Kumasi and I am ready to relocate to Accra immediately. I
+have worked remotely for an international team for two years and
+delivered, but I learn fastest around other strong engineers, and the
+focused builder environment you describe is the setup where I do my
+best work. I want to do serious AI engineering from Ghana, at the
+standard of anywhere.
+
+### What is the strongest evidence that you would succeed in this role?
+
+At my current job I owned the decision of where our production
+infrastructure lives. I documented the entire AWS estate, compared
+five providers on cost and limits, and recommended against the
+migration everyone assumed we would do, then executed the one the
+numbers supported: phased, heaviest service first, with tag-based
+deployments and end-to-end validation, at roughly one sixth of the
+previous cost. On the AI side, I built the evaluation setup for our
+LLM tutor: a testbed with simulated students and review pipelines for
+AI-generated content. My stack is the one in your listing:
+TypeScript, React, Node.js, Python, Postgres. And the habit your
+product is built on, measure before you claim, is how I already work.
+
+### What is the hardest thing you have built, sold, owned, or led?
+
+The infrastructure migration. The hard part was not the move, it was
+the decision. Everyone assumed we would move to one big provider; the
+analysis said that option was not worth it. I had to defend that with
+numbers to people who had already decided. Then the execution: moving
+services one at a time, starting with the most demanding one, fixing
+DNS, secrets and CI/CD along the way, with no downtime for users.
+Close second: running our hiring process end to end, twice, from job
+ads and candidate screening through technical interviews.
+
+### How do you currently use AI tools in your work?
+
+Daily, and with rules. I run Claude Code and Gemini as coding agents
+against written team workflows: what they may touch, that everything
+ships through reviewed pull requests, and that nothing is called done
+until it is verified. I used them to rebuild our infrastructure
+documentation, to draft the migration analysis, and to generate test
+content variants. I also study their failure modes. In a personal
+research project I measured how iterative AI suggestions drift from
+the original intent over fifty rounds of revision, with semantic
+similarity falling from 1.0 to -0.13. Working with AI tools is where I
+want to be. Verifying them is what I do.
+
+## 6 Remaining fields
+
+- How did you hear about us: LinkedIn
+- Education: BSc Computer Science, KNUST; ALX Software Engineering
+  Program (backend)
+- Anything else: leave empty
 
 ## LinkedIn outreach: Delight (Kekeli) Bessie, AI Engineer at Zof AI
 
-Second-degree connection with over ten mutual connections. Everything
-goes in the single connection note (LinkedIn caps it at 300
-characters); there is no separate follow-up message.
-
-### Connection note
+Connection note, question alone, no compliments:
 
 Hi Delight, I saw the AI Software Engineer ad at Zof and tried to
 apply, but the site seems down. Any idea what's going on or what to
 expect?
-
-### What to expect
-
-- They may not know the site is down; the note does them a favor.
-- Likely replies: thanks for flagging, try later, or an alternate apply
-  route. Any reply puts your name on the role before applying.
-- If silence, send nothing further; submit the application the moment
-  the site recovers regardless.
-
-## Written responses
-
-### Why are you interested in Zof AI?
-
-I build the thing Zof sells: verification between AI and production.
-For the past two years my work on a conversational AI language tutor
-has been about making LLM output reliably useful: evaluation harnesses
-with simulated students, review pipelines that check AI-generated
-content against expert standards, and QA automation that cut deployment
-errors by 20%. My own research, The Perfectionism Trap, measured what
-iterative AI suggestions do to intent over fifty rounds, which is
-exactly the failure mode Zof exists to catch. I want to work on that
-problem full time, at a company that treats quality, cost and latency
-as engineering constraints rather than afterthoughts, and I want to do
-it from Ghana at a world-class bar.
-
-### Why are you interested in this location?
-
-I am based in Kumasi and ready to relocate to Accra immediately. I have
-delivered for an international remote team for two years, but I learn
-fastest around other strong engineers, and a focused on-site
-environment suits how I work. Building ambitious AI products from
-Ghana, with the living and support structure described, is the setup
-where I perform best.
-
-### What is the strongest evidence that you would succeed in this role?
-
-Three years of increasing ownership on a production AI product. I
-currently own cloud infrastructure decisions: I documented an
-undocumented AWS estate, evaluated five alternative providers, built
-the decision framework, and executed the phased migration in
-production, cutting monthly spend by roughly 85% while keeping uptime
-and deployment speed. I built the evaluation systems for our LLM tutor:
-a local testbed with simulated students, content review pipelines, and
-quality control workflows. My stack is the one in your posting:
-TypeScript, React, Node.js, Python, Postgres. And the habit your
-product is built around, measure before you claim, is how I already
-work.
-
-### What is the hardest thing you have built, sold, owned, or led?
-
-Leading an infrastructure assessment and migration. I documented the entire
-production AWS estate, ran the cost analysis, evaluated providers, and
-built the comparison matrix and decision framework for stakeholders.
-The analysis recommended against the migration everyone assumed we
-would do, and defending that recommendation was the hard part. I then
-executed the phased migration we did choose: heaviest service first,
-tag-based deployments, DNS and SSL cutover, end-to-end validation
-including payments and auth, no downtime for users. Close second: hiring. I
-ran the 2025 round end to end on free-tier tooling, from job ads and
-SmartRecruiter screening through cal.com scheduling and technical and
-behavioral interviews; I then documented that process and am leading
-the second round now, questionnaire to 90 candidates with two-stage
-filtering, owning strategy and delegating execution.
-
-### How do you currently use AI tools in your work?
-
-Daily and deliberately. I run terminal coding agents with written team
-workflows: what agents may touch, how work ships through pull requests
-with review, and how output is verified before anything is called done.
-I have used them to rebuild infrastructure documentation, generate
-test content variants, and draft migration analyses, always behind
-human review gates. I also study their failure modes: my Perfectionism
-Trap research measured semantic drift when iterating on AI suggestions,
-with similarity dropping from 1.0 to -0.13 over fifty iterations. I
-treat AI as a fast collaborator with high output and zero authority:
-everything gets verified.
