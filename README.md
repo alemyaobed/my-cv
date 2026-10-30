@@ -5,7 +5,7 @@ Never deployed. The public portfolio lives in the alemyaobed repository.
 
 ## Source of truth
 
-The original work documents live at the repository root, exactly as the
+The original work documents live in `documents/refs/`, exactly as the
 owner keeps them. These are the single source of truth:
 
 - weekly report from amazethu
@@ -14,10 +14,11 @@ owner keeps them. These are the single source of truth:
 - low-cost infra project plan
 - step by step migration plan
 - render infra
+- answer-style-sample (application answer style reference)
 
-Derived material (generated summaries, the terms map, polished CVs) sits
-under documents/ and cv/. If a derived document disagrees with a root
-original, the root original wins.
+Derived material (generated summaries, the terms map, polished CVs)
+sits under documents/ and cv/. If a derived document disagrees with a
+ref original, the ref original wins.
 
 ## Structure
 
