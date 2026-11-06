@@ -37,6 +37,16 @@ additional; only use it where unavoidable.
 | TU Dresden | Computer Science MSc | direct | free | ~Mar (VERIFY) | wide CS scope |
 | RPTU Kaiserslautern | Computer Science MSc | direct | free | ~Mar (VERIFY) | DFKI nearby |
 | Hamburg | Intelligent Adaptive Systems MSc | VERIFY | VERIFY | ~Mar (VERIFY) | AI focus |
+| Freie Universitaet Berlin | Data Science MSc | VERIFY | VERIFY | ~Dec-Mar (VERIFY) | research university, Berlin AI market |
+| TU Dortmund | Data Science MSc | VERIFY | VERIFY | ~Mar (VERIFY) | strong TU |
+| HHU Duesseldorf | AI and Data Science MSc | VERIFY | VERIFY | ~Mar (VERIFY) | exact AI+DS direction |
+| Goettingen | Applied Data Science MSc | VERIFY | VERIFY | ~Mar (VERIFY) | math/CS faculty, Max Planck ecosystem |
+
+Confirmed from the DAAD database search (2026-11-06): TUM Data
+Engineering and Analytics charges EUR 6,000; Ulm and Karlsruhe UAS
+charge EUR 1,500 (Baden-Wuerttemberg rule). All excluded.
+Hochschule (applied sciences) programs are treated as backups only:
+research universities fit the thesis and PhD trajectory better.
 
 Pick 5-6 to actually apply to. Every direct application is free; the
 only cost on this table is Marburg via uni-assist if included.
