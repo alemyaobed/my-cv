@@ -42,6 +42,18 @@ additional; only use it where unavoidable.
 | HHU Duesseldorf | AI and Data Science MSc | VERIFY | VERIFY | ~Mar (VERIFY) | exact AI+DS direction |
 | Goettingen | Applied Data Science MSc | VERIFY | VERIFY | ~Mar (VERIFY) | math/CS faculty, Max Planck ecosystem |
 | Augsburg | Data Science MSc | direct (VIBS portal) | free | official Sep 1; apply by May 1, 2027 (visa track), verified 2026-11-19 | no GRE; English B2 satisfied by English-medium degree (KNUST likely counts, no IELTS); RISK: transcript needs a formal DS/ML course of at least 4 CP plus the other six module minimums |
+| TUHH Hamburg | Data Science MSc | direct (TUHH portal) | free | Dec 1 - Jan 15 window; which semester it maps to VERIFY with study@tuhh.de | TU brand, Hamburg market, no NC; needs strong CS/math background |
+| TU Braunschweig | Data Science MSc | uni-assist | EUR 75 | Apr 15 - May 31, 2027 | selection interview stage in admissions |
+| Oldenburg | Data Science and Machine Learning MSc | uni-assist (digital) | EUR 75 | Mar 15 - Apr 30, 2027 | winter intake only; degree in DS/math/stats or related |
+
+## Unchecked — no silent drops, each gets a status before shortlisting
+
+From the owner's DAAD paste, still not verified: Regensburg
+Data Science, Trier Data Science, TU Ilmenau Data Science, BTU Cottbus
+Mathematical Data Science, Koblenz Web and Data Science, Chemnitz
+Data Science (likely requires German). The DAAD search itself had 7
+pages; only pages 1-2 plus part of 3 have been reviewed. Pages 4-7
+remain unseen.
 
 Confirmed from the DAAD database search (2026-11-06): TUM Data
 Engineering and Analytics charges EUR 6,000; Ulm and Karlsruhe UAS
