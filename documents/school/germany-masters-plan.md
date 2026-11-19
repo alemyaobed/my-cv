@@ -30,7 +30,7 @@ additional; only use it where unavoidable.
 | University | Program | Apply | Fee | Winter 2027 deadline | Notes |
 |---|---|---|---|---|---|
 | Marburg | Data Science MSc | uni-assist | paid | Nov 1 - Dec 31, 2026 | OPEN NOW; closes Dec 31 |
-| RWTH Aachen | Data Science MSc | direct (RWTH portal) | free | ~Mar 1, 2027 (VERIFY) | top target |
+| RWTH Aachen | Data Science MSc | direct (RWTH portal) | free | ~Mar 1, 2027 (verified window Dec 1 - Mar 1) | DROPPED 2026-11-19: requires the GRE (quant above 75th percentile), owner ruled the GRE out |
 | Saarland | Data Science and AI MSc | direct | free | VERIFY (rolling-ish) | CS research strength |
 | OVGU Magdeburg | Data and Knowledge Engineering MSc | direct (VERIFY) | free? | ~Jan-Mar (VERIFY) | DKE well regarded |
 | FAU Erlangen | Data Science MSc | direct | free | ~Jan-Feb (VERIFY) | Bavaria but free |
