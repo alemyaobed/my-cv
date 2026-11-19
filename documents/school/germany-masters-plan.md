@@ -41,6 +41,7 @@ additional; only use it where unavoidable.
 | TU Dortmund | Data Science MSc | VERIFY | VERIFY | ~Mar (VERIFY) | strong TU |
 | HHU Duesseldorf | AI and Data Science MSc | VERIFY | VERIFY | ~Mar (VERIFY) | exact AI+DS direction |
 | Goettingen | Applied Data Science MSc | VERIFY | VERIFY | ~Mar (VERIFY) | math/CS faculty, Max Planck ecosystem |
+| Augsburg | Data Science MSc | direct (VIBS portal) | free | official Sep 1; apply by May 1, 2027 (visa track), verified 2026-11-19 | no GRE; English B2 satisfied by English-medium degree (KNUST likely counts, no IELTS); RISK: transcript needs a formal DS/ML course of at least 4 CP plus the other six module minimums |
 
 Confirmed from the DAAD database search (2026-11-06): TUM Data
 Engineering and Analytics charges EUR 6,000; Ulm and Karlsruhe UAS
