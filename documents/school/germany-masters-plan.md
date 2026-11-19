@@ -46,6 +46,25 @@ additional; only use it where unavoidable.
 | TU Braunschweig | Data Science MSc | uni-assist | EUR 75 | Apr 15 - May 31, 2027 | selection interview stage in admissions |
 | Oldenburg | Data Science and Machine Learning MSc | uni-assist (digital) | EUR 75 | Mar 15 - Apr 30, 2027 | winter intake only; degree in DS/math/stats or related |
 
+## Document assets (documents/SCHOOL DOCS/, OCR-verified 2026-11-19)
+
+- KNUST transcript (PDF): Intro to Artificial Intelligence present;
+  all programming, discrete math, database, linear algebra and numerical
+  methods courses present.
+- KNUST course-content attestation (Prof. M. Asante, 21/10/2024):
+  official content descriptions for MATH 161/162, CSM 273 (linear
+  transformations, eigenvalues, quadratic forms), CSM 258 (numerical
+  methods). Strengthens module mapping for aptitude assessments.
+- EF SET certificate: 70/100, C1 Advanced (Reading C2), Nov 2024.
+- KNUST English Proficiency Letter (Head of Dept. of English,
+  Feb 2025): formal medium-of-instruction attestation.
+- Degree certificate, passport, WAEC results: present.
+
+Augsburg module mapping after OCR: 6 of 7 slots solid; the single weak
+slot is multidimensional analysis (no multivariable calculus in the
+attested MATH 161/162 content) - to be raised with Augsburg
+admissions by email before applying.
+
 ## Unchecked — no silent drops, each gets a status before shortlisting
 
 From the owner's DAAD paste, still not verified: Regensburg
